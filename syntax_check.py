@@ -1,21 +1,14 @@
-import re, sys
+#!/home/jeremy/anaconda2/bin/python
+import re
+import sys
+import json
 import jinja2
 import cgi
 
 errfile = sys.argv[1]
 codefile = sys.argv[2]
 
-errs = open(errfile).read()
-pattern = re.compile('(.*?):(\d+):(\d+): (\w+) (.*)')
-violations = [
-    {
-        'row': int(row),
-        'col': int(col),
-        'type': t,
-        'message': message
-    }
-    for f, row, col, t, message in pattern.findall(errs)
-]
+violations = json.load(open(errfile))
 
 # get code
 code = open(codefile).read()
