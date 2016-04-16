@@ -19,4 +19,7 @@ violations = [
 ]
 
 # Write json to stdout
-json.dump(violations, sys.stdout)
+json.dump(violations, sys.stdout,
+		  sort_keys=True,
+		  indent=4, 
+		  separators=(',', ': '))
