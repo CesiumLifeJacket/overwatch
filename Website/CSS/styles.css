@@ -6,6 +6,28 @@
 {
 	display:none;
 }
-.red {
-	border-bottom: 2px dashed red;
+.error {
+	border-bottom: 2px dashed;
+	cursor: pointer;
+}
+.E266 {
+	border-bottom-color: red;
+}
+.E501 {
+	border-bottom-color: blue;
+}
+.E302 {
+	border-bottom-color: green;
+}
+.E261 {
+	border-bottom-color: orange;
+}
+.E221 {
+	border-bottom-color: cyan;
+}
+.E101 {
+	border-bottom-color: gray;
+}
+.E701 {
+	border-bottom-color: purple;
 }

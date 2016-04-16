@@ -13,7 +13,7 @@ $(document).ready(function ()
 			newel.append("<li>Error Type:"+this["type"]+"</li>");
 			newel.append("<li>Row:"+this.row+"</li>");
 			newel.append("<li>Col:"+this.col+"</li>");
-			code[this.row - 1] = code[this.row - 1].substring(0, this.col - 1) + "<span class=\"red\">" + code[this.row - 1].substring(this.col - 1) + "</span>";
+			code[this.row - 1] = code[this.row - 1].substring(0, this.col - 1) + "<span class=\"error "+this["type"]+"\" title=\""+this.message+"\">" + code[this.row - 1].substring(this.col - 1) + "</span>";
 		});
 		newel.append("</ul>");
 	});
