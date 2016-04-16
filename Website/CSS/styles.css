@@ -1,0 +1,11 @@
+#output
+{
+	display:none;
+}
+#new 
+{
+	display:none;
+}
+.red {
+	border-bottom: 2px dashed red;
+}
