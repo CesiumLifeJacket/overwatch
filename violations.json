@@ -1,1 +1,0 @@
-[{"message": "multiple imports on one line", "type": "E401", "col": 16, "row": 1}, {"message": "no newline at end of file", "type": "W292", "col": 23, "row": 3}]

@@ -1,1 +1,2862 @@
-{"ncr/datastreamdiff.py": [{"message": "trailing whitespace", "type": "W291", "col": 74, "row": 3}, {"message": "trailing whitespace", "type": "W291", "col": 76, "row": 4}, {"message": "trailing whitespace", "type": "W291", "col": 73, "row": 16}, {"message": "trailing whitespace", "type": "W291", "col": 78, "row": 24}, {"message": "trailing whitespace", "type": "W291", "col": 35, "row": 35}, {"message": "too many leading '#' for block comment", "type": "E266", "col": 1, "row": 41}, {"message": "line too long (119 > 79 characters)", "type": "E501", "col": 80, "row": 41}, {"message": "expected 2 blank lines, found 1", "type": "E302", "col": 1, "row": 45}, {"message": "line too long (97 > 79 characters)", "type": "E501", "col": 80, "row": 54}, {"message": "line too long (81 > 79 characters)", "type": "E501", "col": 80, "row": 55}, {"message": "line too long (81 > 79 characters)", "type": "E501", "col": 80, "row": 56}, {"message": "trailing whitespace", "type": "W291", "col": 21, "row": 65}, {"message": "do not assign a lambda expression, use a def", "type": "E731", "col": 9, "row": 68}, {"message": "continuation line over-indented for visual indent", "type": "E127", "col": 14, "row": 69}, {"message": "multiple spaces before keyword", "type": "E272", "col": 20, "row": 69}, {"message": "multiple spaces before keyword", "type": "E272", "col": 21, "row": 70}, {"message": "line too long (103 > 79 characters)", "type": "E501", "col": 80, "row": 96}, {"message": "expected 2 blank lines, found 1", "type": "E302", "col": 1, "row": 100}, {"message": "too many leading '#' for block comment", "type": "E266", "col": 1, "row": 108}, {"message": "line too long (119 > 79 characters)", "type": "E501", "col": 80, "row": 108}, {"message": "line too long (86 > 79 characters)", "type": "E501", "col": 80, "row": 110}, {"message": "line too long (83 > 79 characters)", "type": "E501", "col": 80, "row": 111}, {"message": "line too long (96 > 79 characters)", "type": "E501", "col": 80, "row": 112}, {"message": "expected 2 blank lines, found 1", "type": "E302", "col": 1, "row": 114}, {"message": "line too long (86 > 79 characters)", "type": "E501", "col": 80, "row": 122}, {"message": "line too long (86 > 79 characters)", "type": "E501", "col": 80, "row": 123}, {"message": "do not assign a lambda expression, use a def", "type": "E731", "col": 9, "row": 130}, {"message": "multiple spaces before keyword", "type": "E272", "col": 19, "row": 131}, {"message": "multiple spaces before keyword", "type": "E272", "col": 20, "row": 132}, {"message": "blank line contains whitespace", "type": "W293", "col": 1, "row": 135}, {"message": "line too long (97 > 79 characters)", "type": "E501", "col": 80, "row": 139}, {"message": "multiple statements on one line (colon)", "type": "E701", "col": 72, "row": 147}, {"message": "whitespace before ':'", "type": "E203", "col": 26, "row": 180}, {"message": "whitespace before ':'", "type": "E203", "col": 26, "row": 181}, {"message": "whitespace before ':'", "type": "E203", "col": 26, "row": 187}, {"message": "statement ends with a semicolon", "type": "E703", "col": 41, "row": 193}, {"message": "missing whitespace after ','", "type": "E231", "col": 23, "row": 194}, {"message": "statement ends with a semicolon", "type": "E703", "col": 36, "row": 194}, {"message": "continuation line missing indentation or outdented", "type": "E122", "col": 9, "row": 196}, {"message": "line too long (80 > 79 characters)", "type": "E501", "col": 80, "row": 197}, {"message": "the backslash is redundant between brackets", "type": "E502", "col": 80, "row": 197}, {"message": "continuation line missing indentation or outdented", "type": "E122", "col": 9, "row": 201}, {"message": "trailing whitespace", "type": "W291", "col": 79, "row": 202}, {"message": "blank line contains whitespace", "type": "W293", "col": 1, "row": 205}, {"message": "multiple statements on one line (colon)", "type": "E701", "col": 27, "row": 209}, {"message": "expected 2 blank lines, found 1", "type": "E302", "col": 1, "row": 227}, {"message": "blank line contains whitespace", "type": "W293", "col": 1, "row": 233}, {"message": "whitespace before ':'", "type": "E203", "col": 26, "row": 245}, {"message": "whitespace before ':'", "type": "E203", "col": 26, "row": 246}, {"message": "whitespace before ':'", "type": "E203", "col": 26, "row": 254}, {"message": "blank line contains whitespace", "type": "W293", "col": 1, "row": 259}, {"message": "missing whitespace after ','", "type": "E231", "col": 23, "row": 261}, {"message": "statement ends with a semicolon", "type": "E703", "col": 36, "row": 261}, {"message": "line too long (111 > 79 characters)", "type": "E501", "col": 80, "row": 262}, {"message": "line too long (111 > 79 characters)", "type": "E501", "col": 80, "row": 263}, {"message": "multiple statements on one line (colon)", "type": "E701", "col": 27, "row": 268}, {"message": "expected 2 blank lines, found 1", "type": "E302", "col": 1, "row": 282}, {"message": "too many leading '#' for block comment", "type": "E266", "col": 1, "row": 293}, {"message": "line too long (119 > 79 characters)", "type": "E501", "col": 80, "row": 293}, {"message": "expected 2 blank lines, found 1", "type": "E302", "col": 1, "row": 295}, {"message": "line too long (88 > 79 characters)", "type": "E501", "col": 80, "row": 305}, {"message": "line too long (88 > 79 characters)", "type": "E501", "col": 80, "row": 306}, {"message": "line too long (93 > 79 characters)", "type": "E501", "col": 80, "row": 312}, {"message": "line too long (93 > 79 characters)", "type": "E501", "col": 80, "row": 313}, {"message": "line too long (117 > 79 characters)", "type": "E501", "col": 80, "row": 325}, {"message": "indentation is not a multiple of four", "type": "E111", "col": 12, "row": 343}, {"message": "blank line contains whitespace", "type": "W293", "col": 1, "row": 353}, {"message": "trailing whitespace", "type": "W291", "col": 14, "row": 373}, {"message": "too many leading '#' for block comment", "type": "E266", "col": 1, "row": 377}, {"message": "line too long (119 > 79 characters)", "type": "E501", "col": 80, "row": 377}, {"message": "expected 2 blank lines, found 1", "type": "E302", "col": 1, "row": 379}, {"message": "line too long (89 > 79 characters)", "type": "E501", "col": 80, "row": 380}, {"message": "trailing whitespace", "type": "W291", "col": 25, "row": 384}, {"message": "trailing whitespace", "type": "W291", "col": 23, "row": 385}, {"message": "missing whitespace around bitwise or shift operator", "type": "E227", "col": 36, "row": 386}, {"message": "multiple statements on one line (colon)", "type": "E701", "col": 20, "row": 398}, {"message": "do not assign a lambda expression, use a def", "type": "E731", "col": 9, "row": 400}, {"message": "whitespace before ':'", "type": "E203", "col": 34, "row": 400}, {"message": "multiple spaces before keyword", "type": "E272", "col": 26, "row": 402}, {"message": "blank line contains whitespace", "type": "W293", "col": 1, "row": 406}, {"message": "blank line contains whitespace", "type": "W293", "col": 1, "row": 409}, {"message": "whitespace before ':'", "type": "E203", "col": 22, "row": 415}, {"message": "whitespace before ':'", "type": "E203", "col": 22, "row": 416}, {"message": "whitespace before ':'", "type": "E203", "col": 22, "row": 417}, {"message": "whitespace before ':'", "type": "E203", "col": 22, "row": 418}, {"message": "trailing whitespace", "type": "W291", "col": 10, "row": 419}, {"message": "multiple spaces before keyword", "type": "E272", "col": 35, "row": 423}, {"message": "expected 2 blank lines, found 1", "type": "E302", "col": 1, "row": 438}, {"message": "blank line contains whitespace", "type": "W293", "col": 1, "row": 441}, {"message": "too many leading '#' for block comment", "type": "E266", "col": 1, "row": 442}, {"message": "line too long (119 > 79 characters)", "type": "E501", "col": 80, "row": 442}, {"message": "expected 2 blank lines, found 1", "type": "E302", "col": 1, "row": 444}, {"message": "line too long (97 > 79 characters)", "type": "E501", "col": 80, "row": 447}, {"message": "expected 2 blank lines, found 1", "type": "E302", "col": 1, "row": 458}, {"message": "line too long (91 > 79 characters)", "type": "E501", "col": 80, "row": 463}, {"message": "missing whitespace around bitwise or shift operator", "type": "E227", "col": 59, "row": 469}, {"message": "line too long (82 > 79 characters)", "type": "E501", "col": 80, "row": 469}, {"message": "line too long (94 > 79 characters)", "type": "E501", "col": 80, "row": 472}, {"message": "line too long (94 > 79 characters)", "type": "E501", "col": 80, "row": 473}, {"message": "line too long (90 > 79 characters)", "type": "E501", "col": 80, "row": 474}, {"message": "line too long (109 > 79 characters)", "type": "E501", "col": 80, "row": 479}, {"message": "missing whitespace around operator", "type": "E225", "col": 107, "row": 479}, {"message": "the backslash is redundant between brackets", "type": "E502", "col": 109, "row": 479}, {"message": "continuation line under-indented for visual indent", "type": "E128", "col": 21, "row": 480}, {"message": "missing whitespace around modulo operator", "type": "E228", "col": 67, "row": 482}, {"message": "line too long (107 > 79 characters)", "type": "E501", "col": 80, "row": 482}, {"message": "trailing whitespace", "type": "W291", "col": 18, "row": 496}, {"message": "line too long (93 > 79 characters)", "type": "E501", "col": 80, "row": 499}], "ncr/datastream.py": [{"message": "line too long (89 > 79 characters)", "type": "E501", "col": 80, "row": 16}, {"message": "too many leading '#' for block comment", "type": "E266", "col": 1, "row": 37}, {"message": "line too long (119 > 79 characters)", "type": "E501", "col": 80, "row": 37}, {"message": "expected 2 blank lines, found 1", "type": "E302", "col": 1, "row": 41}, {"message": "trailing whitespace", "type": "W291", "col": 76, "row": 44}, {"message": "trailing whitespace", "type": "W291", "col": 78, "row": 45}, {"message": "trailing whitespace", "type": "W291", "col": 75, "row": 46}, {"message": "trailing whitespace", "type": "W291", "col": 16, "row": 47}, {"message": "trailing whitespace", "type": "W291", "col": 65, "row": 48}, {"message": "multiple spaces before operator", "type": "E221", "col": 16, "row": 54}, {"message": "trailing whitespace", "type": "W291", "col": 44, "row": 79}, {"message": "continuation line under-indented for visual indent", "type": "E128", "col": 17, "row": 80}, {"message": "blank line contains whitespace", "type": "W293", "col": 1, "row": 92}, {"message": "too many leading '#' for block comment", "type": "E266", "col": 1, "row": 93}, {"message": "line too long (119 > 79 characters)", "type": "E501", "col": 80, "row": 93}, {"message": "expected 2 blank lines, found 1", "type": "E302", "col": 1, "row": 95}, {"message": "line too long (86 > 79 characters)", "type": "E501", "col": 80, "row": 106}, {"message": "line too long (89 > 79 characters)", "type": "E501", "col": 80, "row": 113}, {"message": "expected 2 blank lines, found 1", "type": "E302", "col": 1, "row": 119}, {"message": "line too long (81 > 79 characters)", "type": "E501", "col": 80, "row": 122}, {"message": "line too long (85 > 79 characters)", "type": "E501", "col": 80, "row": 127}, {"message": "continuation line under-indented for visual indent", "type": "E128", "col": 13, "row": 130}, {"message": "multiple spaces before operator", "type": "E221", "col": 14, "row": 130}, {"message": "unexpected spaces around keyword / parameter equals", "type": "E251", "col": 14, "row": 130}, {"message": "unexpected spaces around keyword / parameter equals", "type": "E251", "col": 20, "row": 130}, {"message": "continuation line under-indented for visual indent", "type": "E128", "col": 13, "row": 131}, {"message": "unexpected spaces around keyword / parameter equals", "type": "E251", "col": 18, "row": 131}, {"message": "unexpected spaces around keyword / parameter equals", "type": "E251", "col": 20, "row": 131}, {"message": "continuation line under-indented for visual indent", "type": "E128", "col": 13, "row": 132}, {"message": "unexpected spaces around keyword / parameter equals", "type": "E251", "col": 18, "row": 132}, {"message": "unexpected spaces around keyword / parameter equals", "type": "E251", "col": 20, "row": 132}, {"message": "continuation line under-indented for visual indent", "type": "E128", "col": 13, "row": 133}, {"message": "multiple spaces before operator", "type": "E221", "col": 17, "row": 133}, {"message": "unexpected spaces around keyword / parameter equals", "type": "E251", "col": 17, "row": 133}, {"message": "unexpected spaces around keyword / parameter equals", "type": "E251", "col": 20, "row": 133}, {"message": "continuation line under-indented for visual indent", "type": "E128", "col": 13, "row": 134}, {"message": "multiple spaces before operator", "type": "E221", "col": 17, "row": 134}, {"message": "unexpected spaces around keyword / parameter equals", "type": "E251", "col": 17, "row": 134}, {"message": "unexpected spaces around keyword / parameter equals", "type": "E251", "col": 20, "row": 134}, {"message": "continuation line under-indented for visual indent", "type": "E128", "col": 13, "row": 135}, {"message": "unexpected spaces around keyword / parameter equals", "type": "E251", "col": 18, "row": 135}, {"message": "unexpected spaces around keyword / parameter equals", "type": "E251", "col": 20, "row": 135}, {"message": "continuation line under-indented for visual indent", "type": "E128", "col": 13, "row": 136}, {"message": "multiple spaces before operator", "type": "E221", "col": 15, "row": 136}, {"message": "unexpected spaces around keyword / parameter equals", "type": "E251", "col": 15, "row": 136}, {"message": "unexpected spaces around keyword / parameter equals", "type": "E251", "col": 20, "row": 136}, {"message": "continuation line under-indented for visual indent", "type": "E128", "col": 13, "row": 137}, {"message": "multiple spaces before operator", "type": "E221", "col": 15, "row": 137}, {"message": "unexpected spaces around keyword / parameter equals", "type": "E251", "col": 15, "row": 137}, {"message": "unexpected spaces around keyword / parameter equals", "type": "E251", "col": 20, "row": 137}, {"message": "continuation line under-indented for visual indent", "type": "E128", "col": 13, "row": 138}, {"message": "multiple spaces before operator", "type": "E221", "col": 17, "row": 138}, {"message": "unexpected spaces around keyword / parameter equals", "type": "E251", "col": 17, "row": 138}, {"message": "unexpected spaces around keyword / parameter equals", "type": "E251", "col": 20, "row": 138}, {"message": "continuation line under-indented for visual indent", "type": "E128", "col": 13, "row": 139}, {"message": "multiple spaces before operator", "type": "E221", "col": 16, "row": 139}, {"message": "unexpected spaces around keyword / parameter equals", "type": "E251", "col": 16, "row": 139}, {"message": "unexpected spaces around keyword / parameter equals", "type": "E251", "col": 20, "row": 139}, {"message": "closing bracket does not match visual indentation", "type": "E124", "col": 13, "row": 140}, {"message": "multiple spaces before operator", "type": "E221", "col": 15, "row": 142}, {"message": "multiple spaces before operator", "type": "E221", "col": 18, "row": 145}, {"message": "multiple spaces before operator", "type": "E221", "col": 18, "row": 146}, {"message": "multiple spaces before operator", "type": "E221", "col": 17, "row": 148}, {"message": "trailing whitespace", "type": "W291", "col": 24, "row": 148}, {"message": "multiple spaces before operator", "type": "E221", "col": 17, "row": 149}, {"message": "multiple spaces before operator", "type": "E221", "col": 18, "row": 150}, {"message": "multiple spaces before operator", "type": "E221", "col": 17, "row": 151}, {"message": "at least two spaces before inline comment", "type": "E261", "col": 27, "row": 154}, {"message": "multiple statements on one line (colon)", "type": "E701", "col": 31, "row": 165}, {"message": "line too long (110 > 79 characters)", "type": "E501", "col": 80, "row": 171}, {"message": "line too long (108 > 79 characters)", "type": "E501", "col": 80, "row": 172}, {"message": "whitespace after '('", "type": "E201", "col": 29, "row": 173}, {"message": "line too long (108 > 79 characters)", "type": "E501", "col": 80, "row": 173}, {"message": "whitespace before ')'", "type": "E202", "col": 107, "row": 173}, {"message": "multiple spaces before operator", "type": "E221", "col": 12, "row": 180}, {"message": "multiple spaces before operator", "type": "E221", "col": 15, "row": 183}, {"message": "multiple spaces before operator", "type": "E221", "col": 25, "row": 183}, {"message": "multiple spaces before operator", "type": "E221", "col": 15, "row": 184}, {"message": "multiple spaces before operator", "type": "E221", "col": 25, "row": 184}, {"message": "multiple spaces before operator", "type": "E221", "col": 14, "row": 186}, {"message": "multiple spaces before operator", "type": "E221", "col": 14, "row": 187}, {"message": "multiple spaces before operator", "type": "E221", "col": 15, "row": 188}, {"message": "blank line contains whitespace", "type": "W293", "col": 1, "row": 191}, {"message": "line too long (98 > 79 characters)", "type": "E501", "col": 80, "row": 193}, {"message": "blank line contains whitespace", "type": "W293", "col": 1, "row": 203}, {"message": "trailing whitespace", "type": "W291", "col": 60, "row": 217}, {"message": "trailing whitespace", "type": "W291", "col": 76, "row": 218}, {"message": "trailing whitespace", "type": "W291", "col": 76, "row": 219}, {"message": "line too long (98 > 79 characters)", "type": "E501", "col": 80, "row": 221}, {"message": "missing whitespace around operator", "type": "E225", "col": 87, "row": 221}, {"message": "whitespace before ':'", "type": "E203", "col": 19, "row": 225}, {"message": "whitespace before ':'", "type": "E203", "col": 19, "row": 228}, {"message": "whitespace before ':'", "type": "E203", "col": 19, "row": 229}, {"message": "whitespace before ':'", "type": "E203", "col": 19, "row": 230}, {"message": "line too long (93 > 79 characters)", "type": "E501", "col": 80, "row": 230}, {"message": "whitespace before ':'", "type": "E203", "col": 19, "row": 231}, {"message": "line too long (93 > 79 characters)", "type": "E501", "col": 80, "row": 231}, {"message": "whitespace before ':'", "type": "E203", "col": 19, "row": 232}, {"message": "line too long (96 > 79 characters)", "type": "E501", "col": 80, "row": 232}, {"message": "whitespace before ':'", "type": "E203", "col": 19, "row": 233}, {"message": "line too long (101 > 79 characters)", "type": "E501", "col": 80, "row": 233}, {"message": "expected 2 blank lines, found 1", "type": "E302", "col": 1, "row": 237}, {"message": "trailing whitespace", "type": "W291", "col": 75, "row": 240}, {"message": "trailing whitespace", "type": "W291", "col": 76, "row": 241}, {"message": "multiple statements on one line (colon)", "type": "E701", "col": 46, "row": 245}, {"message": "line too long (90 > 79 characters)", "type": "E501", "col": 80, "row": 251}, {"message": "multiple spaces before keyword", "type": "E272", "col": 39, "row": 260}, {"message": "missing whitespace after ','", "type": "E231", "col": 32, "row": 261}, {"message": "too many leading '#' for block comment", "type": "E266", "col": 1, "row": 269}, {"message": "line too long (119 > 79 characters)", "type": "E501", "col": 80, "row": 269}, {"message": "expected 2 blank lines, found 1", "type": "E302", "col": 1, "row": 271}, {"message": "unexpected spaces around keyword / parameter equals", "type": "E251", "col": 52, "row": 333}, {"message": "unexpected spaces around keyword / parameter equals", "type": "E251", "col": 54, "row": 333}, {"message": "line too long (96 > 79 characters)", "type": "E501", "col": 80, "row": 342}, {"message": "multiple spaces before operator", "type": "E221", "col": 27, "row": 348}, {"message": "multiple spaces before operator", "type": "E221", "col": 27, "row": 349}, {"message": "multiple spaces before operator", "type": "E221", "col": 28, "row": 350}, {"message": "multiple spaces before operator", "type": "E221", "col": 27, "row": 351}, {"message": "blank line contains whitespace", "type": "W293", "col": 1, "row": 355}, {"message": "line too long (92 > 79 characters)", "type": "E501", "col": 80, "row": 359}, {"message": "expected 1 blank line, found 0", "type": "E301", "col": 5, "row": 382}, {"message": "line too long (85 > 79 characters)", "type": "E501", "col": 80, "row": 385}, {"message": "line too long (85 > 79 characters)", "type": "E501", "col": 80, "row": 386}, {"message": "blank line contains whitespace", "type": "W293", "col": 1, "row": 393}, {"message": "multiple statements on one line (colon)", "type": "E701", "col": 29, "row": 400}, {"message": "line too long (81 > 79 characters)", "type": "E501", "col": 80, "row": 418}, {"message": "line too long (102 > 79 characters)", "type": "E501", "col": 80, "row": 427}, {"message": "the backslash is redundant between brackets", "type": "E502", "col": 50, "row": 433}, {"message": "continuation line under-indented for visual indent", "type": "E128", "col": 13, "row": 434}, {"message": "line too long (86 > 79 characters)", "type": "E501", "col": 80, "row": 434}, {"message": "blank line contains whitespace", "type": "W293", "col": 1, "row": 439}, {"message": "line too long (83 > 79 characters)", "type": "E501", "col": 80, "row": 449}, {"message": "multiple spaces after keyword", "type": "E271", "col": 15, "row": 453}, {"message": "line too long (100 > 79 characters)", "type": "E501", "col": 80, "row": 453}, {"message": "blank line contains whitespace", "type": "W293", "col": 1, "row": 458}, {"message": "expected 1 blank line, found 0", "type": "E301", "col": 5, "row": 463}, {"message": "multiple statements on one line (colon)", "type": "E701", "col": 29, "row": 475}, {"message": "line too long (116 > 79 characters)", "type": "E501", "col": 80, "row": 492}, {"message": "missing whitespace around bitwise or shift operator", "type": "E227", "col": 34, "row": 503}, {"message": "line too long (91 > 79 characters)", "type": "E501", "col": 80, "row": 506}, {"message": "trailing whitespace", "type": "W291", "col": 73, "row": 512}, {"message": "expected 1 blank line, found 0", "type": "E301", "col": 5, "row": 516}, {"message": "multiple statements on one line (colon)", "type": "E701", "col": 29, "row": 524}, {"message": "the backslash is redundant between brackets", "type": "E502", "col": 55, "row": 539}, {"message": "line too long (91 > 79 characters)", "type": "E501", "col": 80, "row": 540}, {"message": "the backslash is redundant between brackets", "type": "E502", "col": 52, "row": 550}, {"message": "line too long (82 > 79 characters)", "type": "E501", "col": 80, "row": 551}, {"message": "expected 2 blank lines, found 1", "type": "E302", "col": 1, "row": 554}, {"message": "line too long (97 > 79 characters)", "type": "E501", "col": 80, "row": 557}, {"message": "too many leading '#' for block comment", "type": "E266", "col": 1, "row": 561}, {"message": "line too long (119 > 79 characters)", "type": "E501", "col": 80, "row": 561}, {"message": "expected 2 blank lines, found 1", "type": "E302", "col": 1, "row": 563}, {"message": "at least two spaces before inline comment", "type": "E261", "col": 23, "row": 575}, {"message": "too many leading '#' for block comment", "type": "E266", "col": 9, "row": 584}, {"message": "line too long (85 > 79 characters)", "type": "E501", "col": 80, "row": 601}, {"message": "blank line contains whitespace", "type": "W293", "col": 1, "row": 607}, {"message": "line too long (109 > 79 characters)", "type": "E501", "col": 80, "row": 608}, {"message": "line too long (109 > 79 characters)", "type": "E501", "col": 80, "row": 615}, {"message": "blank line contains whitespace", "type": "W293", "col": 1, "row": 616}, {"message": "too many leading '#' for block comment", "type": "E266", "col": 13, "row": 620}, {"message": "line too long (113 > 79 characters)", "type": "E501", "col": 80, "row": 643}, {"message": "blank line contains whitespace", "type": "W293", "col": 1, "row": 656}, {"message": "expected 2 blank lines, found 1", "type": "E302", "col": 1, "row": 657}, {"message": "line too long (118 > 79 characters)", "type": "E501", "col": 80, "row": 703}, {"message": "continuation line missing indentation or outdented", "type": "E122", "col": 12, "row": 711}, {"message": "too many leading '#' for block comment", "type": "E266", "col": 1, "row": 715}, {"message": "line too long (119 > 79 characters)", "type": "E501", "col": 80, "row": 715}, {"message": "line too long (81 > 79 characters)", "type": "E501", "col": 80, "row": 735}, {"message": "line too long (113 > 79 characters)", "type": "E501", "col": 80, "row": 743}, {"message": "too many leading '#' for block comment", "type": "E266", "col": 1, "row": 764}, {"message": "line too long (119 > 79 characters)", "type": "E501", "col": 80, "row": 764}, {"message": "expected 2 blank lines, found 1", "type": "E302", "col": 1, "row": 766}, {"message": "multiple spaces before operator", "type": "E221", "col": 16, "row": 770}, {"message": "blank line contains whitespace", "type": "W293", "col": 1, "row": 772}, {"message": "too many blank lines (2)", "type": "E303", "col": 5, "row": 773}, {"message": "expected 2 blank lines, found 1", "type": "E302", "col": 1, "row": 777}, {"message": "line too long (85 > 79 characters)", "type": "E501", "col": 80, "row": 778}, {"message": "line too long (99 > 79 characters)", "type": "E501", "col": 80, "row": 785}, {"message": "expected 2 blank lines, found 1", "type": "E302", "col": 1, "row": 792}, {"message": "line too long (85 > 79 characters)", "type": "E501", "col": 80, "row": 793}, {"message": "line too long (89 > 79 characters)", "type": "E501", "col": 80, "row": 801}, {"message": "line too long (90 > 79 characters)", "type": "E501", "col": 80, "row": 809}, {"message": "line too long (88 > 79 characters)", "type": "E501", "col": 80, "row": 811}, {"message": "line too long (93 > 79 characters)", "type": "E501", "col": 80, "row": 824}, {"message": "whitespace before ':'", "type": "E203", "col": 17, "row": 827}, {"message": "whitespace before ':'", "type": "E203", "col": 17, "row": 828}, {"message": "whitespace before ':'", "type": "E203", "col": 17, "row": 829}, {"message": "whitespace before ':'", "type": "E203", "col": 17, "row": 830}, {"message": "the backslash is redundant between brackets", "type": "E502", "col": 66, "row": 834}, {"message": "continuation line under-indented for visual indent", "type": "E128", "col": 17, "row": 835}, {"message": "too many leading '#' for block comment", "type": "E266", "col": 1, "row": 839}, {"message": "line too long (119 > 79 characters)", "type": "E501", "col": 80, "row": 839}, {"message": "line too long (96 > 79 characters)", "type": "E501", "col": 80, "row": 851}, {"message": "line too long (101 > 79 characters)", "type": "E501", "col": 80, "row": 853}, {"message": "line too long (86 > 79 characters)", "type": "E501", "col": 80, "row": 861}, {"message": "line too long (83 > 79 characters)", "type": "E501", "col": 80, "row": 876}, {"message": "line too long (80 > 79 characters)", "type": "E501", "col": 80, "row": 877}, {"message": "line too long (99 > 79 characters)", "type": "E501", "col": 80, "row": 878}, {"message": "line too long (90 > 79 characters)", "type": "E501", "col": 80, "row": 879}, {"message": "at least two spaces before inline comment", "type": "E261", "col": 36, "row": 884}, {"message": "line too long (80 > 79 characters)", "type": "E501", "col": 80, "row": 884}, {"message": "at least two spaces before inline comment", "type": "E261", "col": 50, "row": 886}, {"message": "line too long (84 > 79 characters)", "type": "E501", "col": 80, "row": 886}, {"message": "at least two spaces before inline comment", "type": "E261", "col": 43, "row": 887}, {"message": "at least two spaces before inline comment", "type": "E261", "col": 40, "row": 889}, {"message": "at least two spaces before inline comment", "type": "E261", "col": 35, "row": 890}, {"message": "line too long (83 > 79 characters)", "type": "E501", "col": 80, "row": 890}, {"message": "line too long (102 > 79 characters)", "type": "E501", "col": 80, "row": 891}, {"message": "multiple spaces before operator", "type": "E221", "col": 18, "row": 893}, {"message": "multiple spaces before operator", "type": "E221", "col": 27, "row": 895}, {"message": "multiple spaces before operator", "type": "E221", "col": 27, "row": 896}, {"message": "multiple spaces before operator", "type": "E221", "col": 24, "row": 897}, {"message": "multiple spaces before operator", "type": "E221", "col": 24, "row": 898}, {"message": "multiple spaces before operator", "type": "E221", "col": 23, "row": 899}, {"message": "multiple spaces before operator", "type": "E221", "col": 26, "row": 900}, {"message": "multiple spaces before operator", "type": "E221", "col": 21, "row": 901}, {"message": "multiple spaces before operator", "type": "E221", "col": 26, "row": 902}, {"message": "blank line contains whitespace", "type": "W293", "col": 1, "row": 910}, {"message": "line too long (94 > 79 characters)", "type": "E501", "col": 80, "row": 918}, {"message": "line too long (89 > 79 characters)", "type": "E501", "col": 80, "row": 926}, {"message": "missing whitespace around operator", "type": "E225", "col": 87, "row": 926}, {"message": "the backslash is redundant between brackets", "type": "E502", "col": 89, "row": 926}, {"message": "continuation line under-indented for visual indent", "type": "E128", "col": 21, "row": 927}, {"message": "line too long (88 > 79 characters)", "type": "E501", "col": 80, "row": 943}, {"message": "line too long (94 > 79 characters)", "type": "E501", "col": 80, "row": 946}, {"message": "line too long (91 > 79 characters)", "type": "E501", "col": 80, "row": 947}, {"message": "whitespace after '['", "type": "E201", "col": 40, "row": 950}, {"message": "line too long (89 > 79 characters)", "type": "E501", "col": 80, "row": 950}, {"message": "line too long (89 > 79 characters)", "type": "E501", "col": 80, "row": 951}, {"message": "blank line contains whitespace", "type": "W293", "col": 1, "row": 952}, {"message": "line too long (90 > 79 characters)", "type": "E501", "col": 80, "row": 954}, {"message": "multiple spaces before operator", "type": "E221", "col": 55, "row": 956}, {"message": "multiple spaces before operator", "type": "E221", "col": 48, "row": 964}, {"message": "line too long (85 > 79 characters)", "type": "E501", "col": 80, "row": 975}, {"message": "the backslash is redundant between brackets", "type": "E502", "col": 85, "row": 975}, {"message": "blank line contains whitespace", "type": "W293", "col": 1, "row": 977}, {"message": "line too long (94 > 79 characters)", "type": "E501", "col": 80, "row": 983}, {"message": "line too long (112 > 79 characters)", "type": "E501", "col": 80, "row": 987}, {"message": "missing whitespace after ','", "type": "E231", "col": 54, "row": 989}, {"message": "line too long (86 > 79 characters)", "type": "E501", "col": 80, "row": 989}, {"message": "multiple statements on one line (colon)", "type": "E701", "col": 26, "row": 998}, {"message": "multiple statements on one line (colon)", "type": "E701", "col": 28, "row": 1000}, {"message": "missing whitespace around modulo operator", "type": "E228", "col": 52, "row": 1008}, {"message": "missing whitespace around modulo operator", "type": "E228", "col": 75, "row": 1010}, {"message": "line too long (104 > 79 characters)", "type": "E501", "col": 80, "row": 1010}, {"message": "the backslash is redundant between brackets", "type": "E502", "col": 104, "row": 1010}, {"message": "continuation line under-indented for visual indent", "type": "E128", "col": 21, "row": 1011}, {"message": "missing whitespace around modulo operator", "type": "E228", "col": 39, "row": 1011}, {"message": "line too long (105 > 79 characters)", "type": "E501", "col": 80, "row": 1011}, {"message": "line too long (114 > 79 characters)", "type": "E501", "col": 80, "row": 1014}, {"message": "missing whitespace around modulo operator", "type": "E228", "col": 83, "row": 1014}, {"message": "the backslash is redundant between brackets", "type": "E502", "col": 114, "row": 1014}, {"message": "line too long (102 > 79 characters)", "type": "E501", "col": 80, "row": 1018}, {"message": "missing whitespace around operator", "type": "E225", "col": 100, "row": 1018}, {"message": "the backslash is redundant between brackets", "type": "E502", "col": 102, "row": 1018}, {"message": "the backslash is redundant between brackets", "type": "E502", "col": 46, "row": 1019}, {"message": "missing whitespace around modulo operator", "type": "E228", "col": 35, "row": 1021}, {"message": "line too long (113 > 79 characters)", "type": "E501", "col": 80, "row": 1021}, {"message": "missing whitespace around modulo operator", "type": "E228", "col": 60, "row": 1026}, {"message": "line too long (98 > 79 characters)", "type": "E501", "col": 80, "row": 1026}, {"message": "the backslash is redundant between brackets", "type": "E502", "col": 98, "row": 1026}, {"message": "missing whitespace around modulo operator", "type": "E228", "col": 39, "row": 1027}, {"message": "line too long (90 > 79 characters)", "type": "E501", "col": 80, "row": 1027}, {"message": "comparison to False should be 'if cond is False:' or 'if not cond:'", "type": "E712", "col": 38, "row": 1030}, {"message": "the backslash is redundant between brackets", "type": "E502", "col": 59, "row": 1031}, {"message": "continuation line under-indented for visual indent", "type": "E128", "col": 21, "row": 1032}, {"message": "line too long (93 > 79 characters)", "type": "E501", "col": 80, "row": 1032}, {"message": "too many blank lines (2)", "type": "E303", "col": 9, "row": 1035}, {"message": "trailing whitespace", "type": "W291", "col": 18, "row": 1045}], "example.py": [{"message": "multiple imports on one line", "type": "E401", "col": 16, "row": 1}, {"message": "no newline at end of file", "type": "W292", "col": 23, "row": 3}], "ncr/utils.py": [{"message": "line too long (95 > 79 characters)", "type": "E501", "col": 80, "row": 1}, {"message": "line break before binary operator", "type": "W503", "col": 16, "row": 13}, {"message": "missing whitespace around operator", "type": "E225", "col": 17, "row": 13}, {"message": "expected 2 blank lines, found 1", "type": "E302", "col": 1, "row": 15}, {"message": "expected 2 blank lines, found 1", "type": "E302", "col": 1, "row": 21}, {"message": "expected 2 blank lines, found 1", "type": "E302", "col": 1, "row": 26}, {"message": "expected 2 blank lines, found 1", "type": "E302", "col": 1, "row": 35}, {"message": "expected 2 blank lines, found 1", "type": "E302", "col": 1, "row": 49}, {"message": "line too long (82 > 79 characters)", "type": "E501", "col": 80, "row": 50}, {"message": "line too long (93 > 79 characters)", "type": "E501", "col": 80, "row": 63}, {"message": "the backslash is redundant between brackets", "type": "E502", "col": 93, "row": 63}, {"message": "continuation line under-indented for visual indent", "type": "E128", "col": 17, "row": 64}, {"message": "expected 2 blank lines, found 1", "type": "E302", "col": 1, "row": 66}, {"message": "line too long (85 > 79 characters)", "type": "E501", "col": 80, "row": 77}, {"message": "line too long (85 > 79 characters)", "type": "E501", "col": 80, "row": 78}], "ncreview.py": [{"message": "too many leading '#' for block comment", "type": "E266", "col": 1, "row": 25}, {"message": "line too long (119 > 79 characters)", "type": "E501", "col": 80, "row": 25}, {"message": "expected 2 blank lines, found 1", "type": "E302", "col": 1, "row": 27}, {"message": "at least two spaces before inline comment", "type": "E261", "col": 37, "row": 38}, {"message": "line too long (90 > 79 characters)", "type": "E501", "col": 80, "row": 50}, {"message": "too many leading '#' for block comment", "type": "E266", "col": 9, "row": 52}, {"message": "multiple spaces before operator", "type": "E221", "col": 19, "row": 55}, {"message": "multiple spaces before operator", "type": "E221", "col": 20, "row": 56}, {"message": "at least two spaces before inline comment", "type": "E261", "col": 55, "row": 56}, {"message": "too many leading '#' for block comment", "type": "E266", "col": 1, "row": 77}, {"message": "line too long (119 > 79 characters)", "type": "E501", "col": 80, "row": 77}, {"message": "line too long (103 > 79 characters)", "type": "E501", "col": 80, "row": 79}, {"message": "continuation line under-indented for visual indent", "type": "E128", "col": 5, "row": 80}, {"message": "line too long (91 > 79 characters)", "type": "E501", "col": 80, "row": 80}, {"message": "missing whitespace around operator", "type": "E225", "col": 89, "row": 80}, {"message": "the backslash is redundant between brackets", "type": "E502", "col": 91, "row": 80}, {"message": "continuation line under-indented for visual indent", "type": "E128", "col": 5, "row": 81}, {"message": "line too long (101 > 79 characters)", "type": "E501", "col": 80, "row": 81}, {"message": "trailing whitespace", "type": "W291", "col": 56, "row": 84}, {"message": "continuation line under-indented for visual indent", "type": "E128", "col": 5, "row": 85}, {"message": "line too long (82 > 79 characters)", "type": "E501", "col": 80, "row": 85}, {"message": "line too long (113 > 79 characters)", "type": "E501", "col": 80, "row": 87}, {"message": "line too long (111 > 79 characters)", "type": "E501", "col": 80, "row": 88}, {"message": "indentation contains mixed spaces and tabs", "type": "E101", "col": 1, "row": 91}, {"message": "indentation contains tabs", "type": "W191", "col": 1, "row": 91}, {"message": "continuation line under-indented for visual indent", "type": "E128", "col": 2, "row": 91}, {"message": "missing whitespace around operator", "type": "E225", "col": 74, "row": 91}, {"message": "the backslash is redundant between brackets", "type": "E502", "col": 75, "row": 91}, {"message": "indentation contains mixed spaces and tabs", "type": "E101", "col": 1, "row": 92}, {"message": "continuation line under-indented for visual indent", "type": "E128", "col": 10, "row": 92}, {"message": "line too long (108 > 79 characters)", "type": "E501", "col": 80, "row": 92}, {"message": "line too long (80 > 79 characters)", "type": "E501", "col": 80, "row": 94}, {"message": "continuation line under-indented for visual indent", "type": "E128", "col": 5, "row": 95}, {"message": "line too long (91 > 79 characters)", "type": "E501", "col": 80, "row": 95}, {"message": "line too long (124 > 79 characters)", "type": "E501", "col": 80, "row": 97}, {"message": "continuation line under-indented for visual indent", "type": "E128", "col": 5, "row": 100}, {"message": "line too long (95 > 79 characters)", "type": "E501", "col": 80, "row": 100}, {"message": "missing whitespace around operator", "type": "E225", "col": 94, "row": 100}, {"message": "the backslash is redundant between brackets", "type": "E502", "col": 95, "row": 100}, {"message": "continuation line under-indented for visual indent", "type": "E128", "col": 10, "row": 101}, {"message": "line too long (80 > 79 characters)", "type": "E501", "col": 80, "row": 101}, {"message": "trailing whitespace", "type": "W291", "col": 25, "row": 103}, {"message": "line too long (80 > 79 characters)", "type": "E501", "col": 80, "row": 107}, {"message": "multiple statements on one line (colon)", "type": "E701", "col": 16, "row": 109}, {"message": "trailing whitespace", "type": "W291", "col": 19, "row": 110}, {"message": "missing whitespace around modulo operator", "type": "E228", "col": 70, "row": 114}, {"message": "line too long (102 > 79 characters)", "type": "E501", "col": 80, "row": 114}, {"message": "multiple spaces before operator", "type": "E221", "col": 9, "row": 118}, {"message": "missing whitespace around modulo operator", "type": "E228", "col": 58, "row": 125}, {"message": "too many leading '#' for block comment", "type": "E266", "col": 1, "row": 128}, {"message": "line too long (119 > 79 characters)", "type": "E501", "col": 80, "row": 128}, {"message": "expected 2 blank lines, found 1", "type": "E302", "col": 1, "row": 129}, {"message": "line too long (98 > 79 characters)", "type": "E501", "col": 80, "row": 142}, {"message": "line too long (98 > 79 characters)", "type": "E501", "col": 80, "row": 144}, {"message": "line too long (103 > 79 characters)", "type": "E501", "col": 80, "row": 151}, {"message": "multiple spaces before operator", "type": "E221", "col": 13, "row": 152}, {"message": "line too long (108 > 79 characters)", "type": "E501", "col": 80, "row": 152}, {"message": "line too long (102 > 79 characters)", "type": "E501", "col": 80, "row": 159}, {"message": "missing whitespace around operator", "type": "E225", "col": 100, "row": 159}, {"message": "the backslash is redundant between brackets", "type": "E502", "col": 102, "row": 159}, {"message": "continuation line under-indented for visual indent", "type": "E128", "col": 13, "row": 160}, {"message": "line too long (90 > 79 characters)", "type": "E501", "col": 80, "row": 160}, {"message": "line too long (115 > 79 characters)", "type": "E501", "col": 80, "row": 177}, {"message": "line too long (115 > 79 characters)", "type": "E501", "col": 80, "row": 178}, {"message": "line too long (90 > 79 characters)", "type": "E501", "col": 80, "row": 190}, {"message": "line too long (103 > 79 characters)", "type": "E501", "col": 80, "row": 203}, {"message": "too many leading '#' for block comment", "type": "E266", "col": 1, "row": 208}, {"message": "line too long (119 > 79 characters)", "type": "E501", "col": 80, "row": 208}, {"message": "expected 2 blank lines, found 1", "type": "E302", "col": 1, "row": 210}, {"message": "multiple statements on one line (colon)", "type": "E701", "col": 57, "row": 213}, {"message": "trailing whitespace", "type": "W291", "col": 44, "row": 228}, {"message": "at least two spaces before inline comment", "type": "E261", "col": 29, "row": 229}, {"message": "trailing whitespace", "type": "W291", "col": 35, "row": 233}, {"message": "at least two spaces before inline comment", "type": "E261", "col": 29, "row": 234}, {"message": "missing whitespace around modulo operator", "type": "E228", "col": 29, "row": 236}, {"message": "expected 2 blank lines, found 0", "type": "E302", "col": 1, "row": 245}, {"message": "multiple statements on one line (colon)", "type": "E701", "col": 70, "row": 255}, {"message": "line too long (87 > 79 characters)", "type": "E501", "col": 80, "row": 258}, {"message": "multiple statements on one line (colon)", "type": "E701", "col": 32, "row": 260}, {"message": "statement ends with a semicolon", "type": "E703", "col": 23, "row": 278}, {"message": "at least two spaces before inline comment", "type": "E261", "col": 19, "row": 280}]}
+{
+  "example.py": [
+    {
+      "col": 16,
+      "message": "multiple imports on one line",
+      "row": 1,
+      "type": "E401"
+    },
+    {
+      "col": 23,
+      "message": "no newline at end of file",
+      "row": 3,
+      "type": "W292"
+    }
+  ],
+  "ncr/datastream.py": [
+    {
+      "col": 80,
+      "message": "line too long (89 > 79 characters)",
+      "row": 16,
+      "type": "E501"
+    },
+    {
+      "col": 1,
+      "message": "too many leading '#' for block comment",
+      "row": 37,
+      "type": "E266"
+    },
+    {
+      "col": 80,
+      "message": "line too long (119 > 79 characters)",
+      "row": 37,
+      "type": "E501"
+    },
+    {
+      "col": 1,
+      "message": "expected 2 blank lines, found 1",
+      "row": 41,
+      "type": "E302"
+    },
+    {
+      "col": 76,
+      "message": "trailing whitespace",
+      "row": 44,
+      "type": "W291"
+    },
+    {
+      "col": 78,
+      "message": "trailing whitespace",
+      "row": 45,
+      "type": "W291"
+    },
+    {
+      "col": 75,
+      "message": "trailing whitespace",
+      "row": 46,
+      "type": "W291"
+    },
+    {
+      "col": 16,
+      "message": "trailing whitespace",
+      "row": 47,
+      "type": "W291"
+    },
+    {
+      "col": 65,
+      "message": "trailing whitespace",
+      "row": 48,
+      "type": "W291"
+    },
+    {
+      "col": 16,
+      "message": "multiple spaces before operator",
+      "row": 54,
+      "type": "E221"
+    },
+    {
+      "col": 44,
+      "message": "trailing whitespace",
+      "row": 79,
+      "type": "W291"
+    },
+    {
+      "col": 17,
+      "message": "continuation line under-indented for visual indent",
+      "row": 80,
+      "type": "E128"
+    },
+    {
+      "col": 1,
+      "message": "blank line contains whitespace",
+      "row": 92,
+      "type": "W293"
+    },
+    {
+      "col": 1,
+      "message": "too many leading '#' for block comment",
+      "row": 93,
+      "type": "E266"
+    },
+    {
+      "col": 80,
+      "message": "line too long (119 > 79 characters)",
+      "row": 93,
+      "type": "E501"
+    },
+    {
+      "col": 1,
+      "message": "expected 2 blank lines, found 1",
+      "row": 95,
+      "type": "E302"
+    },
+    {
+      "col": 80,
+      "message": "line too long (86 > 79 characters)",
+      "row": 106,
+      "type": "E501"
+    },
+    {
+      "col": 80,
+      "message": "line too long (89 > 79 characters)",
+      "row": 113,
+      "type": "E501"
+    },
+    {
+      "col": 1,
+      "message": "expected 2 blank lines, found 1",
+      "row": 119,
+      "type": "E302"
+    },
+    {
+      "col": 80,
+      "message": "line too long (81 > 79 characters)",
+      "row": 122,
+      "type": "E501"
+    },
+    {
+      "col": 80,
+      "message": "line too long (85 > 79 characters)",
+      "row": 127,
+      "type": "E501"
+    },
+    {
+      "col": 13,
+      "message": "continuation line under-indented for visual indent",
+      "row": 130,
+      "type": "E128"
+    },
+    {
+      "col": 14,
+      "message": "multiple spaces before operator",
+      "row": 130,
+      "type": "E221"
+    },
+    {
+      "col": 14,
+      "message": "unexpected spaces around keyword / parameter equals",
+      "row": 130,
+      "type": "E251"
+    },
+    {
+      "col": 20,
+      "message": "unexpected spaces around keyword / parameter equals",
+      "row": 130,
+      "type": "E251"
+    },
+    {
+      "col": 13,
+      "message": "continuation line under-indented for visual indent",
+      "row": 131,
+      "type": "E128"
+    },
+    {
+      "col": 18,
+      "message": "unexpected spaces around keyword / parameter equals",
+      "row": 131,
+      "type": "E251"
+    },
+    {
+      "col": 20,
+      "message": "unexpected spaces around keyword / parameter equals",
+      "row": 131,
+      "type": "E251"
+    },
+    {
+      "col": 13,
+      "message": "continuation line under-indented for visual indent",
+      "row": 132,
+      "type": "E128"
+    },
+    {
+      "col": 18,
+      "message": "unexpected spaces around keyword / parameter equals",
+      "row": 132,
+      "type": "E251"
+    },
+    {
+      "col": 20,
+      "message": "unexpected spaces around keyword / parameter equals",
+      "row": 132,
+      "type": "E251"
+    },
+    {
+      "col": 13,
+      "message": "continuation line under-indented for visual indent",
+      "row": 133,
+      "type": "E128"
+    },
+    {
+      "col": 17,
+      "message": "multiple spaces before operator",
+      "row": 133,
+      "type": "E221"
+    },
+    {
+      "col": 17,
+      "message": "unexpected spaces around keyword / parameter equals",
+      "row": 133,
+      "type": "E251"
+    },
+    {
+      "col": 20,
+      "message": "unexpected spaces around keyword / parameter equals",
+      "row": 133,
+      "type": "E251"
+    },
+    {
+      "col": 13,
+      "message": "continuation line under-indented for visual indent",
+      "row": 134,
+      "type": "E128"
+    },
+    {
+      "col": 17,
+      "message": "multiple spaces before operator",
+      "row": 134,
+      "type": "E221"
+    },
+    {
+      "col": 17,
+      "message": "unexpected spaces around keyword / parameter equals",
+      "row": 134,
+      "type": "E251"
+    },
+    {
+      "col": 20,
+      "message": "unexpected spaces around keyword / parameter equals",
+      "row": 134,
+      "type": "E251"
+    },
+    {
+      "col": 13,
+      "message": "continuation line under-indented for visual indent",
+      "row": 135,
+      "type": "E128"
+    },
+    {
+      "col": 18,
+      "message": "unexpected spaces around keyword / parameter equals",
+      "row": 135,
+      "type": "E251"
+    },
+    {
+      "col": 20,
+      "message": "unexpected spaces around keyword / parameter equals",
+      "row": 135,
+      "type": "E251"
+    },
+    {
+      "col": 13,
+      "message": "continuation line under-indented for visual indent",
+      "row": 136,
+      "type": "E128"
+    },
+    {
+      "col": 15,
+      "message": "multiple spaces before operator",
+      "row": 136,
+      "type": "E221"
+    },
+    {
+      "col": 15,
+      "message": "unexpected spaces around keyword / parameter equals",
+      "row": 136,
+      "type": "E251"
+    },
+    {
+      "col": 20,
+      "message": "unexpected spaces around keyword / parameter equals",
+      "row": 136,
+      "type": "E251"
+    },
+    {
+      "col": 13,
+      "message": "continuation line under-indented for visual indent",
+      "row": 137,
+      "type": "E128"
+    },
+    {
+      "col": 15,
+      "message": "multiple spaces before operator",
+      "row": 137,
+      "type": "E221"
+    },
+    {
+      "col": 15,
+      "message": "unexpected spaces around keyword / parameter equals",
+      "row": 137,
+      "type": "E251"
+    },
+    {
+      "col": 20,
+      "message": "unexpected spaces around keyword / parameter equals",
+      "row": 137,
+      "type": "E251"
+    },
+    {
+      "col": 13,
+      "message": "continuation line under-indented for visual indent",
+      "row": 138,
+      "type": "E128"
+    },
+    {
+      "col": 17,
+      "message": "multiple spaces before operator",
+      "row": 138,
+      "type": "E221"
+    },
+    {
+      "col": 17,
+      "message": "unexpected spaces around keyword / parameter equals",
+      "row": 138,
+      "type": "E251"
+    },
+    {
+      "col": 20,
+      "message": "unexpected spaces around keyword / parameter equals",
+      "row": 138,
+      "type": "E251"
+    },
+    {
+      "col": 13,
+      "message": "continuation line under-indented for visual indent",
+      "row": 139,
+      "type": "E128"
+    },
+    {
+      "col": 16,
+      "message": "multiple spaces before operator",
+      "row": 139,
+      "type": "E221"
+    },
+    {
+      "col": 16,
+      "message": "unexpected spaces around keyword / parameter equals",
+      "row": 139,
+      "type": "E251"
+    },
+    {
+      "col": 20,
+      "message": "unexpected spaces around keyword / parameter equals",
+      "row": 139,
+      "type": "E251"
+    },
+    {
+      "col": 13,
+      "message": "closing bracket does not match visual indentation",
+      "row": 140,
+      "type": "E124"
+    },
+    {
+      "col": 15,
+      "message": "multiple spaces before operator",
+      "row": 142,
+      "type": "E221"
+    },
+    {
+      "col": 18,
+      "message": "multiple spaces before operator",
+      "row": 145,
+      "type": "E221"
+    },
+    {
+      "col": 18,
+      "message": "multiple spaces before operator",
+      "row": 146,
+      "type": "E221"
+    },
+    {
+      "col": 17,
+      "message": "multiple spaces before operator",
+      "row": 148,
+      "type": "E221"
+    },
+    {
+      "col": 24,
+      "message": "trailing whitespace",
+      "row": 148,
+      "type": "W291"
+    },
+    {
+      "col": 17,
+      "message": "multiple spaces before operator",
+      "row": 149,
+      "type": "E221"
+    },
+    {
+      "col": 18,
+      "message": "multiple spaces before operator",
+      "row": 150,
+      "type": "E221"
+    },
+    {
+      "col": 17,
+      "message": "multiple spaces before operator",
+      "row": 151,
+      "type": "E221"
+    },
+    {
+      "col": 27,
+      "message": "at least two spaces before inline comment",
+      "row": 154,
+      "type": "E261"
+    },
+    {
+      "col": 31,
+      "message": "multiple statements on one line (colon)",
+      "row": 165,
+      "type": "E701"
+    },
+    {
+      "col": 80,
+      "message": "line too long (110 > 79 characters)",
+      "row": 171,
+      "type": "E501"
+    },
+    {
+      "col": 80,
+      "message": "line too long (108 > 79 characters)",
+      "row": 172,
+      "type": "E501"
+    },
+    {
+      "col": 29,
+      "message": "whitespace after '('",
+      "row": 173,
+      "type": "E201"
+    },
+    {
+      "col": 80,
+      "message": "line too long (108 > 79 characters)",
+      "row": 173,
+      "type": "E501"
+    },
+    {
+      "col": 107,
+      "message": "whitespace before ')'",
+      "row": 173,
+      "type": "E202"
+    },
+    {
+      "col": 12,
+      "message": "multiple spaces before operator",
+      "row": 180,
+      "type": "E221"
+    },
+    {
+      "col": 15,
+      "message": "multiple spaces before operator",
+      "row": 183,
+      "type": "E221"
+    },
+    {
+      "col": 25,
+      "message": "multiple spaces before operator",
+      "row": 183,
+      "type": "E221"
+    },
+    {
+      "col": 15,
+      "message": "multiple spaces before operator",
+      "row": 184,
+      "type": "E221"
+    },
+    {
+      "col": 25,
+      "message": "multiple spaces before operator",
+      "row": 184,
+      "type": "E221"
+    },
+    {
+      "col": 14,
+      "message": "multiple spaces before operator",
+      "row": 186,
+      "type": "E221"
+    },
+    {
+      "col": 14,
+      "message": "multiple spaces before operator",
+      "row": 187,
+      "type": "E221"
+    },
+    {
+      "col": 15,
+      "message": "multiple spaces before operator",
+      "row": 188,
+      "type": "E221"
+    },
+    {
+      "col": 1,
+      "message": "blank line contains whitespace",
+      "row": 191,
+      "type": "W293"
+    },
+    {
+      "col": 80,
+      "message": "line too long (98 > 79 characters)",
+      "row": 193,
+      "type": "E501"
+    },
+    {
+      "col": 1,
+      "message": "blank line contains whitespace",
+      "row": 203,
+      "type": "W293"
+    },
+    {
+      "col": 60,
+      "message": "trailing whitespace",
+      "row": 217,
+      "type": "W291"
+    },
+    {
+      "col": 76,
+      "message": "trailing whitespace",
+      "row": 218,
+      "type": "W291"
+    },
+    {
+      "col": 76,
+      "message": "trailing whitespace",
+      "row": 219,
+      "type": "W291"
+    },
+    {
+      "col": 80,
+      "message": "line too long (98 > 79 characters)",
+      "row": 221,
+      "type": "E501"
+    },
+    {
+      "col": 87,
+      "message": "missing whitespace around operator",
+      "row": 221,
+      "type": "E225"
+    },
+    {
+      "col": 19,
+      "message": "whitespace before ':'",
+      "row": 225,
+      "type": "E203"
+    },
+    {
+      "col": 19,
+      "message": "whitespace before ':'",
+      "row": 228,
+      "type": "E203"
+    },
+    {
+      "col": 19,
+      "message": "whitespace before ':'",
+      "row": 229,
+      "type": "E203"
+    },
+    {
+      "col": 19,
+      "message": "whitespace before ':'",
+      "row": 230,
+      "type": "E203"
+    },
+    {
+      "col": 80,
+      "message": "line too long (93 > 79 characters)",
+      "row": 230,
+      "type": "E501"
+    },
+    {
+      "col": 19,
+      "message": "whitespace before ':'",
+      "row": 231,
+      "type": "E203"
+    },
+    {
+      "col": 80,
+      "message": "line too long (93 > 79 characters)",
+      "row": 231,
+      "type": "E501"
+    },
+    {
+      "col": 19,
+      "message": "whitespace before ':'",
+      "row": 232,
+      "type": "E203"
+    },
+    {
+      "col": 80,
+      "message": "line too long (96 > 79 characters)",
+      "row": 232,
+      "type": "E501"
+    },
+    {
+      "col": 19,
+      "message": "whitespace before ':'",
+      "row": 233,
+      "type": "E203"
+    },
+    {
+      "col": 80,
+      "message": "line too long (101 > 79 characters)",
+      "row": 233,
+      "type": "E501"
+    },
+    {
+      "col": 1,
+      "message": "expected 2 blank lines, found 1",
+      "row": 237,
+      "type": "E302"
+    },
+    {
+      "col": 75,
+      "message": "trailing whitespace",
+      "row": 240,
+      "type": "W291"
+    },
+    {
+      "col": 76,
+      "message": "trailing whitespace",
+      "row": 241,
+      "type": "W291"
+    },
+    {
+      "col": 46,
+      "message": "multiple statements on one line (colon)",
+      "row": 245,
+      "type": "E701"
+    },
+    {
+      "col": 80,
+      "message": "line too long (90 > 79 characters)",
+      "row": 251,
+      "type": "E501"
+    },
+    {
+      "col": 39,
+      "message": "multiple spaces before keyword",
+      "row": 260,
+      "type": "E272"
+    },
+    {
+      "col": 32,
+      "message": "missing whitespace after ','",
+      "row": 261,
+      "type": "E231"
+    },
+    {
+      "col": 1,
+      "message": "too many leading '#' for block comment",
+      "row": 269,
+      "type": "E266"
+    },
+    {
+      "col": 80,
+      "message": "line too long (119 > 79 characters)",
+      "row": 269,
+      "type": "E501"
+    },
+    {
+      "col": 1,
+      "message": "expected 2 blank lines, found 1",
+      "row": 271,
+      "type": "E302"
+    },
+    {
+      "col": 52,
+      "message": "unexpected spaces around keyword / parameter equals",
+      "row": 333,
+      "type": "E251"
+    },
+    {
+      "col": 54,
+      "message": "unexpected spaces around keyword / parameter equals",
+      "row": 333,
+      "type": "E251"
+    },
+    {
+      "col": 80,
+      "message": "line too long (96 > 79 characters)",
+      "row": 342,
+      "type": "E501"
+    },
+    {
+      "col": 27,
+      "message": "multiple spaces before operator",
+      "row": 348,
+      "type": "E221"
+    },
+    {
+      "col": 27,
+      "message": "multiple spaces before operator",
+      "row": 349,
+      "type": "E221"
+    },
+    {
+      "col": 28,
+      "message": "multiple spaces before operator",
+      "row": 350,
+      "type": "E221"
+    },
+    {
+      "col": 27,
+      "message": "multiple spaces before operator",
+      "row": 351,
+      "type": "E221"
+    },
+    {
+      "col": 1,
+      "message": "blank line contains whitespace",
+      "row": 355,
+      "type": "W293"
+    },
+    {
+      "col": 80,
+      "message": "line too long (92 > 79 characters)",
+      "row": 359,
+      "type": "E501"
+    },
+    {
+      "col": 5,
+      "message": "expected 1 blank line, found 0",
+      "row": 382,
+      "type": "E301"
+    },
+    {
+      "col": 80,
+      "message": "line too long (85 > 79 characters)",
+      "row": 385,
+      "type": "E501"
+    },
+    {
+      "col": 80,
+      "message": "line too long (85 > 79 characters)",
+      "row": 386,
+      "type": "E501"
+    },
+    {
+      "col": 1,
+      "message": "blank line contains whitespace",
+      "row": 393,
+      "type": "W293"
+    },
+    {
+      "col": 29,
+      "message": "multiple statements on one line (colon)",
+      "row": 400,
+      "type": "E701"
+    },
+    {
+      "col": 80,
+      "message": "line too long (81 > 79 characters)",
+      "row": 418,
+      "type": "E501"
+    },
+    {
+      "col": 80,
+      "message": "line too long (102 > 79 characters)",
+      "row": 427,
+      "type": "E501"
+    },
+    {
+      "col": 50,
+      "message": "the backslash is redundant between brackets",
+      "row": 433,
+      "type": "E502"
+    },
+    {
+      "col": 13,
+      "message": "continuation line under-indented for visual indent",
+      "row": 434,
+      "type": "E128"
+    },
+    {
+      "col": 80,
+      "message": "line too long (86 > 79 characters)",
+      "row": 434,
+      "type": "E501"
+    },
+    {
+      "col": 1,
+      "message": "blank line contains whitespace",
+      "row": 439,
+      "type": "W293"
+    },
+    {
+      "col": 80,
+      "message": "line too long (83 > 79 characters)",
+      "row": 449,
+      "type": "E501"
+    },
+    {
+      "col": 15,
+      "message": "multiple spaces after keyword",
+      "row": 453,
+      "type": "E271"
+    },
+    {
+      "col": 80,
+      "message": "line too long (100 > 79 characters)",
+      "row": 453,
+      "type": "E501"
+    },
+    {
+      "col": 1,
+      "message": "blank line contains whitespace",
+      "row": 458,
+      "type": "W293"
+    },
+    {
+      "col": 5,
+      "message": "expected 1 blank line, found 0",
+      "row": 463,
+      "type": "E301"
+    },
+    {
+      "col": 29,
+      "message": "multiple statements on one line (colon)",
+      "row": 475,
+      "type": "E701"
+    },
+    {
+      "col": 80,
+      "message": "line too long (116 > 79 characters)",
+      "row": 492,
+      "type": "E501"
+    },
+    {
+      "col": 34,
+      "message": "missing whitespace around bitwise or shift operator",
+      "row": 503,
+      "type": "E227"
+    },
+    {
+      "col": 80,
+      "message": "line too long (91 > 79 characters)",
+      "row": 506,
+      "type": "E501"
+    },
+    {
+      "col": 73,
+      "message": "trailing whitespace",
+      "row": 512,
+      "type": "W291"
+    },
+    {
+      "col": 5,
+      "message": "expected 1 blank line, found 0",
+      "row": 516,
+      "type": "E301"
+    },
+    {
+      "col": 29,
+      "message": "multiple statements on one line (colon)",
+      "row": 524,
+      "type": "E701"
+    },
+    {
+      "col": 55,
+      "message": "the backslash is redundant between brackets",
+      "row": 539,
+      "type": "E502"
+    },
+    {
+      "col": 80,
+      "message": "line too long (91 > 79 characters)",
+      "row": 540,
+      "type": "E501"
+    },
+    {
+      "col": 52,
+      "message": "the backslash is redundant between brackets",
+      "row": 550,
+      "type": "E502"
+    },
+    {
+      "col": 80,
+      "message": "line too long (82 > 79 characters)",
+      "row": 551,
+      "type": "E501"
+    },
+    {
+      "col": 1,
+      "message": "expected 2 blank lines, found 1",
+      "row": 554,
+      "type": "E302"
+    },
+    {
+      "col": 80,
+      "message": "line too long (97 > 79 characters)",
+      "row": 557,
+      "type": "E501"
+    },
+    {
+      "col": 1,
+      "message": "too many leading '#' for block comment",
+      "row": 561,
+      "type": "E266"
+    },
+    {
+      "col": 80,
+      "message": "line too long (119 > 79 characters)",
+      "row": 561,
+      "type": "E501"
+    },
+    {
+      "col": 1,
+      "message": "expected 2 blank lines, found 1",
+      "row": 563,
+      "type": "E302"
+    },
+    {
+      "col": 23,
+      "message": "at least two spaces before inline comment",
+      "row": 575,
+      "type": "E261"
+    },
+    {
+      "col": 9,
+      "message": "too many leading '#' for block comment",
+      "row": 584,
+      "type": "E266"
+    },
+    {
+      "col": 80,
+      "message": "line too long (85 > 79 characters)",
+      "row": 601,
+      "type": "E501"
+    },
+    {
+      "col": 1,
+      "message": "blank line contains whitespace",
+      "row": 607,
+      "type": "W293"
+    },
+    {
+      "col": 80,
+      "message": "line too long (109 > 79 characters)",
+      "row": 608,
+      "type": "E501"
+    },
+    {
+      "col": 80,
+      "message": "line too long (109 > 79 characters)",
+      "row": 615,
+      "type": "E501"
+    },
+    {
+      "col": 1,
+      "message": "blank line contains whitespace",
+      "row": 616,
+      "type": "W293"
+    },
+    {
+      "col": 13,
+      "message": "too many leading '#' for block comment",
+      "row": 620,
+      "type": "E266"
+    },
+    {
+      "col": 80,
+      "message": "line too long (113 > 79 characters)",
+      "row": 643,
+      "type": "E501"
+    },
+    {
+      "col": 1,
+      "message": "blank line contains whitespace",
+      "row": 656,
+      "type": "W293"
+    },
+    {
+      "col": 1,
+      "message": "expected 2 blank lines, found 1",
+      "row": 657,
+      "type": "E302"
+    },
+    {
+      "col": 80,
+      "message": "line too long (118 > 79 characters)",
+      "row": 703,
+      "type": "E501"
+    },
+    {
+      "col": 12,
+      "message": "continuation line missing indentation or outdented",
+      "row": 711,
+      "type": "E122"
+    },
+    {
+      "col": 1,
+      "message": "too many leading '#' for block comment",
+      "row": 715,
+      "type": "E266"
+    },
+    {
+      "col": 80,
+      "message": "line too long (119 > 79 characters)",
+      "row": 715,
+      "type": "E501"
+    },
+    {
+      "col": 80,
+      "message": "line too long (81 > 79 characters)",
+      "row": 735,
+      "type": "E501"
+    },
+    {
+      "col": 80,
+      "message": "line too long (113 > 79 characters)",
+      "row": 743,
+      "type": "E501"
+    },
+    {
+      "col": 1,
+      "message": "too many leading '#' for block comment",
+      "row": 764,
+      "type": "E266"
+    },
+    {
+      "col": 80,
+      "message": "line too long (119 > 79 characters)",
+      "row": 764,
+      "type": "E501"
+    },
+    {
+      "col": 1,
+      "message": "expected 2 blank lines, found 1",
+      "row": 766,
+      "type": "E302"
+    },
+    {
+      "col": 16,
+      "message": "multiple spaces before operator",
+      "row": 770,
+      "type": "E221"
+    },
+    {
+      "col": 1,
+      "message": "blank line contains whitespace",
+      "row": 772,
+      "type": "W293"
+    },
+    {
+      "col": 5,
+      "message": "too many blank lines (2)",
+      "row": 773,
+      "type": "E303"
+    },
+    {
+      "col": 1,
+      "message": "expected 2 blank lines, found 1",
+      "row": 777,
+      "type": "E302"
+    },
+    {
+      "col": 80,
+      "message": "line too long (85 > 79 characters)",
+      "row": 778,
+      "type": "E501"
+    },
+    {
+      "col": 80,
+      "message": "line too long (99 > 79 characters)",
+      "row": 785,
+      "type": "E501"
+    },
+    {
+      "col": 1,
+      "message": "expected 2 blank lines, found 1",
+      "row": 792,
+      "type": "E302"
+    },
+    {
+      "col": 80,
+      "message": "line too long (85 > 79 characters)",
+      "row": 793,
+      "type": "E501"
+    },
+    {
+      "col": 80,
+      "message": "line too long (89 > 79 characters)",
+      "row": 801,
+      "type": "E501"
+    },
+    {
+      "col": 80,
+      "message": "line too long (90 > 79 characters)",
+      "row": 809,
+      "type": "E501"
+    },
+    {
+      "col": 80,
+      "message": "line too long (88 > 79 characters)",
+      "row": 811,
+      "type": "E501"
+    },
+    {
+      "col": 80,
+      "message": "line too long (93 > 79 characters)",
+      "row": 824,
+      "type": "E501"
+    },
+    {
+      "col": 17,
+      "message": "whitespace before ':'",
+      "row": 827,
+      "type": "E203"
+    },
+    {
+      "col": 17,
+      "message": "whitespace before ':'",
+      "row": 828,
+      "type": "E203"
+    },
+    {
+      "col": 17,
+      "message": "whitespace before ':'",
+      "row": 829,
+      "type": "E203"
+    },
+    {
+      "col": 17,
+      "message": "whitespace before ':'",
+      "row": 830,
+      "type": "E203"
+    },
+    {
+      "col": 66,
+      "message": "the backslash is redundant between brackets",
+      "row": 834,
+      "type": "E502"
+    },
+    {
+      "col": 17,
+      "message": "continuation line under-indented for visual indent",
+      "row": 835,
+      "type": "E128"
+    },
+    {
+      "col": 1,
+      "message": "too many leading '#' for block comment",
+      "row": 839,
+      "type": "E266"
+    },
+    {
+      "col": 80,
+      "message": "line too long (119 > 79 characters)",
+      "row": 839,
+      "type": "E501"
+    },
+    {
+      "col": 80,
+      "message": "line too long (96 > 79 characters)",
+      "row": 851,
+      "type": "E501"
+    },
+    {
+      "col": 80,
+      "message": "line too long (101 > 79 characters)",
+      "row": 853,
+      "type": "E501"
+    },
+    {
+      "col": 80,
+      "message": "line too long (86 > 79 characters)",
+      "row": 861,
+      "type": "E501"
+    },
+    {
+      "col": 80,
+      "message": "line too long (83 > 79 characters)",
+      "row": 876,
+      "type": "E501"
+    },
+    {
+      "col": 80,
+      "message": "line too long (80 > 79 characters)",
+      "row": 877,
+      "type": "E501"
+    },
+    {
+      "col": 80,
+      "message": "line too long (99 > 79 characters)",
+      "row": 878,
+      "type": "E501"
+    },
+    {
+      "col": 80,
+      "message": "line too long (90 > 79 characters)",
+      "row": 879,
+      "type": "E501"
+    },
+    {
+      "col": 36,
+      "message": "at least two spaces before inline comment",
+      "row": 884,
+      "type": "E261"
+    },
+    {
+      "col": 80,
+      "message": "line too long (80 > 79 characters)",
+      "row": 884,
+      "type": "E501"
+    },
+    {
+      "col": 50,
+      "message": "at least two spaces before inline comment",
+      "row": 886,
+      "type": "E261"
+    },
+    {
+      "col": 80,
+      "message": "line too long (84 > 79 characters)",
+      "row": 886,
+      "type": "E501"
+    },
+    {
+      "col": 43,
+      "message": "at least two spaces before inline comment",
+      "row": 887,
+      "type": "E261"
+    },
+    {
+      "col": 40,
+      "message": "at least two spaces before inline comment",
+      "row": 889,
+      "type": "E261"
+    },
+    {
+      "col": 35,
+      "message": "at least two spaces before inline comment",
+      "row": 890,
+      "type": "E261"
+    },
+    {
+      "col": 80,
+      "message": "line too long (83 > 79 characters)",
+      "row": 890,
+      "type": "E501"
+    },
+    {
+      "col": 80,
+      "message": "line too long (102 > 79 characters)",
+      "row": 891,
+      "type": "E501"
+    },
+    {
+      "col": 18,
+      "message": "multiple spaces before operator",
+      "row": 893,
+      "type": "E221"
+    },
+    {
+      "col": 27,
+      "message": "multiple spaces before operator",
+      "row": 895,
+      "type": "E221"
+    },
+    {
+      "col": 27,
+      "message": "multiple spaces before operator",
+      "row": 896,
+      "type": "E221"
+    },
+    {
+      "col": 24,
+      "message": "multiple spaces before operator",
+      "row": 897,
+      "type": "E221"
+    },
+    {
+      "col": 24,
+      "message": "multiple spaces before operator",
+      "row": 898,
+      "type": "E221"
+    },
+    {
+      "col": 23,
+      "message": "multiple spaces before operator",
+      "row": 899,
+      "type": "E221"
+    },
+    {
+      "col": 26,
+      "message": "multiple spaces before operator",
+      "row": 900,
+      "type": "E221"
+    },
+    {
+      "col": 21,
+      "message": "multiple spaces before operator",
+      "row": 901,
+      "type": "E221"
+    },
+    {
+      "col": 26,
+      "message": "multiple spaces before operator",
+      "row": 902,
+      "type": "E221"
+    },
+    {
+      "col": 1,
+      "message": "blank line contains whitespace",
+      "row": 910,
+      "type": "W293"
+    },
+    {
+      "col": 80,
+      "message": "line too long (94 > 79 characters)",
+      "row": 918,
+      "type": "E501"
+    },
+    {
+      "col": 80,
+      "message": "line too long (89 > 79 characters)",
+      "row": 926,
+      "type": "E501"
+    },
+    {
+      "col": 87,
+      "message": "missing whitespace around operator",
+      "row": 926,
+      "type": "E225"
+    },
+    {
+      "col": 89,
+      "message": "the backslash is redundant between brackets",
+      "row": 926,
+      "type": "E502"
+    },
+    {
+      "col": 21,
+      "message": "continuation line under-indented for visual indent",
+      "row": 927,
+      "type": "E128"
+    },
+    {
+      "col": 80,
+      "message": "line too long (88 > 79 characters)",
+      "row": 943,
+      "type": "E501"
+    },
+    {
+      "col": 80,
+      "message": "line too long (94 > 79 characters)",
+      "row": 946,
+      "type": "E501"
+    },
+    {
+      "col": 80,
+      "message": "line too long (91 > 79 characters)",
+      "row": 947,
+      "type": "E501"
+    },
+    {
+      "col": 40,
+      "message": "whitespace after '['",
+      "row": 950,
+      "type": "E201"
+    },
+    {
+      "col": 80,
+      "message": "line too long (89 > 79 characters)",
+      "row": 950,
+      "type": "E501"
+    },
+    {
+      "col": 80,
+      "message": "line too long (89 > 79 characters)",
+      "row": 951,
+      "type": "E501"
+    },
+    {
+      "col": 1,
+      "message": "blank line contains whitespace",
+      "row": 952,
+      "type": "W293"
+    },
+    {
+      "col": 80,
+      "message": "line too long (90 > 79 characters)",
+      "row": 954,
+      "type": "E501"
+    },
+    {
+      "col": 55,
+      "message": "multiple spaces before operator",
+      "row": 956,
+      "type": "E221"
+    },
+    {
+      "col": 48,
+      "message": "multiple spaces before operator",
+      "row": 964,
+      "type": "E221"
+    },
+    {
+      "col": 80,
+      "message": "line too long (85 > 79 characters)",
+      "row": 975,
+      "type": "E501"
+    },
+    {
+      "col": 85,
+      "message": "the backslash is redundant between brackets",
+      "row": 975,
+      "type": "E502"
+    },
+    {
+      "col": 1,
+      "message": "blank line contains whitespace",
+      "row": 977,
+      "type": "W293"
+    },
+    {
+      "col": 80,
+      "message": "line too long (94 > 79 characters)",
+      "row": 983,
+      "type": "E501"
+    },
+    {
+      "col": 80,
+      "message": "line too long (112 > 79 characters)",
+      "row": 987,
+      "type": "E501"
+    },
+    {
+      "col": 54,
+      "message": "missing whitespace after ','",
+      "row": 989,
+      "type": "E231"
+    },
+    {
+      "col": 80,
+      "message": "line too long (86 > 79 characters)",
+      "row": 989,
+      "type": "E501"
+    },
+    {
+      "col": 26,
+      "message": "multiple statements on one line (colon)",
+      "row": 998,
+      "type": "E701"
+    },
+    {
+      "col": 28,
+      "message": "multiple statements on one line (colon)",
+      "row": 1000,
+      "type": "E701"
+    },
+    {
+      "col": 52,
+      "message": "missing whitespace around modulo operator",
+      "row": 1008,
+      "type": "E228"
+    },
+    {
+      "col": 75,
+      "message": "missing whitespace around modulo operator",
+      "row": 1010,
+      "type": "E228"
+    },
+    {
+      "col": 80,
+      "message": "line too long (104 > 79 characters)",
+      "row": 1010,
+      "type": "E501"
+    },
+    {
+      "col": 104,
+      "message": "the backslash is redundant between brackets",
+      "row": 1010,
+      "type": "E502"
+    },
+    {
+      "col": 21,
+      "message": "continuation line under-indented for visual indent",
+      "row": 1011,
+      "type": "E128"
+    },
+    {
+      "col": 39,
+      "message": "missing whitespace around modulo operator",
+      "row": 1011,
+      "type": "E228"
+    },
+    {
+      "col": 80,
+      "message": "line too long (105 > 79 characters)",
+      "row": 1011,
+      "type": "E501"
+    },
+    {
+      "col": 80,
+      "message": "line too long (114 > 79 characters)",
+      "row": 1014,
+      "type": "E501"
+    },
+    {
+      "col": 83,
+      "message": "missing whitespace around modulo operator",
+      "row": 1014,
+      "type": "E228"
+    },
+    {
+      "col": 114,
+      "message": "the backslash is redundant between brackets",
+      "row": 1014,
+      "type": "E502"
+    },
+    {
+      "col": 80,
+      "message": "line too long (102 > 79 characters)",
+      "row": 1018,
+      "type": "E501"
+    },
+    {
+      "col": 100,
+      "message": "missing whitespace around operator",
+      "row": 1018,
+      "type": "E225"
+    },
+    {
+      "col": 102,
+      "message": "the backslash is redundant between brackets",
+      "row": 1018,
+      "type": "E502"
+    },
+    {
+      "col": 46,
+      "message": "the backslash is redundant between brackets",
+      "row": 1019,
+      "type": "E502"
+    },
+    {
+      "col": 35,
+      "message": "missing whitespace around modulo operator",
+      "row": 1021,
+      "type": "E228"
+    },
+    {
+      "col": 80,
+      "message": "line too long (113 > 79 characters)",
+      "row": 1021,
+      "type": "E501"
+    },
+    {
+      "col": 60,
+      "message": "missing whitespace around modulo operator",
+      "row": 1026,
+      "type": "E228"
+    },
+    {
+      "col": 80,
+      "message": "line too long (98 > 79 characters)",
+      "row": 1026,
+      "type": "E501"
+    },
+    {
+      "col": 98,
+      "message": "the backslash is redundant between brackets",
+      "row": 1026,
+      "type": "E502"
+    },
+    {
+      "col": 39,
+      "message": "missing whitespace around modulo operator",
+      "row": 1027,
+      "type": "E228"
+    },
+    {
+      "col": 80,
+      "message": "line too long (90 > 79 characters)",
+      "row": 1027,
+      "type": "E501"
+    },
+    {
+      "col": 38,
+      "message": "comparison to False should be 'if cond is False:' or 'if not cond:'",
+      "row": 1030,
+      "type": "E712"
+    },
+    {
+      "col": 59,
+      "message": "the backslash is redundant between brackets",
+      "row": 1031,
+      "type": "E502"
+    },
+    {
+      "col": 21,
+      "message": "continuation line under-indented for visual indent",
+      "row": 1032,
+      "type": "E128"
+    },
+    {
+      "col": 80,
+      "message": "line too long (93 > 79 characters)",
+      "row": 1032,
+      "type": "E501"
+    },
+    {
+      "col": 9,
+      "message": "too many blank lines (2)",
+      "row": 1035,
+      "type": "E303"
+    },
+    {
+      "col": 18,
+      "message": "trailing whitespace",
+      "row": 1045,
+      "type": "W291"
+    }
+  ],
+  "ncr/datastreamdiff.py": [
+    {
+      "col": 74,
+      "message": "trailing whitespace",
+      "row": 3,
+      "type": "W291"
+    },
+    {
+      "col": 76,
+      "message": "trailing whitespace",
+      "row": 4,
+      "type": "W291"
+    },
+    {
+      "col": 73,
+      "message": "trailing whitespace",
+      "row": 16,
+      "type": "W291"
+    },
+    {
+      "col": 78,
+      "message": "trailing whitespace",
+      "row": 24,
+      "type": "W291"
+    },
+    {
+      "col": 35,
+      "message": "trailing whitespace",
+      "row": 35,
+      "type": "W291"
+    },
+    {
+      "col": 1,
+      "message": "too many leading '#' for block comment",
+      "row": 41,
+      "type": "E266"
+    },
+    {
+      "col": 80,
+      "message": "line too long (119 > 79 characters)",
+      "row": 41,
+      "type": "E501"
+    },
+    {
+      "col": 1,
+      "message": "expected 2 blank lines, found 1",
+      "row": 45,
+      "type": "E302"
+    },
+    {
+      "col": 80,
+      "message": "line too long (97 > 79 characters)",
+      "row": 54,
+      "type": "E501"
+    },
+    {
+      "col": 80,
+      "message": "line too long (81 > 79 characters)",
+      "row": 55,
+      "type": "E501"
+    },
+    {
+      "col": 80,
+      "message": "line too long (81 > 79 characters)",
+      "row": 56,
+      "type": "E501"
+    },
+    {
+      "col": 21,
+      "message": "trailing whitespace",
+      "row": 65,
+      "type": "W291"
+    },
+    {
+      "col": 9,
+      "message": "do not assign a lambda expression, use a def",
+      "row": 68,
+      "type": "E731"
+    },
+    {
+      "col": 14,
+      "message": "continuation line over-indented for visual indent",
+      "row": 69,
+      "type": "E127"
+    },
+    {
+      "col": 20,
+      "message": "multiple spaces before keyword",
+      "row": 69,
+      "type": "E272"
+    },
+    {
+      "col": 21,
+      "message": "multiple spaces before keyword",
+      "row": 70,
+      "type": "E272"
+    },
+    {
+      "col": 80,
+      "message": "line too long (103 > 79 characters)",
+      "row": 96,
+      "type": "E501"
+    },
+    {
+      "col": 1,
+      "message": "expected 2 blank lines, found 1",
+      "row": 100,
+      "type": "E302"
+    },
+    {
+      "col": 1,
+      "message": "too many leading '#' for block comment",
+      "row": 108,
+      "type": "E266"
+    },
+    {
+      "col": 80,
+      "message": "line too long (119 > 79 characters)",
+      "row": 108,
+      "type": "E501"
+    },
+    {
+      "col": 80,
+      "message": "line too long (86 > 79 characters)",
+      "row": 110,
+      "type": "E501"
+    },
+    {
+      "col": 80,
+      "message": "line too long (83 > 79 characters)",
+      "row": 111,
+      "type": "E501"
+    },
+    {
+      "col": 80,
+      "message": "line too long (96 > 79 characters)",
+      "row": 112,
+      "type": "E501"
+    },
+    {
+      "col": 1,
+      "message": "expected 2 blank lines, found 1",
+      "row": 114,
+      "type": "E302"
+    },
+    {
+      "col": 80,
+      "message": "line too long (86 > 79 characters)",
+      "row": 122,
+      "type": "E501"
+    },
+    {
+      "col": 80,
+      "message": "line too long (86 > 79 characters)",
+      "row": 123,
+      "type": "E501"
+    },
+    {
+      "col": 9,
+      "message": "do not assign a lambda expression, use a def",
+      "row": 130,
+      "type": "E731"
+    },
+    {
+      "col": 19,
+      "message": "multiple spaces before keyword",
+      "row": 131,
+      "type": "E272"
+    },
+    {
+      "col": 20,
+      "message": "multiple spaces before keyword",
+      "row": 132,
+      "type": "E272"
+    },
+    {
+      "col": 1,
+      "message": "blank line contains whitespace",
+      "row": 135,
+      "type": "W293"
+    },
+    {
+      "col": 80,
+      "message": "line too long (97 > 79 characters)",
+      "row": 139,
+      "type": "E501"
+    },
+    {
+      "col": 72,
+      "message": "multiple statements on one line (colon)",
+      "row": 147,
+      "type": "E701"
+    },
+    {
+      "col": 26,
+      "message": "whitespace before ':'",
+      "row": 180,
+      "type": "E203"
+    },
+    {
+      "col": 26,
+      "message": "whitespace before ':'",
+      "row": 181,
+      "type": "E203"
+    },
+    {
+      "col": 26,
+      "message": "whitespace before ':'",
+      "row": 187,
+      "type": "E203"
+    },
+    {
+      "col": 41,
+      "message": "statement ends with a semicolon",
+      "row": 193,
+      "type": "E703"
+    },
+    {
+      "col": 23,
+      "message": "missing whitespace after ','",
+      "row": 194,
+      "type": "E231"
+    },
+    {
+      "col": 36,
+      "message": "statement ends with a semicolon",
+      "row": 194,
+      "type": "E703"
+    },
+    {
+      "col": 9,
+      "message": "continuation line missing indentation or outdented",
+      "row": 196,
+      "type": "E122"
+    },
+    {
+      "col": 80,
+      "message": "line too long (80 > 79 characters)",
+      "row": 197,
+      "type": "E501"
+    },
+    {
+      "col": 80,
+      "message": "the backslash is redundant between brackets",
+      "row": 197,
+      "type": "E502"
+    },
+    {
+      "col": 9,
+      "message": "continuation line missing indentation or outdented",
+      "row": 201,
+      "type": "E122"
+    },
+    {
+      "col": 79,
+      "message": "trailing whitespace",
+      "row": 202,
+      "type": "W291"
+    },
+    {
+      "col": 1,
+      "message": "blank line contains whitespace",
+      "row": 205,
+      "type": "W293"
+    },
+    {
+      "col": 27,
+      "message": "multiple statements on one line (colon)",
+      "row": 209,
+      "type": "E701"
+    },
+    {
+      "col": 1,
+      "message": "expected 2 blank lines, found 1",
+      "row": 227,
+      "type": "E302"
+    },
+    {
+      "col": 1,
+      "message": "blank line contains whitespace",
+      "row": 233,
+      "type": "W293"
+    },
+    {
+      "col": 26,
+      "message": "whitespace before ':'",
+      "row": 245,
+      "type": "E203"
+    },
+    {
+      "col": 26,
+      "message": "whitespace before ':'",
+      "row": 246,
+      "type": "E203"
+    },
+    {
+      "col": 26,
+      "message": "whitespace before ':'",
+      "row": 254,
+      "type": "E203"
+    },
+    {
+      "col": 1,
+      "message": "blank line contains whitespace",
+      "row": 259,
+      "type": "W293"
+    },
+    {
+      "col": 23,
+      "message": "missing whitespace after ','",
+      "row": 261,
+      "type": "E231"
+    },
+    {
+      "col": 36,
+      "message": "statement ends with a semicolon",
+      "row": 261,
+      "type": "E703"
+    },
+    {
+      "col": 80,
+      "message": "line too long (111 > 79 characters)",
+      "row": 262,
+      "type": "E501"
+    },
+    {
+      "col": 80,
+      "message": "line too long (111 > 79 characters)",
+      "row": 263,
+      "type": "E501"
+    },
+    {
+      "col": 27,
+      "message": "multiple statements on one line (colon)",
+      "row": 268,
+      "type": "E701"
+    },
+    {
+      "col": 1,
+      "message": "expected 2 blank lines, found 1",
+      "row": 282,
+      "type": "E302"
+    },
+    {
+      "col": 1,
+      "message": "too many leading '#' for block comment",
+      "row": 293,
+      "type": "E266"
+    },
+    {
+      "col": 80,
+      "message": "line too long (119 > 79 characters)",
+      "row": 293,
+      "type": "E501"
+    },
+    {
+      "col": 1,
+      "message": "expected 2 blank lines, found 1",
+      "row": 295,
+      "type": "E302"
+    },
+    {
+      "col": 80,
+      "message": "line too long (88 > 79 characters)",
+      "row": 305,
+      "type": "E501"
+    },
+    {
+      "col": 80,
+      "message": "line too long (88 > 79 characters)",
+      "row": 306,
+      "type": "E501"
+    },
+    {
+      "col": 80,
+      "message": "line too long (93 > 79 characters)",
+      "row": 312,
+      "type": "E501"
+    },
+    {
+      "col": 80,
+      "message": "line too long (93 > 79 characters)",
+      "row": 313,
+      "type": "E501"
+    },
+    {
+      "col": 80,
+      "message": "line too long (117 > 79 characters)",
+      "row": 325,
+      "type": "E501"
+    },
+    {
+      "col": 12,
+      "message": "indentation is not a multiple of four",
+      "row": 343,
+      "type": "E111"
+    },
+    {
+      "col": 1,
+      "message": "blank line contains whitespace",
+      "row": 353,
+      "type": "W293"
+    },
+    {
+      "col": 14,
+      "message": "trailing whitespace",
+      "row": 373,
+      "type": "W291"
+    },
+    {
+      "col": 1,
+      "message": "too many leading '#' for block comment",
+      "row": 377,
+      "type": "E266"
+    },
+    {
+      "col": 80,
+      "message": "line too long (119 > 79 characters)",
+      "row": 377,
+      "type": "E501"
+    },
+    {
+      "col": 1,
+      "message": "expected 2 blank lines, found 1",
+      "row": 379,
+      "type": "E302"
+    },
+    {
+      "col": 80,
+      "message": "line too long (89 > 79 characters)",
+      "row": 380,
+      "type": "E501"
+    },
+    {
+      "col": 25,
+      "message": "trailing whitespace",
+      "row": 384,
+      "type": "W291"
+    },
+    {
+      "col": 23,
+      "message": "trailing whitespace",
+      "row": 385,
+      "type": "W291"
+    },
+    {
+      "col": 36,
+      "message": "missing whitespace around bitwise or shift operator",
+      "row": 386,
+      "type": "E227"
+    },
+    {
+      "col": 20,
+      "message": "multiple statements on one line (colon)",
+      "row": 398,
+      "type": "E701"
+    },
+    {
+      "col": 9,
+      "message": "do not assign a lambda expression, use a def",
+      "row": 400,
+      "type": "E731"
+    },
+    {
+      "col": 34,
+      "message": "whitespace before ':'",
+      "row": 400,
+      "type": "E203"
+    },
+    {
+      "col": 26,
+      "message": "multiple spaces before keyword",
+      "row": 402,
+      "type": "E272"
+    },
+    {
+      "col": 1,
+      "message": "blank line contains whitespace",
+      "row": 406,
+      "type": "W293"
+    },
+    {
+      "col": 1,
+      "message": "blank line contains whitespace",
+      "row": 409,
+      "type": "W293"
+    },
+    {
+      "col": 22,
+      "message": "whitespace before ':'",
+      "row": 415,
+      "type": "E203"
+    },
+    {
+      "col": 22,
+      "message": "whitespace before ':'",
+      "row": 416,
+      "type": "E203"
+    },
+    {
+      "col": 22,
+      "message": "whitespace before ':'",
+      "row": 417,
+      "type": "E203"
+    },
+    {
+      "col": 22,
+      "message": "whitespace before ':'",
+      "row": 418,
+      "type": "E203"
+    },
+    {
+      "col": 10,
+      "message": "trailing whitespace",
+      "row": 419,
+      "type": "W291"
+    },
+    {
+      "col": 35,
+      "message": "multiple spaces before keyword",
+      "row": 423,
+      "type": "E272"
+    },
+    {
+      "col": 1,
+      "message": "expected 2 blank lines, found 1",
+      "row": 438,
+      "type": "E302"
+    },
+    {
+      "col": 1,
+      "message": "blank line contains whitespace",
+      "row": 441,
+      "type": "W293"
+    },
+    {
+      "col": 1,
+      "message": "too many leading '#' for block comment",
+      "row": 442,
+      "type": "E266"
+    },
+    {
+      "col": 80,
+      "message": "line too long (119 > 79 characters)",
+      "row": 442,
+      "type": "E501"
+    },
+    {
+      "col": 1,
+      "message": "expected 2 blank lines, found 1",
+      "row": 444,
+      "type": "E302"
+    },
+    {
+      "col": 80,
+      "message": "line too long (97 > 79 characters)",
+      "row": 447,
+      "type": "E501"
+    },
+    {
+      "col": 1,
+      "message": "expected 2 blank lines, found 1",
+      "row": 458,
+      "type": "E302"
+    },
+    {
+      "col": 80,
+      "message": "line too long (91 > 79 characters)",
+      "row": 463,
+      "type": "E501"
+    },
+    {
+      "col": 59,
+      "message": "missing whitespace around bitwise or shift operator",
+      "row": 469,
+      "type": "E227"
+    },
+    {
+      "col": 80,
+      "message": "line too long (82 > 79 characters)",
+      "row": 469,
+      "type": "E501"
+    },
+    {
+      "col": 80,
+      "message": "line too long (94 > 79 characters)",
+      "row": 472,
+      "type": "E501"
+    },
+    {
+      "col": 80,
+      "message": "line too long (94 > 79 characters)",
+      "row": 473,
+      "type": "E501"
+    },
+    {
+      "col": 80,
+      "message": "line too long (90 > 79 characters)",
+      "row": 474,
+      "type": "E501"
+    },
+    {
+      "col": 80,
+      "message": "line too long (109 > 79 characters)",
+      "row": 479,
+      "type": "E501"
+    },
+    {
+      "col": 107,
+      "message": "missing whitespace around operator",
+      "row": 479,
+      "type": "E225"
+    },
+    {
+      "col": 109,
+      "message": "the backslash is redundant between brackets",
+      "row": 479,
+      "type": "E502"
+    },
+    {
+      "col": 21,
+      "message": "continuation line under-indented for visual indent",
+      "row": 480,
+      "type": "E128"
+    },
+    {
+      "col": 67,
+      "message": "missing whitespace around modulo operator",
+      "row": 482,
+      "type": "E228"
+    },
+    {
+      "col": 80,
+      "message": "line too long (107 > 79 characters)",
+      "row": 482,
+      "type": "E501"
+    },
+    {
+      "col": 18,
+      "message": "trailing whitespace",
+      "row": 496,
+      "type": "W291"
+    },
+    {
+      "col": 80,
+      "message": "line too long (93 > 79 characters)",
+      "row": 499,
+      "type": "E501"
+    }
+  ],
+  "ncr/utils.py": [
+    {
+      "col": 80,
+      "message": "line too long (95 > 79 characters)",
+      "row": 1,
+      "type": "E501"
+    },
+    {
+      "col": 16,
+      "message": "line break before binary operator",
+      "row": 13,
+      "type": "W503"
+    },
+    {
+      "col": 17,
+      "message": "missing whitespace around operator",
+      "row": 13,
+      "type": "E225"
+    },
+    {
+      "col": 1,
+      "message": "expected 2 blank lines, found 1",
+      "row": 15,
+      "type": "E302"
+    },
+    {
+      "col": 1,
+      "message": "expected 2 blank lines, found 1",
+      "row": 21,
+      "type": "E302"
+    },
+    {
+      "col": 1,
+      "message": "expected 2 blank lines, found 1",
+      "row": 26,
+      "type": "E302"
+    },
+    {
+      "col": 1,
+      "message": "expected 2 blank lines, found 1",
+      "row": 35,
+      "type": "E302"
+    },
+    {
+      "col": 1,
+      "message": "expected 2 blank lines, found 1",
+      "row": 49,
+      "type": "E302"
+    },
+    {
+      "col": 80,
+      "message": "line too long (82 > 79 characters)",
+      "row": 50,
+      "type": "E501"
+    },
+    {
+      "col": 80,
+      "message": "line too long (93 > 79 characters)",
+      "row": 63,
+      "type": "E501"
+    },
+    {
+      "col": 93,
+      "message": "the backslash is redundant between brackets",
+      "row": 63,
+      "type": "E502"
+    },
+    {
+      "col": 17,
+      "message": "continuation line under-indented for visual indent",
+      "row": 64,
+      "type": "E128"
+    },
+    {
+      "col": 1,
+      "message": "expected 2 blank lines, found 1",
+      "row": 66,
+      "type": "E302"
+    },
+    {
+      "col": 80,
+      "message": "line too long (85 > 79 characters)",
+      "row": 77,
+      "type": "E501"
+    },
+    {
+      "col": 80,
+      "message": "line too long (85 > 79 characters)",
+      "row": 78,
+      "type": "E501"
+    }
+  ],
+  "ncreview.py": [
+    {
+      "col": 1,
+      "message": "too many leading '#' for block comment",
+      "row": 25,
+      "type": "E266"
+    },
+    {
+      "col": 80,
+      "message": "line too long (119 > 79 characters)",
+      "row": 25,
+      "type": "E501"
+    },
+    {
+      "col": 1,
+      "message": "expected 2 blank lines, found 1",
+      "row": 27,
+      "type": "E302"
+    },
+    {
+      "col": 37,
+      "message": "at least two spaces before inline comment",
+      "row": 38,
+      "type": "E261"
+    },
+    {
+      "col": 80,
+      "message": "line too long (90 > 79 characters)",
+      "row": 50,
+      "type": "E501"
+    },
+    {
+      "col": 9,
+      "message": "too many leading '#' for block comment",
+      "row": 52,
+      "type": "E266"
+    },
+    {
+      "col": 19,
+      "message": "multiple spaces before operator",
+      "row": 55,
+      "type": "E221"
+    },
+    {
+      "col": 20,
+      "message": "multiple spaces before operator",
+      "row": 56,
+      "type": "E221"
+    },
+    {
+      "col": 55,
+      "message": "at least two spaces before inline comment",
+      "row": 56,
+      "type": "E261"
+    },
+    {
+      "col": 1,
+      "message": "too many leading '#' for block comment",
+      "row": 77,
+      "type": "E266"
+    },
+    {
+      "col": 80,
+      "message": "line too long (119 > 79 characters)",
+      "row": 77,
+      "type": "E501"
+    },
+    {
+      "col": 80,
+      "message": "line too long (103 > 79 characters)",
+      "row": 79,
+      "type": "E501"
+    },
+    {
+      "col": 5,
+      "message": "continuation line under-indented for visual indent",
+      "row": 80,
+      "type": "E128"
+    },
+    {
+      "col": 80,
+      "message": "line too long (91 > 79 characters)",
+      "row": 80,
+      "type": "E501"
+    },
+    {
+      "col": 89,
+      "message": "missing whitespace around operator",
+      "row": 80,
+      "type": "E225"
+    },
+    {
+      "col": 91,
+      "message": "the backslash is redundant between brackets",
+      "row": 80,
+      "type": "E502"
+    },
+    {
+      "col": 5,
+      "message": "continuation line under-indented for visual indent",
+      "row": 81,
+      "type": "E128"
+    },
+    {
+      "col": 80,
+      "message": "line too long (101 > 79 characters)",
+      "row": 81,
+      "type": "E501"
+    },
+    {
+      "col": 56,
+      "message": "trailing whitespace",
+      "row": 84,
+      "type": "W291"
+    },
+    {
+      "col": 5,
+      "message": "continuation line under-indented for visual indent",
+      "row": 85,
+      "type": "E128"
+    },
+    {
+      "col": 80,
+      "message": "line too long (82 > 79 characters)",
+      "row": 85,
+      "type": "E501"
+    },
+    {
+      "col": 80,
+      "message": "line too long (113 > 79 characters)",
+      "row": 87,
+      "type": "E501"
+    },
+    {
+      "col": 80,
+      "message": "line too long (111 > 79 characters)",
+      "row": 88,
+      "type": "E501"
+    },
+    {
+      "col": 1,
+      "message": "indentation contains mixed spaces and tabs",
+      "row": 91,
+      "type": "E101"
+    },
+    {
+      "col": 1,
+      "message": "indentation contains tabs",
+      "row": 91,
+      "type": "W191"
+    },
+    {
+      "col": 2,
+      "message": "continuation line under-indented for visual indent",
+      "row": 91,
+      "type": "E128"
+    },
+    {
+      "col": 74,
+      "message": "missing whitespace around operator",
+      "row": 91,
+      "type": "E225"
+    },
+    {
+      "col": 75,
+      "message": "the backslash is redundant between brackets",
+      "row": 91,
+      "type": "E502"
+    },
+    {
+      "col": 1,
+      "message": "indentation contains mixed spaces and tabs",
+      "row": 92,
+      "type": "E101"
+    },
+    {
+      "col": 10,
+      "message": "continuation line under-indented for visual indent",
+      "row": 92,
+      "type": "E128"
+    },
+    {
+      "col": 80,
+      "message": "line too long (108 > 79 characters)",
+      "row": 92,
+      "type": "E501"
+    },
+    {
+      "col": 80,
+      "message": "line too long (80 > 79 characters)",
+      "row": 94,
+      "type": "E501"
+    },
+    {
+      "col": 5,
+      "message": "continuation line under-indented for visual indent",
+      "row": 95,
+      "type": "E128"
+    },
+    {
+      "col": 80,
+      "message": "line too long (91 > 79 characters)",
+      "row": 95,
+      "type": "E501"
+    },
+    {
+      "col": 80,
+      "message": "line too long (124 > 79 characters)",
+      "row": 97,
+      "type": "E501"
+    },
+    {
+      "col": 5,
+      "message": "continuation line under-indented for visual indent",
+      "row": 100,
+      "type": "E128"
+    },
+    {
+      "col": 80,
+      "message": "line too long (95 > 79 characters)",
+      "row": 100,
+      "type": "E501"
+    },
+    {
+      "col": 94,
+      "message": "missing whitespace around operator",
+      "row": 100,
+      "type": "E225"
+    },
+    {
+      "col": 95,
+      "message": "the backslash is redundant between brackets",
+      "row": 100,
+      "type": "E502"
+    },
+    {
+      "col": 10,
+      "message": "continuation line under-indented for visual indent",
+      "row": 101,
+      "type": "E128"
+    },
+    {
+      "col": 80,
+      "message": "line too long (80 > 79 characters)",
+      "row": 101,
+      "type": "E501"
+    },
+    {
+      "col": 25,
+      "message": "trailing whitespace",
+      "row": 103,
+      "type": "W291"
+    },
+    {
+      "col": 80,
+      "message": "line too long (80 > 79 characters)",
+      "row": 107,
+      "type": "E501"
+    },
+    {
+      "col": 16,
+      "message": "multiple statements on one line (colon)",
+      "row": 109,
+      "type": "E701"
+    },
+    {
+      "col": 19,
+      "message": "trailing whitespace",
+      "row": 110,
+      "type": "W291"
+    },
+    {
+      "col": 70,
+      "message": "missing whitespace around modulo operator",
+      "row": 114,
+      "type": "E228"
+    },
+    {
+      "col": 80,
+      "message": "line too long (102 > 79 characters)",
+      "row": 114,
+      "type": "E501"
+    },
+    {
+      "col": 9,
+      "message": "multiple spaces before operator",
+      "row": 118,
+      "type": "E221"
+    },
+    {
+      "col": 58,
+      "message": "missing whitespace around modulo operator",
+      "row": 125,
+      "type": "E228"
+    },
+    {
+      "col": 1,
+      "message": "too many leading '#' for block comment",
+      "row": 128,
+      "type": "E266"
+    },
+    {
+      "col": 80,
+      "message": "line too long (119 > 79 characters)",
+      "row": 128,
+      "type": "E501"
+    },
+    {
+      "col": 1,
+      "message": "expected 2 blank lines, found 1",
+      "row": 129,
+      "type": "E302"
+    },
+    {
+      "col": 80,
+      "message": "line too long (98 > 79 characters)",
+      "row": 142,
+      "type": "E501"
+    },
+    {
+      "col": 80,
+      "message": "line too long (98 > 79 characters)",
+      "row": 144,
+      "type": "E501"
+    },
+    {
+      "col": 80,
+      "message": "line too long (103 > 79 characters)",
+      "row": 151,
+      "type": "E501"
+    },
+    {
+      "col": 13,
+      "message": "multiple spaces before operator",
+      "row": 152,
+      "type": "E221"
+    },
+    {
+      "col": 80,
+      "message": "line too long (108 > 79 characters)",
+      "row": 152,
+      "type": "E501"
+    },
+    {
+      "col": 80,
+      "message": "line too long (102 > 79 characters)",
+      "row": 159,
+      "type": "E501"
+    },
+    {
+      "col": 100,
+      "message": "missing whitespace around operator",
+      "row": 159,
+      "type": "E225"
+    },
+    {
+      "col": 102,
+      "message": "the backslash is redundant between brackets",
+      "row": 159,
+      "type": "E502"
+    },
+    {
+      "col": 13,
+      "message": "continuation line under-indented for visual indent",
+      "row": 160,
+      "type": "E128"
+    },
+    {
+      "col": 80,
+      "message": "line too long (90 > 79 characters)",
+      "row": 160,
+      "type": "E501"
+    },
+    {
+      "col": 80,
+      "message": "line too long (115 > 79 characters)",
+      "row": 177,
+      "type": "E501"
+    },
+    {
+      "col": 80,
+      "message": "line too long (115 > 79 characters)",
+      "row": 178,
+      "type": "E501"
+    },
+    {
+      "col": 80,
+      "message": "line too long (90 > 79 characters)",
+      "row": 190,
+      "type": "E501"
+    },
+    {
+      "col": 80,
+      "message": "line too long (103 > 79 characters)",
+      "row": 203,
+      "type": "E501"
+    },
+    {
+      "col": 1,
+      "message": "too many leading '#' for block comment",
+      "row": 208,
+      "type": "E266"
+    },
+    {
+      "col": 80,
+      "message": "line too long (119 > 79 characters)",
+      "row": 208,
+      "type": "E501"
+    },
+    {
+      "col": 1,
+      "message": "expected 2 blank lines, found 1",
+      "row": 210,
+      "type": "E302"
+    },
+    {
+      "col": 57,
+      "message": "multiple statements on one line (colon)",
+      "row": 213,
+      "type": "E701"
+    },
+    {
+      "col": 44,
+      "message": "trailing whitespace",
+      "row": 228,
+      "type": "W291"
+    },
+    {
+      "col": 29,
+      "message": "at least two spaces before inline comment",
+      "row": 229,
+      "type": "E261"
+    },
+    {
+      "col": 35,
+      "message": "trailing whitespace",
+      "row": 233,
+      "type": "W291"
+    },
+    {
+      "col": 29,
+      "message": "at least two spaces before inline comment",
+      "row": 234,
+      "type": "E261"
+    },
+    {
+      "col": 29,
+      "message": "missing whitespace around modulo operator",
+      "row": 236,
+      "type": "E228"
+    },
+    {
+      "col": 1,
+      "message": "expected 2 blank lines, found 0",
+      "row": 245,
+      "type": "E302"
+    },
+    {
+      "col": 70,
+      "message": "multiple statements on one line (colon)",
+      "row": 255,
+      "type": "E701"
+    },
+    {
+      "col": 80,
+      "message": "line too long (87 > 79 characters)",
+      "row": 258,
+      "type": "E501"
+    },
+    {
+      "col": 32,
+      "message": "multiple statements on one line (colon)",
+      "row": 260,
+      "type": "E701"
+    },
+    {
+      "col": 23,
+      "message": "statement ends with a semicolon",
+      "row": 278,
+      "type": "E703"
+    },
+    {
+      "col": 19,
+      "message": "at least two spaces before inline comment",
+      "row": 280,
+      "type": "E261"
+    }
+  ]
+}

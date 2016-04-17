@@ -1,2 +1,0 @@
-example.py:1:16: E401 multiple imports on one line
-example.py:3:23: W292 no newline at end of file

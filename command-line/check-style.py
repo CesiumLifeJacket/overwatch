@@ -1,5 +1,6 @@
 '''
 read the .style.yml and apply appropriate stylecheckers to the appropriate files
+write out the results to .style_violations.json
 '''
 import os
 import json
@@ -20,4 +21,5 @@ for stylechecker_name, patterns in config.items():
 	report.update({f: stylechecker.check(f) for f in files})
 
 # Write out style report
-json.dump(report, open(".style_violations.json", 'w'))
+json.dump(report, open(".style_violations.json", 'w'),
+	      sort_keys=True, indent=2, separators=(',', ': '))
