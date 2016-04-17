@@ -1,0 +1,13 @@
+<head>
+	<link rel="stylesheet" href="styles/default.css">
+	<link rel="stylesheet" href="violations.css">
+	<script src="highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<pre><code class="python">
+import optparse<span class="violation" title="E401: multiple imports on one line">,</span> itertools
+
+print("Hello, World!")<span class="violation" title="W292: no newline at end of file">&nbsp;</span>
+</code></pre>
+</body>
