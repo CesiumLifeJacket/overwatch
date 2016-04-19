@@ -1,0 +1,27 @@
+<head>
+<link rel="stylesheet" href="css/directory.css">
+</head>
+<body>
+
+<h1> {{ directory | quote }} </h1>
+
+<table class="directory_contents">
+
+{% for item in contents %}
+  <tr>
+    <td>
+      <a href={{ item.path | quote }}>{{ item.name }}</a>
+    </td>
+    <td>
+    {% if item.is_directory %}
+      {{ item.files }} files
+    {% else %}
+      {{ item.errors }} errors
+    {% endif %}
+    </td>
+  </tr>
+{% endfor %}
+
+</table>
+
+</body>
