@@ -1,5 +1,5 @@
 '''
-read the .style.yml and apply appropriate stylecheckers to the appropriate files
+Read the .style.yml and apply appropriate stylecheckers to the appropriate files
 write out the results to .style_violations.json
 '''
 import os
@@ -36,7 +36,8 @@ for stylechecker_name, patterns in config.items():
 
 # Generate report webpages for each code file
 def annotate_code(code, violations):
-
+    '''HTML escape the code and insert tags to mark style violations.
+    '''
     ## Calculate starting index of each line
 
     line_indices = [0]
@@ -55,7 +56,7 @@ def annotate_code(code, violations):
         end_index = start_index + v.get('length', 1)
 
         span_start = '<span class="violation" title="{}">'.format(
-                escape(violation['message'])
+                escape(v['message'])
                 )
         span_end = '</span>'
 
