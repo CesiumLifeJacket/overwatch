@@ -22,7 +22,7 @@ args = parser.parse_args()
 # load the configureation file
 config = yaml.load(open(".style.yml"))
 
-# generate the style report
+# Perform the stylecheck and generate the report
 report = {} # filename: style violations pairs
 
 for stylechecker_name, patterns in config.items():
@@ -30,72 +30,56 @@ for stylechecker_name, patterns in config.items():
     files = sum((glob(pattern) for pattern in patterns), [])
     report.update({f: stylechecker.check(f) for f in files})
 
-# Write out style report
+## Write out style report
 #json.dump(report, open(".style_violations.json", 'w'),
 #         sort_keys=True, indent=2, separators=(',', ': '))
 
-#TODO: turn json report into webpages
-
 # Generate report webpages for each code file
 def annotate_code(code, violations):
-    violations = iter(sorted(violations, key=lambda v: (v['row'], v['col']) ))
 
-    insertions = set() # (index, "text-to-insert") pairs.
-    col = 1
-    line = 1
-    last_i = 0
-    violation = next(violations)
+    ## Calculate starting index of each line
 
-    # Produce spans and where to insert them
+    line_indices = [0]
 
-    for index, char in enumerate(code):
-        
-        if line == violation['row'] and col == violation['col']:
-            
-            # span tags
-            span_start = '<span class="violation" title="{}">'.format(
+    for line_length in map(len, code.split('\n')):
+        line_index = line_indices[-1] + line_length
+        line_indices.append(line_index)
+
+    ## Determine spans to insert and where to inesrt them
+
+    # set of `(index, text)` pairs; `text` will be inserted at `index`
+    insertions = set()
+
+    for v in violations:
+        start_index = line_indices[v['row'] - 1] + v['col'] - 1
+        end_index = start_index + v.get('length', 1)
+
+        span_start = '<span class="violation" title="{}">'.format(
                 escape(violation['message'])
                 )
-            span_end = '</span>'
+        span_end = '</span>'
 
-            # index where the span ends
-            end_index = index + violation.get('length', 1)
+        insertions.add((start_index, span_start))
+        insertions.add((end_index,   span_end  ))
 
-            # queue these up for insertion
-            insertions.add((index, span_start))
-            insertions.add((end_index, span_end))
+    ## Build up the escaped code and inserted spans in list of segments
 
-            # get the next violation
-            try:
-                violation = next(violations)
-            except StopIteration:
-                break
-
-        if char == '\n':
-            line += 1
-            col = 1
-        else:
-            col += 1
-
-    # Insert the spans
-    
     segments = []
     prev_index = 0
-    for index, text in sorted(insertions):
+    for index, span in sorted(insertions):
 
-        # add the code itself, with HTML special chars escaped
+        # add escaped code
         segments.append(escape(code[prev_index:index]))
 
-        # add the annotation (span)
-        segments.append(text)
+        # add tag
+        segments.append(span)
 
-        # move the previous index up
         prev_index = index
 
-    # Wdd the remaining text
+    # add the remaining text
     segments.append(escape(code[prev_index:]))
 
-    # Join all the segments together into the final product
+    ## Join all the segments together and return annotated code
     annotated_code = ''.join(segments)
 
     return annotated_code
