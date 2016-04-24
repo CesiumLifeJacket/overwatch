@@ -8,8 +8,8 @@
 <pre><code class="python">
 '''Datastream comparison classes for the ncreview tool.
 
-This module contains the classes nessecary to perform a comparison of two<span class="violation" title="trailing whitespace"> </span>
-datastreams and output the resulting comparison report to a json file which<span class="violation" title="trailing whitespace"> </span>
+This module contains the classes nessecary to perform a comparison of t<div class="violation" type="W291" message="trailing whitespace" len="1"></div>wo 
+datastreams and output the resulting comparison report to a json file wh<div class="violation" type="W291" message="trailing whitespace" len="1"></div>ich 
 can be rendered by the web tool.
 
 Recurring Attributes
@@ -21,7 +21,7 @@ A dsd attribute refers back to the DatastreamDiff that contains the object.
 
 Recurring methods:
 
-Generally, a class's initializer generates the comparison data structure<span class="violation" title="trailing whitespace"> </span>
+Generally, a class's initializer generates the comparison<div class="violation" type="W291" message="trailing whitespace" len="1"></div> data structure 
     from params old and new as the data structures to be compared.
     These old and new params' type generally indicated by the class name,
     for example DatastreamDiff compares two Datastreams,
@@ -29,7 +29,7 @@ Generally, a class's initializer generates the comparison data structure<span cl
     the dsd parameter should take in the parent DatastreamDiff.
 
 A difference() method returns 'same', 'changed', 'added', or 'removed'
-    indicating the nature of that comparison object. These difference strings<span class="violation" title="trailing whitespace"> </span>
+    indicating the nature of that comparison object. T<div class="violation" type="W291" message="trailing whitespace" len="1"></div>hese difference strings 
     are used later in the web tool to highlight entries accordingly.
 
 A jsonify() method returns a data structure that can be converted to json
@@ -40,17 +40,17 @@ A jsonify() method returns a data structure that can be converted to json
 import os
 import sys
 import json
-from collections import namedtuple<span class="violation" title="trailing whitespace"> </span>
+<div class="violation" type="W291" message="trailing whitespace" len="1"></div>from collections import namedtuple 
 
-from ncr.datastream import TimedData, UntimedData
+from ncr.datastream import TimedData, UntimedDat<div class="violation" type="E266" message="too many leading '#' for block comment" len="1"></div>a
 import ncr.utils as utils
 import pdb
 
-<span class="violation" title="too many leading '#' for block comment">#</span>## Timeline ------------------------------------------------------------------<span class="violation" title="line too long (119 &gt; 79 characters)">-</span>---------------------------------------
+### Timeline --------------------------<div class="violation" type="E501" message="line too long (119 &gt; 79 characters)" len="1"></div>--------------------------------------------------------------------------------
 
-Diff = namedtuple('Diff', ['old', 'new', 'beg', 'end'])
+Diff = namedt<div class="violation" type="E302" message="expected 2 blank lines, found 1" len="1"></div>uple('Diff', ['old', 'new', 'beg', 'end'])
 
-<span class="violation" title="expected 2 blank lines, found 1">c</span>lass TimelineDiff(list):
+class TimelineDiff(list):
     '''Comparison between two Timelines.
     Logs the differences between two timelines in a list of Diff objects.
     '''
@@ -59,23 +59,23 @@ Diff = namedtuple('Diff', ['old', 'new', 'beg', 'end'])
         self.name = name
         self.dsd = dsd
 
-        for beg, end, old_i, new_i in utils.shared_times(dsd.old_file_times, ds<span class="violation" title="line too long (97 &gt; 79 characters)">d</span>.new_file_times):
-            old_val = next((l.val for l in old if l.beg &lt;= old_i &lt;= l.end), Non<span class="violation" title="line too long (81 &gt; 79 characters)">e</span>)
-            new_val = next((l.val for l in new if l.beg &lt;= new_i &lt;= l.end), Non<span class="violation" title="line too long (81 &gt; 79 characters)">e</span>)
+        for beg, end, old_<div class="violation" type="E501" message="line too long (97 &gt; 79 characters)" len="1"></div>i, new_i in utils.shared_times(dsd.old_file_times, dsd.new_file_times):
+            old_val = nex<div class="violation" type="E501" message="line too long (81 &gt; 79 characters)" len="1"></div>t((l.val for l in old if l.beg &lt;= old_i &lt;= l.end), None)
+            new_val = ne<div class="violation" type="E501" message="line too long (81 &gt; 79 characters)" len="1"></div>xt((l.val for l in new if l.beg &lt;= new_i &lt;= l.end), None)
 
             if self and self[-1].old == old_val and self[-1].new == new_val:
                 self[-1] = Diff(self[-1].old, self[-1].new, self[-1].beg, end)
             else:
                 self.append(Diff(old_val, new_val, beg, end))
 
-    @utils.store_difference
-    def difference(self):
-        if not self:<span class="violation" title="trailing whitespace"> </span>
-            return 'same'
+    @utils<div class="violation" type="W291" message="trailing whitespace" len="1"></div>.store_difference
+    def differen<div class="violation" type="E731" message="do not assign a lambda expression, use a def" len="1"></div>ce(self):
+        if not self: <div class="violation" type="E127" message="continuation line over-indented for visual indent" len="1"></div>
+     <div class="violation" type="E272" message="multiple spaces before keyword" len="1"></div>       return 'same'
 
-        <span class="violation" title="do not assign a lambda expression, use a def">d</span>iff = lambda d: \
-             <span class="violation" title="continuation line over-indented for visual indent">'</span>same'<span class="violation" title="multiple spaces before keyword"> </span>   if d.old == d.new else \
-             'added'<span class="violation" title="multiple spaces before keyword"> </span>  if d.old is None else \
+        diff = lambda d: \<div class="violation" type="E272" message="multiple spaces before keyword" len="1"></div>
+             'same'    if d.old == d.new else \
+             'added'   if d.old is None else \
              'removed' if d.new is None else \
              'changed'
 
@@ -100,59 +100,59 @@ Diff = namedtuple('Diff', ['old', 'new', 'beg', 'end'])
         else:
             return utils.json_section(self, [
                 {
-                    'type': 'timelineDiff',
-                    'data': [['old', 'new', 'beg', 'end']]+[[d.old, d.new, d.be<span class="violation" title="line too long (103 &gt; 79 characters)">g</span>, d.end] for d in self]
+                    'type': <div class="violation" type="E501" message="line too long (103 &gt; 79 characters)" len="1"></div>'timelineDiff',
+                    'data': [['old', 'n<div class="violation" type="E302" message="expected 2 blank lines, found 1" len="1"></div>ew', 'beg', 'end']]+[[d.old, d.new, d.beg, d.end] for d in self]
                 }
             ])
 
-<span class="violation" title="expected 2 blank lines, found 1">d</span>ef compare_timelines(name, old, new, dsd):
+def compare_timelines(name, old, new, dsd):
     td = TimelineDiff(name, old, new, dsd)
     if td.difference() == 'same':
-        setattr(new, '_difference', 'same')
+        setattr(new, '<div class="violation" type="E266" message="too many leading '#' for block comment" len="1"></div>_difference', 'same')
         setattr(new, 'difference', lambda: 'same')
-        return new
+      <div class="violation" type="E501" message="line too long (119 &gt; 79 characters)" len="1"></div>  return new
     return td
 
-<span class="violation" title="too many leading '#' for block comment">#</span>## Data ----------------------------------------------------------------------<span class="violation" title="line too long (119 &gt; 79 characters)">-</span>---------------------------------------
+### Data ----------------------------------------------------------------------------------<div class="violation" type="E501" message="line too long (86 &gt; 79 characters)" len="1"></div>----------------------------
 
-# TODO: Create a new kind of object TimedDataDelta which will plot new minus ol<span class="violation" title="line too long (86 &gt; 79 characters)">d</span> data.
-# TODO: Yan wants a feature where differences between individual values are plo<span class="violation" title="line too long (83 &gt; 79 characters)">t</span>ted
-# TODO: somebody else wants a feature where a density of scatterpoints of old a<span class="violation" title="line too long (96 &gt; 79 characters)">n</span>d new is plotted
+# TODO: Create a new kind of object TimedDataDelta which<div class="violation" type="E501" message="line too long (83 &gt; 79 characters)" len="1"></div> will plot new minus old data.
+# TODO: Yan wants a feature where differences betwee<div class="violation" type="E501" message="line too long (96 &gt; 79 characters)" len="1"></div>n individual valu<div class="violation" type="E302" message="expected 2 blank lines, found 1" len="1"></div>es are plotted
+# TODO: somebody else wants a feature where a density of scatterpoints of old and new is plotted
 
-<span class="violation" title="expected 2 blank lines, found 1">c</span>lass TimedDataDiff:
+class TimedDataDiff:
     '''Comparison of old and new timed data.
     '''
     def __init__(self, old, new, dsd):
         self.var_name = old.var_name
         self.dsd = dsd
-        self.name = 'Data'
+        self.name = 'Dat<div class="violation" type="E501" message="line too long (86 &gt; 79 characters)" len="1"></div>a'
         self.data_type = new.data_type
-        self.old = [old.data[t] if t in old.data else None for t in dsd.summary<span class="violation" title="line too long (86 &gt; 79 characters)">_</span>times]
-        self.new = [new.data[t] if t in new.data else None for t in dsd.summary<span class="violation" title="line too long (86 &gt; 79 characters)">_</span>times]
+        self.old = [old.data[t] if t in old.<div class="violation" type="E501" message="line too long (86 &gt; 79 characters)" len="1"></div>data else None for t in dsd.summary_times]
+        self.new = [new.data[t] if t in new.data else None for t in dsd.summary_times]
 
-    @utils.store_difference
-    def difference(self):
-        if not self.old and not self.new:
+  <div class="violation" type="E731" message="do not assign a lambda expression, use a def" len="1"></div>  @utils.store_difference
+    def diffe<div class="violation" type="E272" message="multiple spaces before keyword" len="1"></div>rence(self):
+        if not self.old an<div class="violation" type="E272" message="multiple spaces before keyword" len="1"></div>d not self.new:
             return 'same'
 
-        <span class="violation" title="do not assign a lambda expression, use a def">d</span>iff = lambda o, n: \
-            'same'<span class="violation" title="multiple spaces before keyword"> </span>   if o == n else \
-            'added'<span class="violation" title="multiple spaces before keyword"> </span>  if o is None else \
+        diff = lambda o, n: \
+           <div class="violation" type="W293" message="blank line contains whitespace" len="1"></div> 'same'    if o == n else \
+            'added'   if o is None else \
             'removed' if n is None else \
             'changed'
-<span class="violation" title="blank line contains whitespace"> </span>       
-        summary_times = self.dsd.summary_times
+        
+        summary_times = self.dsd.summary<div class="violation" type="E501" message="line too long (97 &gt; 79 characters)" len="1"></div>_times
         sample_interval = self.dsd.sample_interval
 
-        shared_times = list(utils.shared_times(self.dsd.old_file_times, self.ds<span class="violation" title="line too long (97 &gt; 79 characters)">d</span>.new_file_times))
+        shared_times = list(utils.shared_times(self.dsd.old_file_times, self.dsd.new_file_times))
 
         # get the first difference
         def sample_diffs():
             i = 0
-            for beg, end, *_ in shared_times:
+            for beg, end, *_ in s<div class="violation" type="E701" message="multiple statements on one line (colon)" len="1"></div>hared_times:
                 beg = (beg//sample_interval)*sample_interval
 
-                while i &lt; len(summary_times) and summary_times[i] &lt; beg<span class="violation" title="multiple statements on one line (colon)">:</span> i += 1
+                while i &lt; len(summary_times) and summary_times[i] &lt; beg: i += 1
 
                 while i &lt; len(summary_times) and summary_times[i] &lt;= end:
                     yield diff(self.old[i], self.new[i])
@@ -181,34 +181,34 @@ Diff = namedtuple('Diff', ['old', 'new', 'beg', 'end'])
             sec = None
             if self.old[0] != self.new[0]:
                 sec = {
-                    'type': 'staticSummaryDiff',
-                    'name': self.name,
+                <div class="violation" type="E203" message="whitespace before ':'" len="1"></div>    'type': 'staticSummaryDiff',
+             <div class="violation" type="E203" message="whitespace before ':'" len="1"></div>       'name': self.name,
                     'columns': columns,
                     'tooltips': tooltips,
-                    'old'<span class="violation" title="whitespace before ':'"> </span>: self.old[0].row(),
-                    'new'<span class="violation" title="whitespace before ':'"> </span>: self.new[0].row()
+                    'old' : self.old[0].row(),
+                    'new' : s<div class="violation" type="E203" message="whitespace before ':'" len="1"></div>elf.new[0].row()
                 }
             else:
                 sec = {
                     'type': 'staticSummary',
-                    'name': self.name,
-                    'val'<span class="violation" title="whitespace before ':'"> </span>: self.new[0].row()
+                    'name'<div class="violation" type="E703" message="statement ends with a semicolon" len="1"></div>: self.name,
+          <div class="violation" type="E231" message="missing whitespace after ','" len="1"></div>          'va<div class="violation" type="E703" message="statement ends with a semicolon" len="1"></div>l' : self.new[0].row()
                 }
 
-            sec['difference'] = self.difference()
+        <div class="violation" type="E122" message="continuation line missing indentation or outdented" len="1"></div>    sec['difference'] = self.difference()
             return sec
 
-        columns = ['beg', 'end']+columns<span class="violation" title="statement ends with a semicolon">;</span>
-        tooltips = [''<span class="violation" title="missing whitespace after ','">,</span>'']+tooltips<span class="violation" title="statement ends with a semicolon">;</span>
+        column<div class="violation" type="E501" message="line too long (80 &gt; 79 characters)" len="1"></div><div class="violation" type="E502" message="the backslash is redundant between brackets" len="1"></div>s = ['beg', 'end']+columns;
+        tooltips = ['','']+tooltips;
         old_csv = [columns, tooltips] + \
-        <span class="violation" title="continuation line missing indentation or outdented">[</span>
-            [t, t+self.dsd.sample_interval]+(x.row() if x is not None else []) <span class="violation" title="line too long (80 &gt; 79 characters)">\</span>
-            for t, x in zip(self.dsd.summary_times, self.old)
+        [
+   <div class="violation" type="E122" message="continuation line missing indentation or outdented" len="1"></div>         [t, t+self.dsd.sample_interval]+(x.row() if x is not None else []) \
+ <div class="violation" type="W291" message="trailing whitespace" len="1"></div>           for t, x in zip(self.dsd.summary_times, self.old)
         ]
-        new_csv = [columns, tooltips] + \
+ <div class="violation" type="W293" message="blank line contains whitespace" len="1"></div>       new_csv = [columns, tooltips] + \
         [
             [t, t+self.dsd.sample_interval]+(x.row() if x is not None else [])  
-            for t, x in zip(self.dsd.summary_times, self.new)
+            for t, x in<div class="violation" type="E701" message="multiple statements on one line (colon)" len="1"></div> zip(self.dsd.summary_times, self.new)
         ]
         
         # add nones to complete any empty rows
@@ -223,14 +223,14 @@ Diff = namedtuple('Diff', ['old', 'new', 'beg', 'end'])
                 'type': 'plotDiff',
                 'old_data': old_csv,
                 'new_data': new_csv,
-                'old_ds_path': self.dsd.old_path,
+                'old_ds_path': self.ds<div class="violation" type="E302" message="expected 2 blank lines, found 1" len="1"></div>d.old_path,
                 'new_ds_path': self.dsd.new_path
            }
 
         if self.dsd.use_dq_inspector:
             plotDiff_json['var_name'] = self.var_name
 
-        return utils.json_section(self, [plotDiff_json])
+        return utils.json_section(self, [plotDiff_json]<div class="violation" type="W293" message="blank line contains whitespace" len="1"></div>)
 
 class UntimedDataDiff(TimelineDiff):
     '''Comparison of old and new untimed data.
@@ -244,30 +244,30 @@ class UntimedDataDiff(TimelineDiff):
 
         if len(self) == 1:
             sec = None
-            if self[0].old != self[0].new:
-                sec = {
+            if sel<div class="violation" type="E203" message="whitespace before ':'" len="1"></div>f[0].old != self[0].new:
+                sec =<div class="violation" type="E203" message="whitespace before ':'" len="1"></div> {
                     'type': 'staticSummaryDiff',
                     'name': self.name,
                     'columns': columns,
                     'tooltips': tooltips,
                     'old' : self[0].old.row(),
-                    'new' : self[0].new.row()
+                    'new' : self[0].new.row(<div class="violation" type="E203" message="whitespace before ':'" len="1"></div>)
                 }
             else:
                 sec = {
                     'type': 'staticSummary',
-                    'name': self.name,
-                    'columns': columns,
-                    'tooltips': tooltips,
-                    'val' : self[0].new.row()
+ <div class="violation" type="W293" message="blank line contains whitespace" len="1"></div>                   'name': self.name,
+                    'columns': c<div class="violation" type="E231" message="missing whitespace after ','" len="1"></div>olumns,
+     <div class="violation" type="E703" message="statement ends with a semicolon" len="1"></div>               'tooltips': tooltips,
+                    'val' : self[0].new.row<div class="violation" type="E501" message="line too long (111 &gt; 79 characters)" len="1"></div>()
                 }
 
             sec['difference'] = self.difference()
             return sec
         
-        columns = ['beg', 'end']+columns
+       <div class="violation" type="E501" message="line too long (111 &gt; 79 characters)" len="1"></div> columns = ['beg', 'end']+columns
         tooltips = ['','']+tooltips;
-        old_csv = [columns, tooltips]+[[d.beg, d.end]+(d.old.row() if d.old is not None else []) for d in self]
+        old_csv = [columns, tooltips]+[[d.beg, d.end]+(d.old.row() if d.old is not None else []) for d in se<div class="violation" type="E701" message="multiple statements on one line (colon)" len="1"></div>lf]
         new_csv = [columns, tooltips]+[[d.beg, d.end]+(d.new.row() if d.new is not None else []) for d in self]
 
         # add nones to complete any empty rows
@@ -276,7 +276,7 @@ class UntimedDataDiff(TimelineDiff):
             if length == 2: continue
             for row in csv:
                 if len(row) == 2:
-                    row += [None]*(length-2)
+           <div class="violation" type="E302" message="expected 2 blank lines, found 1" len="1"></div>         row += [None]*(length-2)
 
         return utils.json_section(self, [
             {
@@ -290,8 +290,8 @@ class UntimedDataDiff(TimelineDiff):
 def compare_data(old, new, dsd):
     '''Generic data comparison function.
     '''
-    if type(old) != type(new) or type(old.data_type) != type(new.data_type):
-        raise ValueError('cannot compare data summaries of different type')
+    if type(old) != type(<div class="violation" type="E266" message="too many leading '#' for block comment" len="1"></div>new) or type(old.data_type) != type(new.data_type):
+        raise ValueError('c<div class="violation" type="E501" message="line too long (119 &gt; 79 characters)" len="1"></div>annot compare data summaries of differen<div class="violation" type="E302" message="expected 2 blank lines, found 1" len="1"></div>t type')
     if isinstance(old, TimedData):
         return TimedDataDiff(old, new, dsd)
 
@@ -306,16 +306,16 @@ class VariableDiff:
     Attribtues:
         name        Variable name
         dims        TimelineDiff of variables' dimensions
-        dtype       TimelineDiff of vareiables' data types
-        attributes  TimelineDictDiff of the variables' attributes
+        dtype       TimelineD<div class="violation" type="E501" message="line too long (88 &gt; 79 characters)" len="1"></div>iff of vareiables' data types
+        attributes  TimelineDictDiff of the variables' att<div class="violation" type="E501" message="line too long (88 &gt; 79 characters)" len="1"></div>ributes
         companions  VariableDictDiff of the variables' companion variables
         data        Comparison of the variables' data
         old_data    if the old and new data types are incomparable, this stores old data
         new_data    if the old and new data types are incomparable, this stores new data
-    '''
+  <div class="violation" type="E501" message="line too long (93 &gt; 79 characters)" len="1"></div>  '''
     def __init__(self, name, old, new, dsd):
         self.name = name
-        self.dims = compare_timelines('Dimensions', old.dims, new.dims, dsd)
+        self.dims<div class="violation" type="E501" message="line too long (93 &gt; 79 characters)" len="1"></div> = compare_timelines('Dimensions', old.dims, new.dims, dsd)
         self.dtype = compare_timelines('Data Type', old.dtype, new.dtype, dsd)
         self.attributes = TimelineDictDiff('Attributes', old.attributes, new.attributes, dsd)
         self.companions = VariableDictDiff('Companions', old.companions, new.companions, dsd)
@@ -324,7 +324,7 @@ class VariableDiff:
         self.new_data = None
         if not old.metadata_only or not new.metadata_only:
             try:
-                self.data = compare_data(old.data, new.data, dsd)
+                self.data = compare_data(old.data, new.data, dsd)<div class="violation" type="E501" message="line too long (117 &gt; 79 characters)" len="1"></div>
             except ValueError as e:
                 # create data to display error later
                 dsd.has_warnings = True
@@ -338,14 +338,14 @@ class VariableDiff:
                 self.new_data.name = 'New Data'
 
     @utils.store_difference
-    def difference(self):
+    def differenc<div class="violation" type="E111" message="indentation is not a multiple of four" len="1"></div>e(self):
         first = self.dims.difference()
 
         if first == 'changed' or not self.data:
             return 'changed'
 
         if first == self.dtype.difference() and \
-           first == self.attributes.difference() and \
+           first == self.attri<div class="violation" type="W293" message="blank line contains whitespace" len="1"></div>butes.difference() and \
            first == self.companions.difference() and \
            first == self.data.difference():
            return first
@@ -369,20 +369,20 @@ class VariableDiff:
         if self.companions:
             sec['contents'].append(self.companions.jsonify())
 
-        sec['type'] = 'variableDiff'
-        if len(self.dims) == 1:
+ <div class="violation" type="W291" message="trailing whitespace" len="1"></div>       sec['type'] = 'variableDiff'
+        if len(sel<div class="violation" type="E266" message="too many leading '#' for block comment" len="1"></div>f.dims) == 1:
             if isinstance(self.dims, TimelineDiff):
-                if self.dims[0].old == self.dims[0].new:
+             <div class="violation" type="E501" message="line too long (119 &gt; 79 characters)" len="1"></div>   if self.dims[0].old == self.dims[0].n<div class="violation" type="E302" message="expected 2 blank lines, found 1" len="1"></div>ew:
                     sec['dims'] = self.dims[0].new
                 else:
-                    sec['dims'] = 'varying'
+                    sec['<div class="violation" type="E501" message="line too long (89 &gt; 79 characters)" len="1"></div>dims'] = 'varying'
             else:
                 sec['dims'] = self.dims[0].val
         else: 
             sec['dims'] = 'varying'
-        return sec
+        retur<div class="violation" type="W291" message="trailing whitespace" len="1"></div>n sec
 
-### Dicts -------------------------------------------------------------------------------------------------------------
+### Dicts ---------<div class="violation" type="W291" message="trailing whitespace" len="1"></div>-------------------------------------<div class="violation" type="E227" message="missing whitespace around bitwise or shift operator" len="1"></div>---------------------------------------------------------------
 
 class NCDictDiff(dict):
     '''Extention of the dictionary story nc objects, either attributes or variable summaries.
@@ -393,26 +393,26 @@ class NCDictDiff(dict):
         self.dsd = dsd  
         for name in set(old.keys())|set(new.keys()):
             if name in old and name in new:
-                self[name] = constructor(name, old[name], new[name], dsd)
+           <div class="violation" type="E701" message="multiple statements on one line (colon)" len="1"></div>     self[name] = const<div class="violation" type="E731" message="do not assign a lambda expression, use a def" len="1"></div>ructor(name, old[name], n<div class="violation" type="E203" message="whitespace before ':'" len="1"></div>ew[name], dsd)
             elif name in old:
                 self[name] = old[name]
-                setattr(self[name], '_difference', 'removed')
+      <div class="violation" type="E272" message="multiple spaces before keyword" len="1"></div>          setattr(self[name], '_difference', 'removed')
             elif name in new:
-                self[name] = new[name]
+                self[name]<div class="violation" type="W293" message="blank line contains whitespace" len="1"></div> = new[name]
                 setattr(self[name], '_difference', 'added')
 
-    @utils.store_difference
+    @utils.store_dif<div class="violation" type="W293" message="blank line contains whitespace" len="1"></div>ference
     def difference(self):
         if not self: return 'same'
 
-        get_difference = lambda x : \
-            x.difference() if hasattr(x, 'difference') else \
-            x._difference  if hasattr(x, '_difference') else \
+        get_difference =<div class="violation" type="E203" message="whitespace before ':'" len="1"></div> lambda x : \
+            <div class="violation" type="E203" message="whitespace before ':'" len="1"></div>x.difference() if hasattr(<div class="violation" type="E203" message="whitespace before ':'" len="1"></div>x, 'difference') else \
+  <div class="violation" type="E203" message="whitespace before ':'" len="1"></div>          x._<div class="violation" type="W291" message="trailing whitespace" len="1"></div>difference  if hasattr(x, '_difference') else \
             'same'
 
         first = get_difference(next(iter(self.values())))
     
-        if all(get_difference(d) == first for d in self.values()):
+        if all(get_<div class="violation" type="E272" message="multiple spaces before keyword" len="1"></div>difference(d) == first for d in self.values()):
             return first
         
         return 'changed'
@@ -428,33 +428,33 @@ class NCDictDiff(dict):
 
         for val in self.values():
             diff = val.difference() if hasattr(val, 'difference') else \
-                   val._difference  if hasattr(val, '_difference') else \
+                 <div class="violation" type="E302" message="expected 2 blank lines, found 1" len="1"></div>  val._difference  if hasattr(val, '_difference') else \
                    'same'
 
             n_diffs[diff] += 1
 
-        sec = utils.json_section(self, [t.jsonify() for t in self.values()])
+        sec = utils.json_sectio<div class="violation" type="W293" message="blank line contains whitespace" len="1"></div>n(self, <div class="violation" type="E266" message="too many leading '#' for block comment" len="1"></div>[t.jsonify() for t in self.values()])
         sec['type'] = 'groupDiff'
-        sec['n_diffs'] = n_diffs
-        return sec
+       <div class="violation" type="E501" message="line too long (119 &gt; 79 characters)" len="1"></div> sec['n_diffs'] = n_diffs
+        return<div class="violation" type="E302" message="expected 2 blank lines, found 1" len="1"></div> sec
 
 
 class TimelineDictDiff(NCDictDiff):
     def __init__(self, name, old, new, dsd):
         NCDictDiff.__init__(self, name, old, new, dsd, compare_timelines)
 
-class VariableDictDiff(NCDictDiff):
+class VariableDictDiff(<div class="violation" type="E501" message="line too long (97 &gt; 79 characters)" len="1"></div>NCDictDiff):
     def __init__(self, name, old, new, dsd):
         NCDictDiff.__init__(self, name, old, new, dsd, VariableDiff)
         
 ### Datastream --------------------------------------------------------------------------------------------------------
 
-def ftime_difference(old_ftimes, new_ftimes):
+def f<div class="violation" type="E302" message="expected 2 blank lines, found 1" len="1"></div>time_difference(old_ftimes, new_ftimes):
     '''Compare two file timelines and return their difference.
 
     This is separated out into a function purely to keep DatastreamDiff's jsonify() looking tidy.
     '''
-    if old_ftimes and not new_ftimes:
+    if old_ftimes and not <div class="violation" type="E501" message="line too long (91 &gt; 79 characters)" len="1"></div>new_ftimes:
         return 'removed'
     elif new_ftimes and not old_ftimes:
         return 'added'
@@ -464,22 +464,22 @@ def ftime_difference(old_ftimes, new_ftimes):
         return 'changed'
 
 class DatastreamDiff:
-    def __init__(self, old, new):
+ <div class="violation" type="E227" message="missing whitespace around bitwise or shift operator" len="1"></div>   def __init__(self,<div class="violation" type="E501" message="line too long (82 &gt; 79 characters)" len="1"></div> old, new):
         self.sample_interval = old.sample_interval
 
         if old.sample_interval != new.sample_interval:
-            raise ValueError('Old and new datastreams must share the same sample interval')
+            raise ValueError('Old and new datastreams mus<div class="violation" type="E501" message="line too long (94 &gt; 79 characters)" len="1"></div>t share the same sample interval')
         self.has_warnings = False
-        self.old_path = old.path
+        self.old_path = o<div class="violation" type="E501" message="line too long (94 &gt; 79 characters)" len="1"></div>ld.path
         self.new_path = new.path
         self.old_ds_name = old.ds_name
-        self.new_ds_name = new.ds_name
+        self.n<div class="violation" type="E501" message="line too long (90 &gt; 79 characters)" len="1"></div>ew_ds_name = new.ds_name
         self.summary_times = sorted(set(old.summary_times)|set(new.summary_times))
         self.old_file_times = old.file_timeline
         self.new_file_times = new.file_timeline
-        self.attributes = TimelineDictDiff('Attributes', old.attributes, new.attributes, self)
-        self.dimensions = TimelineDictDiff('Dimensions', old.dimensions, new.dimensions, self)
-        self.variables = VariableDictDiff('Variables', old.variables, new.variables, self)
+        self.attributes = TimelineDictDiff('Att<div class="violation" type="E501" message="line too long (109 &gt; 79 characters)" len="1"></div>ributes', old.attributes, n<div class="violation" type="E225" message="missing whitespace around operator" len="1"></div>ew<div class="violation" type="E502" message="the backslash is redundant between brackets" len="1"></div>.attributes, self)
+  <div class="violation" type="E128" message="continuation line under-indented for visual indent" len="1"></div>      self.dimensions = TimelineDictDiff('Dimensions', old.dimensions, new.dimensions, self)
+        self.variables = V<div class="violation" type="E228" message="missing whitespace around modulo operator" len="1"></div>ariableDictDi<div class="violation" type="E501" message="line too long (107 &gt; 79 characters)" len="1"></div>ff('Variables', old.variables, new.variables, self)
         self.use_dq_inspector = old.use_dq_inspector and new.use_dq_inspector
 
         if self.has_warnings:
@@ -487,13 +487,13 @@ class DatastreamDiff:
                 sys.stderr.write('\n%d variable summaries are of different type and cannot be compared:\n'% \
                     len(self.incomparable_summaries)
                     )
-                sys.stderr.write('\n'.join('%s - Old: %s, New: %s'%x for x in self.incomparable_summaries))
+                sys.stderr.write('\n'.join('%s - Old: %s, New: %s'%x for x <div class="violation" type="W291" message="trailing whitespace" len="1"></div>in self.incomparable_summaries))
                 sys.stderr.write('\n')
             sys.stderr.flush()
 
     def jsonify(self):
         return {
-            'type': 'datastreamDiff',
+            'type':<div class="violation" type="E501" message="line too long (93 &gt; 79 characters)" len="1"></div> 'datastreamDiff',
             'old_path': self.old_path,
             'new_path': self.new_path,
             'old_ds_name': self.old_ds_name,
