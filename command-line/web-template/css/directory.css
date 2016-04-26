@@ -19,3 +19,8 @@ td {
 tr:nth-child(even) {
 	background-color: #f6f6f6;
 }
+div.violation {
+	display: inline-block;
+	position: absolute;
+	height: 1em;
+}
