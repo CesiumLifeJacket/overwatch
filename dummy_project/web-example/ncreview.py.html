@@ -1,3 +1,5 @@
+<!doctype html>
+<html>
 <head>
 	<link rel="stylesheet" href="css/styles/arduino-light.css">
 	<link rel="stylesheet" href="css/file.css">
@@ -26,11 +28,11 @@ import datetime as dt
 
 import ncr.utils as utils
 from ncr.datastream import Datastream
-from ncr.datastreamdiff import Data<div class="violation" type="E266" message="too many leading '#' for block comment" len="1"></div>streamDiff
+from ncr.datastreamdiff import Data<div class="violation" type="E266" title="too many leading '#' for block comment" style="width:1ch;"></div>streamDiff
 
 import pdb
 
-### Progress Bar --------------------------------------<div class="violation" type="E501" message="line too long (119 &gt; 79 characters)" len="1"></div>----------------------------------------<div class="violation" type="E302" message="expected 2 blank lines, found 1" len="1"></div>------------------------
+### Progress Bar --------------------------------------<div class="violation" type="E501" title="line too long (119 &gt; 79 characters)" style="width:1ch;"></div>----------------------------------------<div class="violation" type="E302" title="expected 2 blank lines, found 1" style="width:1ch;"></div>------------------------
 
 class ProgressBar:
     '''Reports progress of loading datastreams, and estimates time remaining.
@@ -42,7 +44,7 @@ class ProgressBar:
             total_size             total number of files to process
             progress_bar_width  Character width of the progress bar
         '''
-        # progress bar variables<div class="violation" type="E261" message="at least two spaces before inline comment" len="1"></div>
+        # progress bar variables<div class="violation" type="E261" title="at least two spaces before inline comment" style="width:1ch;"></div>
         self.progress_bar_width = 50 # width of the progress bar in characters
         self.processed_size = 0
         self.total_size = total_size
@@ -55,12 +57,12 @@ class ProgressBar:
         sys.stdout.write('\r['+(' '*self.progress_bar_width)+']0%')
 
     def update(self, file_size):
-        '''Increment the numbe<div class="violation" type="E501" message="line too long (90 &gt; 79 characters)" len="1"></div>r of files processed by one, and updat<div class="violation" type="E266" message="too many leading '#' for block comment" len="1"></div>e the progress bar accordingly
+        '''Increment the numbe<div class="violation" type="E501" title="line too long (90 &gt; 79 characters)" style="width:1ch;"></div>r of files processed by one, and updat<div class="violation" type="E266" title="too many leading '#' for block comment" style="width:1ch;"></div>e the progress bar accordingly
         '''
         ## update the progress bar
         self.processed_size += file_size
-        time_elaps<div class="violation" type="E221" message="multiple spaces before operator" len="1"></div>ed = time.clock() - self.start_time
-        total_time   = time_elapsed * se<div class="violation" type="E221" message="multiple spaces before operator" len="1"></div>lf.total_size / self.processed_size<div class="violation" type="E261" message="at least two spaces before inline comment" len="1"></div>
+        time_elaps<div class="violation" type="E221" title="multiple spaces before operator" style="width:1ch;"></div>ed = time.clock() - self.start_time
+        total_time   = time_elapsed * se<div class="violation" type="E221" title="multiple spaces before operator" style="width:1ch;"></div>lf.total_size / self.processed_size<div class="violation" type="E261" title="at least two spaces before inline comment" style="width:1ch;"></div>
         time_remain  = (total_time - time_elapsed)*1.1 # overestimate by 10%
 
         mins_remain = int(time_remain // 60)
@@ -79,47 +81,47 @@ class ProgressBar:
 
     def complete(self):
         '''Display a progress bar at 100%
-   <div class="violation" type="E266" message="too many leading '#' for block comment" len="1"></div>     '''
+   <div class="violation" type="E266" title="too many leading '#' for block comment" style="width:1ch;"></div>     '''
         print('\r['+('#'*self.progress_bar_width)+']100%'+' '*15)
 
-###<div class="violation" type="E501" message="line too long (119 &gt; 79 characters)" len="1"></div> Parse Args --------------------------------------------------------------------------------------------------------
+###<div class="violation" type="E501" title="line too long (119 &gt; 79 characters)" style="width:1ch;"></div> Parse Args --------------------------------------------------------------------------------------------------------
 
-p<div class="violation" type="E501" message="line too long (103 &gt; 79 characters)" len="1"></div>arser = argparse.ArgumentPar<div class="violation" type="E128" message="continuation line under-indented for visual indent" len="1"></div>ser(description='Review reprocessing between two directories, or summari',
-<div class="violation" type="E501" message="line too long (91 &gt; 79 characters)" len="1"></div>    epilo<div class="violation" type="E225" message="missing whitespace around operator" len="1"></div>g=<div class="violation" type="E502" message="the backslash is redundant between brackets" len="1"></div>'Note<div class="violation" type="E128" message="continuation line under-indented for visual indent" len="1"></div> that if --begin and --end are unspecified when comparing datastreams, '+ \<div class="violation" type="E501" message="line too long (101 &gt; 79 characters)" len="1"></div>
+p<div class="violation" type="E501" title="line too long (103 &gt; 79 characters)" style="width:1ch;"></div>arser = argparse.ArgumentPar<div class="violation" type="E128" title="continuation line under-indented for visual indent" style="width:1ch;"></div>ser(description='Review reprocessing between two directories, or summari',
+<div class="violation" type="E501" title="line too long (91 &gt; 79 characters)" style="width:1ch;"></div>    epilo<div class="violation" type="E225" title="missing whitespace around operator" style="width:1ch;"></div>g=<div class="violation" type="E502" title="the backslash is redundant between brackets" style="width:1ch;"></div>'Note<div class="violation" type="E128" title="continuation line under-indented for visual indent" style="width:1ch;"></div> that if --begin and --end are unspecified when comparing datastreams, '+ \<div class="violation" type="E501" title="line too long (101 &gt; 79 characters)" style="width:1ch;"></div>
     'the time span chosen will be the intersection of the time periods spanned by both datastreams.')
-parser.add_argument('old_dir', help='<div class="violation" type="W291" message="trailing whitespace" len="1"></div>Old d<div class="violation" type="E128" message="continuation line under-indented for visual indent" len="1"></div>atastream directory')
+parser.add_argument('old_dir', help='<div class="violation" type="W291" title="trailing whitespace" style="width:1ch;"></div>Old d<div class="violation" type="E128" title="continuation line under-indented for visual indent" style="width:1ch;"></div>atastream directory')
 
-parser.add_argument('new_dir', nargs='?', default=No<div class="violation" type="E501" message="line too long (82 &gt; 79 characters)" len="1"></div>ne, 
-    help='New datastream directory, exclude to simply review a single directo<div class="violation" type="E501" message="line too long (113 &gt; 79 characters)" len="1"></div>ry.')
+parser.add_argument('new_dir', nargs='?', default=No<div class="violation" type="E501" title="line too long (82 &gt; 79 characters)" style="width:1ch;"></div>ne, 
+    help='New datastream directory, exclude to simply review a single directo<div class="violation" type="E501" title="line too long (113 &gt; 79 characters)" style="width:1ch;"></div>ry.')
 
-parser.add_argument('--begin', '-b', default='00010101', metavar='YYYYMMDD', help='Ignore files before YYY<div class="violation" type="E501" message="line too long (111 &gt; 79 characters)" len="1"></div>YMMDD')
-parser.add_argument('--end', '-e', default='99991231',  metavar='YYYYMMDD', help='Ig<div class="violation" type="E101" message="indentation contains mixed spaces and tabs" len="1"></div><div class="violation" type="W191" message="indentation contains tabs" len="1"></div>n<div class="violation" type="E128" message="continuation line under-indented for visual indent" len="1"></div>ore files after YYYYMMDD')
+parser.add_argument('--begin', '-b', default='00010101', metavar='YYYYMMDD', help='Ignore files before YYY<div class="violation" type="E501" title="line too long (111 &gt; 79 characters)" style="width:1ch;"></div>YMMDD')
+parser.add_argument('--end', '-e', default='99991231',  metavar='YYYYMMDD', help='Ig<div class="violation" type="E101" title="indentation contains mixed spaces and tabs" style="width:1ch;"></div><div class="violation" type="W191" title="indentation contains tabs" style="width:1ch;"></div>n<div class="violation" type="E128" title="continuation line under-indented for visual indent" style="width:1ch;"></div>ore files after YYYYMMDD')
 
-parser.add_argument('--sample_interval', '-t<div class="violation" type="E225" message="missing whitespace around operator" len="1"></div>'<div class="violation" type="E502" message="the backslash is redundant between brackets" len="1"></div>,<div class="violation" type="E101" message="indentation contains mixed spaces and tabs" len="1"></div> default=<div class="violation" type="E128" message="continuation line under-indented for visual indent" len="1"></div>None,
-	help='Time interval to average data over in HH-MM-SS. If not pr<div class="violation" type="E501" message="line too long (108 &gt; 79 characters)" len="1"></div>ovided, '+\
-         'defaults to 1 day if more than 10 days are being processed, otherwise defaults to hour<div class="violation" type="E501" message="line too long (80 &gt; 79 characters)" len="1"></div>ly sa<div class="violation" type="E128" message="continuation line under-indented for visual indent" len="1"></div>mples')
+parser.add_argument('--sample_interval', '-t<div class="violation" type="E225" title="missing whitespace around operator" style="width:1ch;"></div>'<div class="violation" type="E502" title="the backslash is redundant between brackets" style="width:1ch;"></div>,<div class="violation" type="E101" title="indentation contains mixed spaces and tabs" style="width:1ch;"></div> default=<div class="violation" type="E128" title="continuation line under-indented for visual indent" style="width:1ch;"></div>None,
+	help='Time interval to average data over in HH-MM-SS. If not pr<div class="violation" type="E501" title="line too long (108 &gt; 79 characters)" style="width:1ch;"></div>ovided, '+\
+         'defaults to 1 day if more than 10 days are being processed, otherwise defaults to hour<div class="violation" type="E501" title="line too long (80 &gt; 79 characters)" style="width:1ch;"></div>ly sa<div class="violation" type="E128" title="continuation line under-indented for visual indent" style="width:1ch;"></div>mples')
 
-parser.add_argument('--metadata_only', '-m', action='store_true', <div class="violation" type="E501" message="line too long (91 &gt; 79 characters)" len="1"></div>default=False,
-    help='Review only metadata, ignoring variable data. Much faster than sta<div class="violation" type="E501" message="line too long (124 &gt; 79 characters)" len="1"></div>ndard review.')
+parser.add_argument('--metadata_only', '-m', action='store_true', <div class="violation" type="E501" title="line too long (91 &gt; 79 characters)" style="width:1ch;"></div>default=False,
+    help='Review only metadata, ignoring variable data. Much faster than sta<div class="violation" type="E501" title="line too long (124 &gt; 79 characters)" style="width:1ch;"></div>ndard review.')
 
-parser.add_argument('--write_dir', '-w', default=None, metavar='DIR', help='write<div class="violation" type="E128" message="continuation line under-indented for visual indent" len="1"></div> output data files to specified directory')
+parser.add_argument('--write_dir', '-w', default=None, metavar='DIR', help='write<div class="violation" type="E128" title="continuation line under-indented for visual indent" style="width:1ch;"></div> output data files to specified directory')
 
-parser.add_argument('--name', <div class="violation" type="E501" message="line too long (95 &gt; 79 characters)" len="1"></div>'-n', default=<div class="violation" type="E225" message="missing whitespace around operator" len="1"></div>N<div class="violation" type="E502" message="the backslash is redundant between brackets" len="1"></div>one,
-    h<div class="violation" type="E128" message="continuation line under-indented for visual indent" len="1"></div>elp='Specify custom name to be used for the run.  Will be the director<div class="violation" type="E501" message="line too long (80 &gt; 79 characters)" len="1"></div>y name where the '+\
-    <div class="violation" type="W291" message="trailing whitespace" len="1"></div>     'summary files ncreview creates are stored as well as the URL suffix.')
+parser.add_argument('--name', <div class="violation" type="E501" title="line too long (95 &gt; 79 characters)" style="width:1ch;"></div>'-n', default=<div class="violation" type="E225" title="missing whitespace around operator" style="width:1ch;"></div>N<div class="violation" type="E502" title="the backslash is redundant between brackets" style="width:1ch;"></div>one,
+    h<div class="violation" type="E128" title="continuation line under-indented for visual indent" style="width:1ch;"></div>elp='Specify custom name to be used for the run.  Will be the director<div class="violation" type="E501" title="line too long (80 &gt; 79 characters)" style="width:1ch;"></div>y name where the '+\
+    <div class="violation" type="W291" title="trailing whitespace" style="width:1ch;"></div>     'summary files ncreview creates are stored as well as the URL suffix.')
 
 # convert time arguments 
 args = parser.parse_args()
 
-# get<div class="violation" type="E501" message="line too long (80 &gt; 79 characters)" len="1"></div> absolute directory paths,
-# this will be important for the <div class="violation" type="E701" message="multiple statements on one line (colon)" len="1"></div>webpage to know where the datastreams came from
-args.old_dir = o<div class="violation" type="W291" message="trailing whitespace" len="1"></div>s.path.abspath(args.old_dir)
+# get<div class="violation" type="E501" title="line too long (80 &gt; 79 characters)" style="width:1ch;"></div> absolute directory paths,
+# this will be important for the <div class="violation" type="E701" title="multiple statements on one line (colon)" style="width:1ch;"></div>webpage to know where the datastreams came from
+args.old_dir = o<div class="violation" type="W291" title="trailing whitespace" style="width:1ch;"></div>s.path.abspath(args.old_dir)
 if args.new_dir: args.new_dir = os.path.abspath(args.new_dir)
 if args.write_dir: 
     args.write_dir = os.path.abspath(args.write_dir)
 
-    if not os.pa<div class="violation" type="E228" message="missing whitespace around modulo operator" len="1"></div>th.exists(<div class="violation" type="E501" message="line too long (102 &gt; 79 characters)" len="1"></div>os.path.dirname(args.write_dir)):
-        sys.stderr.write("Error: write directory %s does not exist<div class="violation" type="E221" message="multiple spaces before operator" len="1"></div>\n"%os.path.dirname(args.write_dir))
+    if not os.pa<div class="violation" type="E228" title="missing whitespace around modulo operator" style="width:1ch;"></div>th.exists(<div class="violation" type="E501" title="line too long (102 &gt; 79 characters)" style="width:1ch;"></div>os.path.dirname(args.write_dir)):
+        sys.stderr.write("Error: write directory %s does not exist<div class="violation" type="E221" title="multiple spaces before operator" style="width:1ch;"></div>\n"%os.path.dirname(args.write_dir))
         quit()
 
 args.begin = dt.datetime.strptime(args.begin, '%Y%m%d')
@@ -128,10 +130,10 @@ args.end   = dt.datetime.strptime(args.end,   '%Y%m%d')
 try:
     if args.sample_interval is not None:
         h, m, s = args.sample_interval.split('-')
-  <div class="violation" type="E228" message="missing whitespace around modulo operator" len="1"></div>      args.sample_interval = int<div class="violation" type="E266" message="too many leading '#' for block comment" len="1"></div>(h)*60*60+int(m)*60+int(s)
+  <div class="violation" type="E228" title="missing whitespace around modulo operator" style="width:1ch;"></div>      args.sample_interval = int<div class="violation" type="E266" title="too many leading '#' for block comment" style="width:1ch;"></div>(h)*60*60+int(m)*60+int(s)
 except:
-    sys.stderr.write("Error: chunk time %s i<div class="violation" type="E501" message="line too long (119 &gt; 79 characters)" len="1"></div>s invalid.\n"%args.sample_interval)
-    <div class="violation" type="E302" message="expected 2 blank lines, found 1" len="1"></div>quit()
+    sys.stderr.write("Error: chunk time %s i<div class="violation" type="E501" title="line too long (119 &gt; 79 characters)" style="width:1ch;"></div>s invalid.\n"%args.sample_interval)
+    <div class="violation" type="E302" title="expected 2 blank lines, found 1" style="width:1ch;"></div>quit()
 
 ### Review Data -------------------------------------------------------------------------------------------------------
 def is_valid(fname):
@@ -144,27 +146,27 @@ args.old_dir = os.path.abspath(args.old_dir) if args.old_dir else args.old_dir
 jdata = None
 if args.new_dir:
     new_files = sorted(filter(is_valid, os.listdir(args.new_dir)))
-    old_files = sorted(filte<div class="violation" type="E501" message="line too long (98 &gt; 79 characters)" len="1"></div>r(is_valid, os.listdir(args.old_dir)))
+    old_files = sorted(filte<div class="violation" type="E501" title="line too long (98 &gt; 79 characters)" style="width:1ch;"></div>r(is_valid, os.listdir(args.old_dir)))
 
     if not new_files:
-        raise RuntimeError(args.new_dir+' contains no net<div class="violation" type="E501" message="line too long (98 &gt; 79 characters)" len="1"></div>CDF files in the specified time period.')
+        raise RuntimeError(args.new_dir+' contains no net<div class="violation" type="E501" title="line too long (98 &gt; 79 characters)" style="width:1ch;"></div>CDF files in the specified time period.')
     if not old_files:
         raise RuntimeError(args.old_dir+' contains no netCDF files in the specified time period.')
 
     # get the latest begin and earliest end
     sys.stdout.write('Determining comparison interval...')
-    new_times = list(map(utils.file_ti<div class="violation" type="E501" message="line too long (103 &gt; 79 characters)" len="1"></div>me, new_files))
-    old_times = list<div class="violation" type="E221" message="multiple spaces before operator" len="1"></div>(map(utils.file_time, old_files))
+    new_times = list(map(utils.file_ti<div class="violation" type="E501" title="line too long (103 &gt; 79 characters)" style="width:1ch;"></div>me, new_files))
+    old_times = list<div class="violation" type="E221" title="multiple spaces before operator" style="width:1ch;"></div>(map(utils.file_time, old_files))
 
-    args.begin = max(min(new_tim<div class="violation" type="E501" message="line too long (108 &gt; 79 characters)" len="1"></div>es), min(old_times)).replace(hour=0, minute=0, second=0, microsecond=0)
+    args.begin = max(min(new_tim<div class="violation" type="E501" title="line too long (108 &gt; 79 characters)" style="width:1ch;"></div>es), min(old_times)).replace(hour=0, minute=0, second=0, microsecond=0)
     args.end   = min(max(new_times), max(old_times)).replace(hour=23, minute=59, second=59, microsecond=999)
 
     # re-filter the files with the new time bounds
     new_files = sorted(filter(is_valid, new_files))
-    old_files<div class="violation" type="E501" message="line too long (102 &gt; 79 characters)" len="1"></div> = sorted(filter(is_<div class="violation" type="E225" message="missing whitespace around operator" len="1"></div>va<div class="violation" type="E502" message="the backslash is redundant between brackets" len="1"></div>lid, old_file<div class="violation" type="E128" message="continuation line under-indented for visual indent" len="1"></div>s))
+    old_files<div class="violation" type="E501" title="line too long (102 &gt; 79 characters)" style="width:1ch;"></div> = sorted(filter(is_<div class="violation" type="E225" title="missing whitespace around operator" style="width:1ch;"></div>va<div class="violation" type="E502" title="the backslash is redundant between brackets" style="width:1ch;"></div>lid, old_file<div class="violation" type="E128" title="continuation line under-indented for visual indent" style="width:1ch;"></div>s))
 
     if not new_files or not old_files:
-        raise RuntimeEr<div class="violation" type="E501" message="line too long (90 &gt; 79 characters)" len="1"></div>ror('Old and New directories do not appear to have overlapping measurement '+ \
+        raise RuntimeEr<div class="violation" type="E501" title="line too long (90 &gt; 79 characters)" style="width:1ch;"></div>ror('Old and New directories do not appear to have overlapping measurement '+ \
             'times in the specified time period. Cannot determine a comparison interval.')
     sys.stdout.write('\r')
 
@@ -178,17 +180,17 @@ if args.new_dir:
         total_size += os.stat(args.new_dir+'/'+f).st_size
 
     progress_bar = ProgressBar(total_size)
-    sys.stdout.write(<div class="violation" type="E501" message="line too long (115 &gt; 79 characters)" len="1"></div>'\r')
+    sys.stdout.write(<div class="violation" type="E501" title="line too long (115 &gt; 79 characters)" style="width:1ch;"></div>'\r')
     # read datastreams
     print('Loading datastreams...'+' '*10)
     progress_bar.start()
-    old_ds = Datas<div class="violation" type="E501" message="line too long (115 &gt; 79 characters)" len="1"></div>tream(args.old_dir, args.begin, args.end, args.sample_interval, args.metadata_only, progress_bar)
+    old_ds = Datas<div class="violation" type="E501" title="line too long (115 &gt; 79 characters)" style="width:1ch;"></div>tream(args.old_dir, args.begin, args.end, args.sample_interval, args.metadata_only, progress_bar)
     new_ds = Datastream(args.new_dir, args.begin, args.end, args.sample_interval, args.metadata_only, progress_bar)
     progress_bar.complete()
     # compare datastreams
     print('Comparing datastreams...')
     dsdiff = DatastreamDiff(old_ds, new_ds)
-    jdata = dsdiff.jsoni<div class="violation" type="E501" message="line too long (90 &gt; 79 characters)" len="1"></div>fy()
+    jdata = dsdiff.jsoni<div class="violation" type="E501" title="line too long (90 &gt; 79 characters)" style="width:1ch;"></div>fy()
 else:
     path = args.old_dir
 
@@ -203,17 +205,17 @@ else:
     for f in files:
         total_size += os.stat(path+'/'+f).st_size
 
-    progress_bar = ProgressBar(total_<div class="violation" type="E501" message="line too long (103 &gt; 79 characters)" len="1"></div>size)
+    progress_bar = ProgressBar(total_<div class="violation" type="E501" title="line too long (103 &gt; 79 characters)" style="width:1ch;"></div>size)
     sys.stdout.write('\r')
     # read datastreams
-    print('Loading <div class="violation" type="E266" message="too many leading '#' for block comment" len="1"></div>datastream...'+' '*10)
+    print('Loading <div class="violation" type="E266" title="too many leading '#' for block comment" style="width:1ch;"></div>datastream...'+' '*10)
     progress_bar.start()
-    ds = Datastream(path, args.<div class="violation" type="E501" message="line too long (119 &gt; 79 characters)" len="1"></div>begin, args.end, args.sample_interval, a<div class="violation" type="E302" message="expected 2 blank lines, found 1" len="1"></div>rgs.metadata_only, progress_bar)
+    ds = Datastream(path, args.<div class="violation" type="E501" title="line too long (119 &gt; 79 characters)" style="width:1ch;"></div>begin, args.end, args.sample_interval, a<div class="violation" type="E302" title="expected 2 blank lines, found 1" style="width:1ch;"></div>rgs.metadata_only, progress_bar)
     progress_bar.complete()
 
     jdata = ds.jsonify()
 
-### Write out the data ----------------------------------------------------<div class="violation" type="E701" message="multiple statements on one line (colon)" len="1"></div>--------------------------------------------
+### Write out the data ----------------------------------------------------<div class="violation" type="E701" title="multiple statements on one line (colon)" style="width:1ch;"></div>--------------------------------------------
 
 def unique_name(format_str, path):
     '''Produce a unique directory name at the specified path'''
@@ -222,9 +224,9 @@ def unique_name(format_str, path):
     return format_str.format(ID)
 
 # get the path of the dir to write to
-wpath = '/data<div class="violation" type="W291" message="trailing whitespace" len="1"></div>/tmp/ncreview/'
+wpath = '/data<div class="violation" type="W291" title="trailing whitespace" style="width:1ch;"></div>/tmp/ncreview/'
 
-if args.writ<div class="violation" type="E261" message="at least two spaces before inline comment" len="1"></div>e_dir is not None:
+if args.writ<div class="violation" type="E261" title="at least two spaces before inline comment" style="width:1ch;"></div>e_dir is not None:
     wpath = args.write_dir
 
 if not os.path.exists(wpath):
@@ -233,13 +235,13 @@ if not os.path.exists(wpath):
 format_str = ''
 if args.name:
     format_str = args.name
-    if os.path.exi<div class="violation" type="W291" message="trailing whitespace" len="1"></div>sts(wpath+'/'+args.name): 
-  <div class="violation" type="E261" message="at least two spaces before inline comment" len="1"></div>      format_str += '.{0}' # if the directory already exists, add a unique id
+    if os.path.exi<div class="violation" type="W291" title="trailing whitespace" style="width:1ch;"></div>sts(wpath+'/'+args.name): 
+  <div class="violation" type="E261" title="at least two spaces before inline comment" style="width:1ch;"></div>      format_str += '.{0}' # if the directory already exists, add a unique id
 
-elif <div class="violation" type="E228" message="missing whitespace around modulo operator" len="1"></div>args.write_dir:
+elif <div class="violation" type="E228" title="missing whitespace around modulo operator" style="width:1ch;"></div>args.write_dir:
     format_str = '.ncr.'+dt.datetime.now().strftime('%y%m%d.%H%M%S')
     if os.path.exists(format_str): 
-        format_str += '<div class="violation" type="E302" message="expected 2 blank lines, found 0" len="1"></div>.{0}' # if the directory already exists, add a unique id
+        format_str += '<div class="violation" type="E302" title="expected 2 blank lines, found 0" style="width:1ch;"></div>.{0}' # if the directory already exists, add a unique id
 else:
     format_str = '%s.%s.{0}'%(os.environ['USER'], os.environ['HOST'])
 
@@ -254,13 +256,13 @@ def separate_data(obj):
     global n
     to_separate = []
     if obj['type'] in ['plot', 'timeline', 'fileTimeline', 'timelineDiff']:
-        to_separate = <div class="violation" type="E701" message="multiple statements on one line (colon)" len="1"></div>['data']
+        to_separate = <div class="violation" type="E701" title="multiple statements on one line (colon)" style="width:1ch;"></div>['data']
     elif obj['type'] in ['plotDiff', 'fileTimelineDiff']:
         to_separate = ['old_data', 'new_data']
 
-    for<div class="violation" type="E501" message="line too long (87 &gt; 79 characters)" len="1"></div> key in to_separate:
+    for<div class="violation" type="E501" title="line too long (87 &gt; 79 characters)" style="width:1ch;"></div> key in to_separate:
         # generate a unique csv file name
-        while os.path.isfile(jdata_path+'ncrev<div class="violation" type="E701" message="multiple statements on one line (colon)" len="1"></div>iew.{0}.csv'.format(n)): n += 1
+        while os.path.isfile(jdata_path+'ncrev<div class="violation" type="E701" title="multiple statements on one line (colon)" style="width:1ch;"></div>iew.{0}.csv'.format(n)): n += 1
 
         # write out the data as csv
         with open(jdata_path+'ncreview.{0}.csv'.format(n), 'w', newline='') as csvfile:
@@ -276,8 +278,8 @@ def separate_data(obj):
 
 separate_data(jdata)
 
-# Write out the r<div class="violation" type="E703" message="statement ends with a semicolon" len="1"></div>esults as json
-with<div class="violation" type="E261" message="at least two spaces before inline comment" len="1"></div> open(jdata_path+'ncreview.json', 'w') as jfile:
+# Write out the r<div class="violation" type="E703" title="statement ends with a semicolon" style="width:1ch;"></div>esults as json
+with<div class="violation" type="E261" title="at least two spaces before inline comment" style="width:1ch;"></div> open(jdata_path+'ncreview.json', 'w') as jfile:
     jfile.write(json.dumps(jdata, default=utils.JEncoder))
 
 first_dir, user, *_ = os.path.realpath(__file__).split('/')[1:]
@@ -294,3 +296,4 @@ print ('https://engineering.arm.gov'+location+'/ncreview/?'+url_string)
 
 </code></pre>
 </body>
+</html>

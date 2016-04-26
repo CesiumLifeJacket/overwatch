@@ -1,3 +1,5 @@
+<!doctype html>
+<html>
 <head>
 	<link rel="stylesheet" href="css/styles/arduino-light.css">
 	<link rel="stylesheet" href="css/file.css">
@@ -6,7 +8,7 @@
 </head>
 <body>
 <pre><code class="python">
-'''A few miscellaneous functions and objects used by the datastream and datastr<div class="violation" type="E501" message="line too long (95 &gt; 79 characters)" len="1"></div>eamdiff modules.
+'''A few miscellaneous functions and objects used by the datastream and datastr<div class="violation" type="E501" title="line too long (95 &gt; 79 characters)" style="width:1ch;"></div>eamdiff modules.
 '''
 import re
 import sys
@@ -18,18 +20,18 @@ import datetime as dt
 # regex for checking netcdf file names
 ncfname_re = \
     re.compile('^([a-z]{3})([a-z0-9]*)([A-Z]\d+)\.([a-z]\d).'
-   <div class="violation" type="W503" message="line break before binary operator" len="1"></div> <div class="violation" type="E225" message="missing whitespace around operator" len="1"></div>           +'(\d{4})(\d\d)(\d\d)\.(\d\d)(\d\d)(\d\d)\<div class="violation" type="E302" message="expected 2 blank lines, found 1" len="1"></div>.(cdf|nc)$')
+   <div class="violation" type="W503" title="line break before binary operator" style="width:1ch;"></div> <div class="violation" type="E225" title="missing whitespace around operator" style="width:1ch;"></div>           +'(\d{4})(\d\d)(\d\d)\.(\d\d)(\d\d)(\d\d)\<div class="violation" type="E302" title="expected 2 blank lines, found 1" style="width:1ch;"></div>.(cdf|nc)$')
 
 def file_time(fname):
     '''Return time in netcdf file name as a datetime object
     '''
     match = ncfname_re.match(fname)
-    return dt.datetime(*map(int, match.groups()[4:10])) <div class="violation" type="E302" message="expected 2 blank lines, found 1" len="1"></div>if match else None
+    return dt.datetime(*map(int, match.groups()[4:10])) <div class="violation" type="E302" title="expected 2 blank lines, found 1" style="width:1ch;"></div>if match else None
 
 def file_datastream(fname):
     '''return the datstream substring from a filename'''
     match = ncfname_re.match(fname)
-    return ''.j<div class="violation" type="E302" message="expected 2 blank lines, found 1" len="1"></div>oin(match.groups()[:4])
+    return ''.j<div class="violation" type="E302" title="expected 2 blank lines, found 1" style="width:1ch;"></div>oin(match.groups()[:4])
 
 def store_difference(func):
     '''Decorator that causes difference() methods to store and reuse their result.
@@ -37,7 +39,7 @@ def store_difference(func):
     def difference(self):
         if not hasattr(self, '_difference'):
             setattr(self, '_difference', func(self))
-        return self._<div class="violation" type="E302" message="expected 2 blank lines, found 1" len="1"></div>difference
+        return self._<div class="violation" type="E302" title="expected 2 blank lines, found 1" style="width:1ch;"></div>difference
     return difference
 
 def json_section(self, contents):
@@ -51,11 +53,11 @@ def json_section(self, contents):
     if hasattr(self, 'difference'):
             sec['difference'] = self.difference()
     elif hasattr(self, '_difference'):
-        sec['<div class="violation" type="E302" message="expected 2 blank lines, found 1" len="1"></div>difference'] = self._difference
+        sec['<div class="violation" type="E302" title="expected 2 blank lines, found 1" style="width:1ch;"></div>difference'] = self._difference
     return sec
 
 def JEncoder(obj):
-    ''' Defines a few default <div class="violation" type="E501" message="line too long (82 &gt; 79 characters)" len="1"></div>behaviours when the json encoder doesn't know what to do
+    ''' Defines a few default <div class="violation" type="E501" title="line too long (82 &gt; 79 characters)" style="width:1ch;"></div>behaviours when the json encoder doesn't know what to do
     '''
     try:
         if np.isnan(obj):
@@ -68,7 +70,7 @@ def JEncoder(obj):
         try:
             return str(obj)
         except:
-            raise<div class="violation" type="E501" message="line too long (93 &gt; 79 characters)" len="1"></div> TypeError('O<div class="violation" type="E502" message="the backslash is redundant between brackets" len="1"></div>bject of type {0}<div class="violation" type="E128" message="continuation line under-indented for visual indent" len="1"></div> with value of {1} is not JSON<div class="violation" type="E302" message="expected 2 blank lines, found 1" len="1"></div> serializable' \
+            raise<div class="violation" type="E501" title="line too long (93 &gt; 79 characters)" style="width:1ch;"></div> TypeError('O<div class="violation" type="E502" title="the backslash is redundant between brackets" style="width:1ch;"></div>bject of type {0}<div class="violation" type="E128" title="continuation line under-indented for visual indent" style="width:1ch;"></div> with value of {1} is not JSON<div class="violation" type="E302" title="expected 2 blank lines, found 1" style="width:1ch;"></div> serializable' \
                 .format(type(obj), repr(obj)))
 
 def shared_times(old_ftimes, new_ftimes):
@@ -82,8 +84,8 @@ def shared_times(old_ftimes, new_ftimes):
         yeilds the tuple:
             beg    beginning of the shared time interval
             end    end of the shared time interval
-   <div class="violation" type="E501" message="line too long (85 &gt; 79 characters)" len="1"></div>         old_i  index of interval in old_ftimes that overlaps this shared interval
-  <div class="violation" type="E501" message="line too long (85 &gt; 79 characters)" len="1"></div>          new_i  index of interval in new_ftimes that overlaps this shared interval
+   <div class="violation" type="E501" title="line too long (85 &gt; 79 characters)" style="width:1ch;"></div>         old_i  index of interval in old_ftimes that overlaps this shared interval
+  <div class="violation" type="E501" title="line too long (85 &gt; 79 characters)" style="width:1ch;"></div>          new_i  index of interval in new_ftimes that overlaps this shared interval
     '''
     old_itr = iter(enumerate(old_ftimes))
     new_itr = iter(enumerate(new_ftimes))
@@ -108,3 +110,4 @@ def shared_times(old_ftimes, new_ftimes):
 
 </code></pre>
 </body>
+</html>

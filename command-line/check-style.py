@@ -60,7 +60,7 @@ def annotate_code(code, violations):
     for v in violations:
         index = line_indices[v['row'] - 1] + v['col'] - 1
 
-        insertion = '<div class="violation" type="{}" message="{}" len="{}"></div>'.format(
+        insertion = '<div class="violation" type="{}" title="{}" style="width:{}ch;"></div>'.format(
             escape(v['type']),
             escape(v['message']),
             v.get('length', 1)
