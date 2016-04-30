@@ -1,6 +1,26 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto);
 .violation {
-	border-bottom: 1px solid red;
+	border-bottom: 3px dashed red;
 	display: inline-block;
 	position: absolute;
-	height: 1em;
+	height: 1.25em;
+	cursor: pointer;
+}
+div.violation .error {
+    display:none;
+}
+div.violation:hover .error {
+    display: block;
+    background-color: #E6E6E6;
+    border: solid 1px #B3B3B3;
+    position:absolute;
+    top: -2.25em;
+    padding: 5px;
+    border-radius: 0.4em;
+}
+div.violation:hover .error, div.violation:hover .error span {
+    color: red !important;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
 }
