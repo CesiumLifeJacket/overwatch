@@ -7,6 +7,16 @@
 	<script>hljs.initHighlightingOnLoad();</script>
 </head>
 <body>
+<h1>
+{%- for name, path in dir_path -%}
+  {%- if not loop.last -%}
+    <a href={{ path | quote }}>{{ name | e }}/</a>
+  {%- else -%}
+    {{ name | e }}
+  {%- endif -%}
+{%- endfor -%}
+</h1>
+
 <pre><code class="{{language}}">
 {{ code }}
 </code></pre>

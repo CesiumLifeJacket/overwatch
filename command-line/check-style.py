@@ -90,6 +90,27 @@ def annotate_code(code, violations):
 
     return annotated_code
 
+def path_filename(d):
+    if not hasattr(path_filename, 'filenames'):
+        setattr(path_filename, 'filenames', {})
+        path_filename.filenames[''] = 'Index.html'
+
+    if d in path_filename.filenames:
+        return path_filename.filenames[d]
+    else:
+        fname = d.replace('/', '__') + '.html'
+        path_filename.filenames[d] = fname
+        return fname
+
+def get_parents(path):
+    if not path:
+        return [("/", path_filename(''))]
+
+    parent, base = os.path.split(path)
+    fname = path_filename(path)
+
+    return get_parents(parent) + [(base, fname)]
+
 if not os.path.exists(args.web_directory):
     os.makedirs(args.web_directory)
 
@@ -111,25 +132,18 @@ js_path = os.path.join(args.web_directory, 'js')
 if not os.path.exists(js_path):
     shutil.copytree(os.path.join(template_path, 'js'), js_path)
 
+
+## Write out the code files
 for file, violations in report.items():
+    # Render HTML
+    dir_path = get_parents(file)
     code = open(file).read()
     annotated_code = annotate_code(code, violations)
-    file_html = file_template.render(language='python', code=annotated_code)
-    file = file.replace('/', '__')
-    html_filename = os.path.join(args.web_directory, "{}.html".format(file))
+    file_html = file_template.render(dir_path=dir_path, language='python', code=annotated_code)
+
+    # Write to file
+    html_filename = os.path.join(args.web_directory, path_filename(file))
     open(html_filename, 'w').write(file_html)
-
-
-def path_filename(d):
-    if not hasattr(path_filename, 'filenames'):
-        setattr(path_filename, 'filenames', {})
-
-    if d in path_filename.filenames:
-        return path_filename.filenames[d]
-    else:
-        fname = d.replace('/', '__') + '.html'
-        path_filename.filenames[d] = fname
-        return fname
 
 directories = {}
 
@@ -146,7 +160,7 @@ for file, violations in report.items():
     })
 
 # Add subdirs to each directory.
-
+#pdb.set_trace()
 for directory in directories:
     if not directory:
         continue
@@ -157,7 +171,7 @@ for directory in directories:
         "name": base,
         "path": path_filename(directory),
         "is_directory": True,
-        "files": len(directories[base])
+        "files": len(directories[directory])
     })
 
     # Add parent dir link to child directories
@@ -168,11 +182,13 @@ for directory in directories:
 
 # Create HTML for each directory
 for directory, contents in directories.items():
-    dirname = directory or 'Index'
+    # TODO: split up the whole directory path and create links at each level
+    dir_path = get_parents(directory)
     directory_html = directory_template.render(
-        directory=dirname, contents=contents)
-    dirname = dirname.replace('/', '__')
-    html_filename = os.path.join(args.web_directory, "{}.html".format(dirname))
+        dir_path=dir_path, contents=contents)
+
+    dirname = path_filename(directory)
+    html_filename = os.path.join(args.web_directory, dirname)
     open(html_filename, 'w').write(directory_html)
 
 # json.dump(directories, sys.stdout,

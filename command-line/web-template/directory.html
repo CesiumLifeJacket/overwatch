@@ -3,12 +3,26 @@
 </head>
 <body>
   <div>
-    <h1> {{ directory | quote }} </h1>
+    <!-- TODO: have directory be a whole path -->
+    <h1>
+    {%- if dir_path -%}
+    {%- for name, path in dir_path -%}
+      {%- if not loop.last -%}
+        <a href={{ path | quote }}>{{ name | e }}/</a>
+      {%- else -%}
+        {{ name | e }}
+      {%- endif -%}
+    {%- endfor -%}
+    {%- else -%}
+      Index
+    {%- endif -%}
+    </h1>
+
     <table class="directory_contents">
     {% for item in contents %}
       <tr>
         <td>
-          <a href={{ item.path | quote }}>{{ item.name }}</a>
+          <a href={{ item.path | quote }}>{{ item.name | e }}</a>
         </td>
         <td>
         {% if item.is_directory %}

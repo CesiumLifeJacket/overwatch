@@ -1,3 +1,4 @@
 pep8:
   - "*.py"
   - "ncr/*.py"
+  - "ncr/subdir/*.py"
