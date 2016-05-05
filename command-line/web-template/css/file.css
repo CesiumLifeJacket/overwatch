@@ -4,3 +4,15 @@
 	position: absolute;
 	height: 1em;
 }
+.violation:hover .error {
+    display:inline-block;
+}
+.error {
+    display:none;
+    color: red;
+    background-color: #1f1f1f;
+    border-radius: 0.5em;
+    position: absolute;
+    padding: 5px;
+    top: -2.25em;
+}

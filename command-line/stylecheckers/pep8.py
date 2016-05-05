@@ -8,6 +8,7 @@ import subprocess
 
 pattern = re.compile('(.*?):(\d+):(\d+): (\w+) (.*)')
 
+
 def check(filename):
     # TODO: get output from pep8
     process = subprocess.Popen(['pep8', filename],
@@ -23,7 +24,7 @@ def check(filename):
             'type': t,
             'message': message
         }
-        for f, row, col, t, message in pattern.findall(output)
+        for f, row, col, t, message in pattern.findall(str(output))
     ]
 
     return violations
