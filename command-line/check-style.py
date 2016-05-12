@@ -7,6 +7,7 @@ appropriate stylecheckers to the appropriate files write out the results to
 web_directory as specified by command line argument
 '''
 import os
+import re
 import sys
 import json
 import yaml
@@ -131,7 +132,7 @@ def path_filename(d):
     if d in path_filename.filenames:
         return path_filename.filenames[d]
     else:
-        fname = d.replace('/', '__') + '.html'
+        fname = re.sub('/|\\', '__', d) + '.html'
         if fname not in path_filename.filenames.values():
             path_filename.filenames[d] = fname
         else:
