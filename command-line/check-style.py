@@ -7,7 +7,6 @@ appropriate stylecheckers to the appropriate files write out the results to
 web_directory as specified by command line argument
 '''
 import os
-import re
 import sys
 import json
 import yaml
@@ -123,7 +122,7 @@ def annotate_code(code, violations):
 
 
 def path_filename(d):
-    '''Returns a unique 
+    '''TODO: docstring
     '''
     if not hasattr(path_filename, 'filenames'):
         setattr(path_filename, 'filenames', {})
@@ -132,7 +131,7 @@ def path_filename(d):
     if d in path_filename.filenames:
         return path_filename.filenames[d]
     else:
-        fname = re.sub('/|\\', '__', d) + '.html'
+        fname = d.replace('/', '__').replace('\\', '__') + '.html'
         if fname not in path_filename.filenames.values():
             path_filename.filenames[d] = fname
         else:
