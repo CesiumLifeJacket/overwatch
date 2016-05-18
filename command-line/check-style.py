@@ -25,8 +25,13 @@ parser = argparse.ArgumentParser(
     description="check code style of a project based upon settings in .style.yml")
 parser.add_argument(
     'web_directory', help="directory in which to write web report")
+parser.add_argument(
+    '--project_directory', help="directory in which to place your project and .style.yml")
 
 args = parser.parse_args()
+
+if args.project_directory
+    os.chdir(args.project_directory)
 
 # load the configureation file
 if not os.path.exists('.style.yml'):
