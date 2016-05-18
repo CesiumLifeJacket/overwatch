@@ -25,7 +25,7 @@ A '.ds' attribute refers back to the Datastream that contains the object.
 
 Recurring methods:
 
-A .load(data) method is used to update a summary object with a s<div class="violation" type="{}" style="width:{}ch;"><div class="error">E501</div></div>ingle file worth of data.
+A .load(data) method is used to update a summary object with a single file wort<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (89 &gt; 79 characters)</div></div>h of data.
     the data parameter takes whatever data from is needed for the summary
 
 A .jsonify() method returns a data structure that can be converted to json
@@ -46,24 +46,24 @@ import ncr.utils as utils
 
 import pdb
 
-### Timeline ----------------------------------------------------------------------------------------------------------
+<div class="violation" type="E266" style="width:1ch;"><div class="error">too many leading '#' for block comment</div></div>### Timeline ------------------------------------------------------------------<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (119 &gt; 79 characters)</div></div>----------------------------------------
 
 Log = namedtuple('Log', ['val', 'beg', 'end'])
 
-class Timeline(list):
+<div class="violation" type="E302" style="width:1ch;"><div class="error">expected 2 blank lines, found 1</div></div>class Timeline(list):
     '''A record of some data in the datastream which changes over time.
 
-    A Timeline, which extends the builtin Python list, stores a sequence of 
-    logs which provide a comprehensive history of whatever value the timeline 
-    may be recording (an attribute value, a dimension length, etc.) in the 
-    datastream. 
-    beg and end in a Log are indicies of the first and last file 
+    A Timeline, which extends the builtin Python list, stores a sequence of<div class="violation" type="W291" style="width:1ch;"><div class="error">trailing whitespace</div></div> 
+    logs which provide a comprehensive history of whatever value the timeline<div class="violation" type="W291" style="width:1ch;"><div class="error">trailing whitespace</div></div> 
+    may be recording (an attribute value, a dimension length, etc.) in the<div class="violation" type="W291" style="width:1ch;"><div class="error">trailing whitespace</div></div> 
+    datastream.<div class="violation" type="W291" style="width:1ch;"><div class="error">trailing whitespace</div></div> 
+    beg and end in a Log are indicies of the first and last file<div class="violation" type="W291" style="width:1ch;"><div class="error">trailing whitespace</div></div> 
     in self.ds.file_timeline for which recorded value was equal to val.
     '''
     def __init__(self, name, ds):
         super(Timeline, self).__init__(self)
         self.name = name
-        self.ds   = ds
+        self.ds<div class="violation" type="E221" style="width:1ch;"><div class="error">multiple spaces before operator</div></div>   = ds
 
     def load(self, val):
         '''
@@ -88,8 +88,8 @@ class Timeline(list):
                 sec['difference'] = self._difference
             return sec
         else:
-            return utils.json_section(self, 
-                [
+            return utils.json_section(self,<div class="violation" type="W291" style="width:1ch;"><div class="error">trailing whitespace</div></div> 
+                <div class="violation" type="E128" style="width:1ch;"><div class="error">continuation line under-indented for visual indent</div></div>[
                     {
                         'type': 'timeline',
                         'data': [['beg', 'end', 'val']]+[
@@ -101,10 +101,10 @@ class Timeline(list):
                         ],
                     }
                 ])
-            
-### Summaries ---------------------------------------------------------------------------------------------------------
+<div class="violation" type="W293" style="width:1ch;"><div class="error">blank line contains whitespace</div></div>            
+<div class="violation" type="E266" style="width:1ch;"><div class="error">too many leading '#' for block comment</div></div>### Summaries -----------------------------------------------------------------<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (119 &gt; 79 characters)</div></div>----------------------------------------
 
-class DimlessSum:
+<div class="violation" type="E302" style="width:1ch;"><div class="error">expected 2 blank lines, found 1</div></div>class DimlessSum:
     '''Summary of dimensionless data.
 
     A "summary" of data in a dimensionless variable. Simply wraps the
@@ -115,55 +115,55 @@ class DimlessSum:
 
     def __eq__(self, other):
         return isinstance(other, DimlessSum) and\
-               (self.val == other.val or (np.isnan(self.val) and np.isnan(other.val)))
+               (self.val == other.val or (np.isnan(self.val) and np.isnan(other<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (86 &gt; 79 characters)</div></div>.val)))
 
     def __ne__(self, other):
         return not self.__eq__(other)
 
     def row(self):
         try:
-            if (hasattr(self.val, 'mask') and bool(self.val.mask)) or np.isnan(self.val):
+            if (hasattr(self.val, 'mask') and bool(self.val.mask)) or np.isnan(<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (89 &gt; 79 characters)</div></div>self.val):
                 return [None]
         except:
             pass
         return [self.val]
 
-class NumSum:
+<div class="violation" type="E302" style="width:1ch;"><div class="error">expected 2 blank lines, found 1</div></div>class NumSum:
     '''Summary of the values in a variable holding numerical data.
 
-    This numerical summary (NumSum) holds summary statistics of a dataset. the +=
+    This numerical summary (NumSum) holds summary statistics of a dataset. the <div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (81 &gt; 79 characters)</div></div>+=
     operator correctly combines two statistical summaries, such that for
     datasets a and b, numsum(a)+numsum(b) = numsum(a concatenated with b).
     '''
     __slots__ = \
-        ('n', 'ngood', 'nmiss', 'ninf', 'nnan', 'nfill', 'min', 'max', 'mean', 'var')
+        ('n', 'ngood', 'nmiss', 'ninf', 'nnan', 'nfill', 'min', 'max', 'mean', <div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (85 &gt; 79 characters)</div></div>'var')
 
     def __init__(self,
-            n     = 0,
-            ngood = 0,
-            nmiss = 0,
-            ninf  = 0,
-            nnan  = 0,
-            nfill = 0,
-            mn    = float('inf'),
-            mx    = -float('inf'),
-            mean  = float('nan'),
-            var   = float('nan')
-            ):
+            <div class="violation" type="E128" style="width:1ch;"><div class="error">continuation line under-indented for visual indent</div></div>n<div class="violation" type="E221" style="width:1ch;"><div class="error">multiple spaces before operator</div></div><div class="violation" type="E251" style="width:1ch;"><div class="error">unexpected spaces around keyword / parameter equals</div></div>     =<div class="violation" type="E251" style="width:1ch;"><div class="error">unexpected spaces around keyword / parameter equals</div></div> 0,
+            <div class="violation" type="E128" style="width:1ch;"><div class="error">continuation line under-indented for visual indent</div></div>ngood<div class="violation" type="E251" style="width:1ch;"><div class="error">unexpected spaces around keyword / parameter equals</div></div> =<div class="violation" type="E251" style="width:1ch;"><div class="error">unexpected spaces around keyword / parameter equals</div></div> 0,
+            <div class="violation" type="E128" style="width:1ch;"><div class="error">continuation line under-indented for visual indent</div></div>nmiss<div class="violation" type="E251" style="width:1ch;"><div class="error">unexpected spaces around keyword / parameter equals</div></div> =<div class="violation" type="E251" style="width:1ch;"><div class="error">unexpected spaces around keyword / parameter equals</div></div> 0,
+            <div class="violation" type="E128" style="width:1ch;"><div class="error">continuation line under-indented for visual indent</div></div>ninf<div class="violation" type="E221" style="width:1ch;"><div class="error">multiple spaces before operator</div></div><div class="violation" type="E251" style="width:1ch;"><div class="error">unexpected spaces around keyword / parameter equals</div></div>  =<div class="violation" type="E251" style="width:1ch;"><div class="error">unexpected spaces around keyword / parameter equals</div></div> 0,
+            <div class="violation" type="E128" style="width:1ch;"><div class="error">continuation line under-indented for visual indent</div></div>nnan<div class="violation" type="E221" style="width:1ch;"><div class="error">multiple spaces before operator</div></div><div class="violation" type="E251" style="width:1ch;"><div class="error">unexpected spaces around keyword / parameter equals</div></div>  =<div class="violation" type="E251" style="width:1ch;"><div class="error">unexpected spaces around keyword / parameter equals</div></div> 0,
+            <div class="violation" type="E128" style="width:1ch;"><div class="error">continuation line under-indented for visual indent</div></div>nfill<div class="violation" type="E251" style="width:1ch;"><div class="error">unexpected spaces around keyword / parameter equals</div></div> =<div class="violation" type="E251" style="width:1ch;"><div class="error">unexpected spaces around keyword / parameter equals</div></div> 0,
+            <div class="violation" type="E128" style="width:1ch;"><div class="error">continuation line under-indented for visual indent</div></div>mn<div class="violation" type="E221" style="width:1ch;"><div class="error">multiple spaces before operator</div></div><div class="violation" type="E251" style="width:1ch;"><div class="error">unexpected spaces around keyword / parameter equals</div></div>    =<div class="violation" type="E251" style="width:1ch;"><div class="error">unexpected spaces around keyword / parameter equals</div></div> float('inf'),
+            <div class="violation" type="E128" style="width:1ch;"><div class="error">continuation line under-indented for visual indent</div></div>mx<div class="violation" type="E221" style="width:1ch;"><div class="error">multiple spaces before operator</div></div><div class="violation" type="E251" style="width:1ch;"><div class="error">unexpected spaces around keyword / parameter equals</div></div>    =<div class="violation" type="E251" style="width:1ch;"><div class="error">unexpected spaces around keyword / parameter equals</div></div> -float('inf'),
+            <div class="violation" type="E128" style="width:1ch;"><div class="error">continuation line under-indented for visual indent</div></div>mean<div class="violation" type="E221" style="width:1ch;"><div class="error">multiple spaces before operator</div></div><div class="violation" type="E251" style="width:1ch;"><div class="error">unexpected spaces around keyword / parameter equals</div></div>  =<div class="violation" type="E251" style="width:1ch;"><div class="error">unexpected spaces around keyword / parameter equals</div></div> float('nan'),
+            <div class="violation" type="E128" style="width:1ch;"><div class="error">continuation line under-indented for visual indent</div></div>var<div class="violation" type="E221" style="width:1ch;"><div class="error">multiple spaces before operator</div></div><div class="violation" type="E251" style="width:1ch;"><div class="error">unexpected spaces around keyword / parameter equals</div></div>   =<div class="violation" type="E251" style="width:1ch;"><div class="error">unexpected spaces around keyword / parameter equals</div></div> float('nan')
+            <div class="violation" type="E124" style="width:1ch;"><div class="error">closing bracket does not match visual indentation</div></div>):
 
-        self.n     = n
+        self.n<div class="violation" type="E221" style="width:1ch;"><div class="error">multiple spaces before operator</div></div>     = n
         self.ngood = ngood
         self.nmiss = nmiss
-        self.ninf  = ninf
-        self.nnan  = nnan
+        self.ninf<div class="violation" type="E221" style="width:1ch;"><div class="error">multiple spaces before operator</div></div>  = ninf
+        self.nnan<div class="violation" type="E221" style="width:1ch;"><div class="error">multiple spaces before operator</div></div>  = nnan
         self.nfill = nfill
-        self.min   = mn 
-        self.max   = mx
-        self.mean  = mean
-        self.var   = var
+        self.min<div class="violation" type="E221" style="width:1ch;"><div class="error">multiple spaces before operator</div></div>   = mn<div class="violation" type="W291" style="width:1ch;"><div class="error">trailing whitespace</div></div> 
+        self.max<div class="violation" type="E221" style="width:1ch;"><div class="error">multiple spaces before operator</div></div>   = mx
+        self.mean<div class="violation" type="E221" style="width:1ch;"><div class="error">multiple spaces before operator</div></div>  = mean
+        self.var<div class="violation" type="E221" style="width:1ch;"><div class="error">multiple spaces before operator</div></div>   = var
 
     def __iadd__(self, other):
-        s, o = self, other # for brevity
+        s, o = self, other<div class="violation" type="E261" style="width:1ch;"><div class="error">at least two spaces before inline comment</div></div> # for brevity
         ngood = s.ngood + o.ngood
         try:
             mean = s.mean if np.isnan(o.mean) else \
@@ -174,35 +174,35 @@ class NumSum:
             mean = float('nan')
 
         try:
-            if np.isnan(o.var): pass
+            if np.isnan(o.var)<div class="violation" type="E701" style="width:1ch;"><div class="error">multiple statements on one line (colon)</div></div>: pass
             elif np.isnan(s.var):
                 s.var = o.var
             elif ngood &gt; 0:
                 # http://stats.stackexchange.com/questions/43159/ \
                 # how-to-calculate-pooled-variance-of-two-groups-given-known-group-variances-mean
-                # NOTE: I added the abs() because you can never end up with a negative variance and apparently
-                # sometimes if the number is really close to zero you might end up with it looking negative.
-                s.var = abs( (s.ngood * (s.var+s.mean**2) + o.ngood * (o.var+o.mean**2)) / ngood - mean**2 )
+                # NOTE: I added the abs() because you can never end up with a n<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (110 &gt; 79 characters)</div></div>egative variance and apparently
+                # sometimes if the number is really close to zero you might end<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (108 &gt; 79 characters)</div></div> up with it looking negative.
+                s.var = abs(<div class="violation" type="E201" style="width:1ch;"><div class="error">whitespace after '('</div></div> (s.ngood * (s.var+s.mean**2) + o.ngood * (o.var+o.<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (108 &gt; 79 characters)</div></div>mean**2)) / ngood - mean**2<div class="violation" type="E202" style="width:1ch;"><div class="error">whitespace before ')'</div></div> )
             else:
                 s.var = float('nan')
 
         except TypeError:
             s.var = float('nan')
 
-        s.n     = s.n + o.n
+        s.n<div class="violation" type="E221" style="width:1ch;"><div class="error">multiple spaces before operator</div></div>     = s.n + o.n
         s.ngood = ngood
         s.nmiss = s.nmiss + o.nmiss
-        s.nnan  = s.nnan  + o.nnan
-        s.ninf  = s.ninf  + o.ninf
+        s.nnan<div class="violation" type="E221" style="width:1ch;"><div class="error">multiple spaces before operator</div></div>  = s.nnan<div class="violation" type="E221" style="width:1ch;"><div class="error">multiple spaces before operator</div></div>  + o.nnan
+        s.ninf<div class="violation" type="E221" style="width:1ch;"><div class="error">multiple spaces before operator</div></div>  = s.ninf<div class="violation" type="E221" style="width:1ch;"><div class="error">multiple spaces before operator</div></div>  + o.ninf
         s.nfill = s.nfill + o.nfill
-        s.min   = min(s.min, o.min)
-        s.max   = max(s.max, o.max)
-        s.mean  = mean
+        s.min<div class="violation" type="E221" style="width:1ch;"><div class="error">multiple spaces before operator</div></div>   = min(s.min, o.min)
+        s.max<div class="violation" type="E221" style="width:1ch;"><div class="error">multiple spaces before operator</div></div>   = max(s.max, o.max)
+        s.mean<div class="violation" type="E221" style="width:1ch;"><div class="error">multiple spaces before operator</div></div>  = mean
 
         return s
-    
+<div class="violation" type="W293" style="width:1ch;"><div class="error">blank line contains whitespace</div></div>    
     def __eq__(self, other):
-        '''Tests the equivalence of two numerical summaries to within plausible rounding errors'''
+        '''Tests the equivalence of two numerical summaries to within plausible<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (98 &gt; 79 characters)</div></div> rounding errors'''
         if not isinstance(other, NumSum):
             return False
         for att in NumSum.__slots__:
@@ -212,7 +212,7 @@ class NumSum:
                 continue
             if np.isinf(s) and np.isinf(o) and s == o:
                 continue
-    
+<div class="violation" type="W293" style="width:1ch;"><div class="error">blank line contains whitespace</div></div>    
             d = np.abs(s - o)
             if d &gt; 1e-4 or np.isnan(d):
                 return False
@@ -226,41 +226,41 @@ class NumSum:
         '''Converts the summary into a list for storage in a table as a row'''
         s = self
         return [
-            s.n, s.ngood, s.nmiss, s.ninf, s.nnan, s.nfill, 
-            s.min if not np.isinf(s.min) and not np.isnan(s.min) else None, 
-            s.max if not np.isinf(s.max) and not np.isnan(s.max) else None, 
+            s.n, s.ngood, s.nmiss, s.ninf, s.nnan, s.nfill,<div class="violation" type="W291" style="width:1ch;"><div class="error">trailing whitespace</div></div> 
+            s.min if not np.isinf(s.min) and not np.isnan(s.min) else None,<div class="violation" type="W291" style="width:1ch;"><div class="error">trailing whitespace</div></div> 
+            s.max if not np.isinf(s.max) and not np.isnan(s.max) else None,<div class="violation" type="W291" style="width:1ch;"><div class="error">trailing whitespace</div></div> 
             s.mean if not np.isinf(s.mean) and not np.isnan(s.mean) else None,
-            np.sqrt(s.var) if not np.isinf(s.var) and not np.isnan(s.var) and s.var &gt;=0 else None]
+            np.sqrt(s.var) if not np.isinf(s.var) and not np.isnan(s.var) and s<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (98 &gt; 79 characters)</div></div>.var &gt;=<div class="violation" type="E225" style="width:1ch;"><div class="error">missing whitespace around operator</div></div>0 else None]
 
     def jsonify(self):
         data = {
-            'n'    : self.n,
+            'n'   <div class="violation" type="E203" style="width:1ch;"><div class="error">whitespace before ':'</div></div> : self.n,
             'ngood': self.ngood,
             'nmiss': self.nmiss,
-            'ninf' : self.ninf,
-            'nnan' : self.nnan,
-            'min'  : self.min if not np.isinf(self.min) and not np.isnan(self.min) else None,
-            'max'  : self.max if not np.isinf(self.max) and not np.isnan(self.max) else None,
-            'mean' : self.mean if not np.isinf(self.mean) and not np.isnan(self.mean) else None,
-            'std'  : np.sqrt(self.var) if not np.isinf(self.var) and not np.isnan(self.var) else None
+            'ninf'<div class="violation" type="E203" style="width:1ch;"><div class="error">whitespace before ':'</div></div> : self.ninf,
+            'nnan'<div class="violation" type="E203" style="width:1ch;"><div class="error">whitespace before ':'</div></div> : self.nnan,
+            'min' <div class="violation" type="E203" style="width:1ch;"><div class="error">whitespace before ':'</div></div> : self.min if not np.isinf(self.min) and not np.isnan(self.m<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (93 &gt; 79 characters)</div></div>in) else None,
+            'max' <div class="violation" type="E203" style="width:1ch;"><div class="error">whitespace before ':'</div></div> : self.max if not np.isinf(self.max) and not np.isnan(self.m<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (93 &gt; 79 characters)</div></div>ax) else None,
+            'mean'<div class="violation" type="E203" style="width:1ch;"><div class="error">whitespace before ':'</div></div> : self.mean if not np.isinf(self.mean) and not np.isnan(self<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (96 &gt; 79 characters)</div></div>.mean) else None,
+            'std' <div class="violation" type="E203" style="width:1ch;"><div class="error">whitespace before ':'</div></div> : np.sqrt(self.var) if not np.isinf(self.var) and not np.isn<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (101 &gt; 79 characters)</div></div>an(self.var) else None
         }
         return data
 
-class StateSum(list):
+<div class="violation" type="E302" style="width:1ch;"><div class="error">expected 2 blank lines, found 1</div></div>class StateSum(list):
     '''Summary of a state indicator variable.
 
-    Holds an array with the number of occurrences of each state in a state 
-    indicator variable. the += operator combines two state summaries by the 
+    Holds an array with the number of occurrences of each state in a state<div class="violation" type="W291" style="width:1ch;"><div class="error">trailing whitespace</div></div> 
+    indicator variable. the += operator combines two state summaries by the<div class="violation" type="W291" style="width:1ch;"><div class="error">trailing whitespace</div></div> 
     second operand's flag counts to the first.
     '''
     def __init__(self, vals):
-        if vals and isinstance(vals[0], list): print(vals)
+        if vals and isinstance(vals[0], list)<div class="violation" type="E701" style="width:1ch;"><div class="error">multiple statements on one line (colon)</div></div>: print(vals)
         list.__init__(self)
         self[:] = list(map(int, vals))
 
     def __iadd__(self, other):
         if len(self) != len(other):
-            raise ValueError('two state summaries must be of the same length to combine.')
+            raise ValueError('two state summaries must be of the same length to<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (90 &gt; 79 characters)</div></div> combine.')
 
         for i, x in enumerate(other):
             self[i] += x
@@ -269,8 +269,8 @@ class StateSum(list):
 
     def __eq__(self, other):
         return isinstance(other, StateSum) and\
-               len(self) == len(other)     and\
-               all(a == b for a,b in zip(self, other))
+               len(self) == len(other)<div class="violation" type="E272" style="width:1ch;"><div class="error">multiple spaces before keyword</div></div>     and\
+               all(a == b for a<div class="violation" type="E231" style="width:1ch;"><div class="error">missing whitespace after ','</div></div>,b in zip(self, other))
 
     def __ne__(self, other):
         return not self.__eq__(other)
@@ -278,9 +278,9 @@ class StateSum(list):
     def row(self):
         return self[:]
 
-### Data Types --------------------------------------------------------------------------------------------------------
+<div class="violation" type="E266" style="width:1ch;"><div class="error">too many leading '#' for block comment</div></div>### Data Types ----------------------------------------------------------------<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (119 &gt; 79 characters)</div></div>----------------------------------------
 
-class DimlessDataType:
+<div class="violation" type="E302" style="width:1ch;"><div class="error">expected 2 blank lines, found 1</div></div>class DimlessDataType:
     '''Wraps a single value with the expected DataType interface.
     '''
     def __init__(self, ncvar, ds):
@@ -342,7 +342,7 @@ class NumDataType:
 
         if nnan or ninf:
             if not hasattr(data, 'mask'):
-                data = np.ma.MaskedArray(data, mask = False)
+                data = np.ma.MaskedArray(data, mask<div class="violation" type="E251" style="width:1ch;"><div class="error">unexpected spaces around keyword / parameter equals</div></div> =<div class="violation" type="E251" style="width:1ch;"><div class="error">unexpected spaces around keyword / parameter equals</div></div> False)
             if nnan:
                 data.mask[nans] = True
             if ninf:
@@ -351,24 +351,24 @@ class NumDataType:
         if hasattr(data, 'mask'):
             data = data.compressed()
 
-        numsum = NumSum(n=size, ngood=data.size, nmiss=nmiss, nnan=nnan, ninf=ninf, nfill=nfill)
+        numsum = NumSum(n=size, ngood=data.size, nmiss=nmiss, nnan=nnan, ninf=n<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (96 &gt; 79 characters)</div></div>inf, nfill=nfill)
 
         try:
             if data.size:
                 if data.dtype == np.dtype('S1'):
                     data = data.astype(int)
-                numsum.min   = float(data.min())
-                numsum.max   = float(data.max())
-                numsum.mean  = data.mean(dtype=np.float64)
-                numsum.var   = data.var(dtype=np.float64)
+                numsum.min<div class="violation" type="E221" style="width:1ch;"><div class="error">multiple spaces before operator</div></div>   = float(data.min())
+                numsum.max<div class="violation" type="E221" style="width:1ch;"><div class="error">multiple spaces before operator</div></div>   = float(data.max())
+                numsum.mean<div class="violation" type="E221" style="width:1ch;"><div class="error">multiple spaces before operator</div></div>  = data.mean(dtype=np.float64)
+                numsum.var<div class="violation" type="E221" style="width:1ch;"><div class="error">multiple spaces before operator</div></div>   = data.var(dtype=np.float64)
 
         except:
             pass
-        
+<div class="violation" type="W293" style="width:1ch;"><div class="error">blank line contains whitespace</div></div>        
         return numsum
 
     def columns(self):
-        cols = ['n', 'ngood', 'nmiss', 'ninf', 'nnan', 'nfill', 'min', 'max', 'mean', 'std']
+        cols = ['n', 'ngood', 'nmiss', 'ninf', 'nnan', 'nfill', 'min', 'max', '<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (92 &gt; 79 characters)</div></div>mean', 'std']
         tooltips = [
             'Number of samples',
             'Number of good samples',
@@ -391,25 +391,25 @@ class ExStateDataType:
     the counts of each exclusive state in a data set into a StateSum.
     '''
     flag_desc_re = re.compile('^flag_(\d+)_description$')
-    def __init__(self, ncvar, ds):
+    <div class="violation" type="E301" style="width:1ch;"><div class="error">expected 1 blank line, found 0</div></div>def __init__(self, ncvar, ds):
         '''Initialize an exclusive state variable
 
-        Scans a netCDF4 variable object meeting exclusive state variable requirements
-        to collect a list of valid values in that exclusive state in self.flag_values
+        Scans a netCDF4 variable object meeting exclusive state variable requir<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (85 &gt; 79 characters)</div></div>ements
+        to collect a list of valid values in that exclusive state in self.flag_<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (85 &gt; 79 characters)</div></div>values
         and the descriptions of those values in self.flag_descriptions
         '''
         self.type_name = 'exclusiveState'
         # get flag values
         self.flag_values = []
         self.var_name = ncvar._name
-        
+<div class="violation" type="W293" style="width:1ch;"><div class="error">blank line contains whitespace</div></div>        
         if hasattr(ncvar, 'flag_values'):
             self.flag_values = list(ncvar.flag_values)
         else:
             n_flags = 0
             for attr in ncvar.ncattrs():
                 match = ExStateDataType.flag_desc_re.match(attr)
-                if not match: continue
+                if not match<div class="violation" type="E701" style="width:1ch;"><div class="error">multiple statements on one line (colon)</div></div>: continue
                 n_flags = max(n_flags, int(match.group(1)))
 
             self.flag_values = range(1, n_flags+1)
@@ -427,7 +427,7 @@ class ExStateDataType:
                 self.flag_descriptions[n] = ncvar.flag_meanings.split()[n]
 
     def columns(self):
-        return ['flag '+str(v) for v in self.flag_values], self.flag_descriptions
+        return ['flag '+str(v) for v in self.flag_values], self.flag_descriptio<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (81 &gt; 79 characters)</div></div>ns
 
     @staticmethod
     def matches(ncvar, ds):
@@ -436,19 +436,19 @@ class ExStateDataType:
         Requirements:
             data is of integral type and one of the following:
             - has attribute 'flag values'
-            - has one or more attributes with names matching the expected regex for a flag description
+            - has one or more attributes with names matching the expected regex<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (102 &gt; 79 characters)</div></div> for a flag description
 
         Parameters
         ncvar: netcdf4 variable to check
         ds: datastream the netcdf4 variable is part of
         '''
-        return (hasattr(ncvar, 'flag_values') or \
-            any(ExStateDataType.flag_desc_re.match(a) for a in ncvar.ncattrs())) and \
+        return (hasattr(ncvar, 'flag_values') or <div class="violation" type="E502" style="width:1ch;"><div class="error">the backslash is redundant between brackets</div></div>\
+            <div class="violation" type="E128" style="width:1ch;"><div class="error">continuation line under-indented for visual indent</div></div>any(ExStateDataType.flag_desc_re.match(a) for a in ncvar.ncattrs())<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (86 &gt; 79 characters)</div></div>) and \
             issubclass(ncvar.dtype.type, np.integer)
 
     def summarize(self, data=None):
         '''Count the ocurrences of each value in flag_values.
-        
+<div class="violation" type="W293" style="width:1ch;"><div class="error">blank line contains whitespace</div></div>        
         Returns counts as a StateSum list parallel to flag_values.
         '''
         if data is None:
@@ -458,21 +458,21 @@ class ExStateDataType:
         if hasattr(d, 'mask'):
             d = d.compressed()
 
-        # bincount will fail on values below zero, so subtracting the minimum value
+        # bincount will fail on values below zero, so subtracting the minimum v<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (83 &gt; 79 characters)</div></div>alue
         # shifts the smallest value in array, negative or positive, to zero.
         mn = d.min()
         counts = np.bincount(d-mn)
-        return  StateSum([counts[v-mn] if 0 &lt;= v-mn &lt; len(counts) else 0 for v in self.flag_values])
+        return<div class="violation" type="E271" style="width:1ch;"><div class="error">multiple spaces after keyword</div></div>  StateSum([counts[v-mn] if 0 &lt;= v-mn &lt; len(counts) else 0 for v <div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (100 &gt; 79 characters)</div></div>in self.flag_values])
 
 
 class InStateDataType:
     '''Class containig methods for working with inclusive state data.
-    
+<div class="violation" type="W293" style="width:1ch;"><div class="error">blank line contains whitespace</div></div>    
     Reads important metadata from an inclusive state variable, and collects
     the counts of each inclusive state in a data set into a StateSum.
     '''
     bit_desc_re = re.compile('^bit_(\d+)_description$')
-    def __init__(self, ncvar, ds):
+    <div class="violation" type="E301" style="width:1ch;"><div class="error">expected 1 blank line, found 0</div></div>def __init__(self, ncvar, ds):
         self.type_name = 'inclusiveState'
 
         # get flag masks
@@ -484,7 +484,7 @@ class InStateDataType:
             n_flags = 0
             for attr in ncvar.ncattrs():
                 match = InStateDataType.bit_desc_re.match(attr)
-                if not match: continue
+                if not match<div class="violation" type="E701" style="width:1ch;"><div class="error">multiple statements on one line (colon)</div></div>: continue
                 n_flags = max(n_flags, int(match.group(1)))
 
             self.flag_masks = [2**x for x in range(n_flags)]
@@ -501,7 +501,7 @@ class InStateDataType:
 
     @staticmethod
     def matches(ncvar, ds):
-        return (hasattr(ncvar, 'flag_masks') or any(InStateDataType.bit_desc_re.match(a) for a in ncvar.ncattrs()))\
+        return (hasattr(ncvar, 'flag_masks') or any(InStateDataType.bit_desc_re<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (116 &gt; 79 characters)</div></div>.match(a) for a in ncvar.ncattrs()))\
             and issubclass(ncvar.dtype.type, np.integer)
 
     def summarize(self, data=None):
@@ -512,20 +512,20 @@ class InStateDataType:
         if hasattr(d, 'mask'):
             d = d.compressed()
 
-        return StateSum([np.sum(d&amp;m &gt; 0) for m in self.flag_masks])
+        return StateSum([np.sum(d<div class="violation" type="E227" style="width:1ch;"><div class="error">missing whitespace around bitwise or shift operator</div></div>&amp;m &gt; 0) for m in self.flag_masks])
 
     def columns(self):
-        return ['bit '+str(n) for n in range(len(self.flag_masks))], self.flag_descriptions
+        return ['bit '+str(n) for n in range(len(self.flag_masks))], self.flag_<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (91 &gt; 79 characters)</div></div>descriptions
 
 
 class QCDataType(InStateDataType):
     '''Class containing methods for working with Quality control data
 
-    Subclass of InStateData, only difference is that variable names must 
+    Subclass of InStateData, only difference is that variable names must<div class="violation" type="W291" style="width:1ch;"><div class="error">trailing whitespace</div></div> 
     start with a qc_ to be identified as QC and not just inclusive state.
     '''
     qc_bit_desc_re = re.compile('qc_bit_(\d+)_description')
-    def __init__(self, ncvar, ds):
+    <div class="violation" type="E301" style="width:1ch;"><div class="error">expected 1 blank line, found 0</div></div>def __init__(self, ncvar, ds):
         InStateDataType.__init__(self, ncvar, ds)
 
         self.type_name = 'qualityControl'
@@ -533,7 +533,7 @@ class QCDataType(InStateDataType):
             n_flags = 0
             for attr in ds.attributes.keys():
                 match = QCDataType.qc_bit_desc_re.match(attr)
-                if not match: continue
+                if not match<div class="violation" type="E701" style="width:1ch;"><div class="error">multiple statements on one line (colon)</div></div>: continue
                 n_flags = max(n_flags, int(match.group(1)))
 
             self.flag_masks = [2**x for x in range(n_flags)]
@@ -548,8 +548,8 @@ class QCDataType(InStateDataType):
     @staticmethod
     def matches(ncvar, ds):
         if ncvar._name.startswith('qc'):
-            if (InStateDataType.matches(ncvar, ds) or \
-                    any(QCDataType.qc_bit_desc_re.match(a) for a in ds.attributes.keys())):
+            if (InStateDataType.matches(ncvar, ds) or <div class="violation" type="E502" style="width:1ch;"><div class="error">the backslash is redundant between brackets</div></div>\
+                    any(QCDataType.qc_bit_desc_re.match(a) for a in ds.attribut<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (91 &gt; 79 characters)</div></div>es.keys())):
 
                 return True
             else:
@@ -559,20 +559,20 @@ class QCDataType(InStateDataType):
                 ds.non_conformant_qc.add(ncvar._name)
                 return False
         return ncvar._name.startswith('qc_') and \
-            (InStateDataType.matches(ncvar, ds) or \
-             any(QCDataType.qc_bit_desc_re.match(a) for a in ds.attributes.keys())
+            (InStateDataType.matches(ncvar, ds) or <div class="violation" type="E502" style="width:1ch;"><div class="error">the backslash is redundant between brackets</div></div>\
+             any(QCDataType.qc_bit_desc_re.match(a) for a in ds.attributes.keys<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (82 &gt; 79 characters)</div></div>())
              )
 
-def data_type_of(ncvar, ds):
+<div class="violation" type="E302" style="width:1ch;"><div class="error">expected 2 blank lines, found 1</div></div>def data_type_of(ncvar, ds):
     '''Determines the data type of ncvar
     '''
-    for DataType in (DimlessDataType, QCDataType, ExStateDataType, InStateDataType, NumDataType):
+    for DataType in (DimlessDataType, QCDataType, ExStateDataType, InStateDataT<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (97 &gt; 79 characters)</div></div>ype, NumDataType):
         if DataType.matches(ncvar, ds):
             return DataType(ncvar, ds)
 
-### Data classes ------------------------------------------------------------------------------------------------------
+<div class="violation" type="E266" style="width:1ch;"><div class="error">too many leading '#' for block comment</div></div>### Data classes --------------------------------------------------------------<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (119 &gt; 79 characters)</div></div>----------------------------------------
 
-class TimedData:
+<div class="violation" type="E302" style="width:1ch;"><div class="error">expected 2 blank lines, found 1</div></div>class TimedData:
     '''The TimedData object is used to summarize and write out all kinds of
     data with a time dimension.
 
@@ -584,7 +584,7 @@ class TimedData:
     def __init__(self, ncvar, ds):
         self.ds = ds
         self.name = 'Data'
-        self.data = {} # key is time in epoch, val is summary
+        self.data = {}<div class="violation" type="E261" style="width:1ch;"><div class="error">at least two spaces before inline comment</div></div> # key is time in epoch, val is summary
         self.data_type = data_type_of(ncvar, ds)
 
     def load(self, ncvar):
@@ -593,7 +593,7 @@ class TimedData:
         ncvar: a netCDF4 variable object
         '''
 
-        ## Reformat the data, select desired sample interval, and flatten
+        <div class="violation" type="E266" style="width:1ch;"><div class="error">too many leading '#' for block comment</div></div>## Reformat the data, select desired sample interval, and flatten
         self.var_name = ncvar._name
         var_data = None
         try:
@@ -610,26 +610,26 @@ class TimedData:
             self.ds.has_warnings = True
             if not hasattr(self.ds, 'missing_time'):
                 self.ds.missing_time = []
-            self.ds.missing_time.append((ncvar._name, self.ds.file_timeline[-1].beg))
+            self.ds.missing_time.append((ncvar._name, self.ds.file_timeline[-1]<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (85 &gt; 79 characters)</div></div>.beg))
             return
 
         time_i = ncvar.dimensions.index('time')
         if time_i &gt; 0:
             var_data = var_data.swapaxes(0, time_i)
-        
-        summary_times = (self.ds.sample_times // self.ds.sample_interval).astype(int)*self.ds.sample_interval
+<div class="violation" type="W293" style="width:1ch;"><div class="error">blank line contains whitespace</div></div>        
+        summary_times = (self.ds.sample_times // self.ds.sample_interval).astyp<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (109 &gt; 79 characters)</div></div>e(int)*self.ds.sample_interval
 
         for t in map(int, np.unique(summary_times)):
             if t not in self.data:
                 self.data[t] = self.data_type.summarize()
 
             # select only the chunk at the desired time
-            sample_data = var_data[summary_times == t] if summary_times[0] != summary_times[-1] else var_data
-            
+            sample_data = var_data[summary_times == t] if summary_times[0] != s<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (109 &gt; 79 characters)</div></div>ummary_times[-1] else var_data
+<div class="violation" type="W293" style="width:1ch;"><div class="error">blank line contains whitespace</div></div>            
             # flatten the array
             sample_data = sample_data.ravel()
 
-            ## summarize the data and update the summary
+            <div class="violation" type="E266" style="width:1ch;"><div class="error">too many leading '#' for block comment</div></div>## summarize the data and update the summary
             self.data[t] += self.data_type.summarize(sample_data)
 
     def jsonify(self):
@@ -652,7 +652,7 @@ class TimedData:
         # format data for a csv file
         columns = ['beg', 'end']+columns
         tooltips = ['', '']+tooltips
-        csv = [[time, time+self.ds.sample_interval]+summary.row() for time, summary in sorted(self.data.items())]
+        csv = [[time, time+self.ds.sample_interval]+summary.row() for time, sum<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (113 &gt; 79 characters)</div></div>mary in sorted(self.data.items())]
         csv = [columns, tooltips]+csv
 
         plot_json = {
@@ -665,8 +665,8 @@ class TimedData:
             plot_json['var_name'] = self.var_name
 
         return utils.json_section(self, [plot_json])
-            
-class UntimedData(Timeline):
+<div class="violation" type="W293" style="width:1ch;"><div class="error">blank line contains whitespace</div></div>            
+<div class="violation" type="E302" style="width:1ch;"><div class="error">expected 2 blank lines, found 1</div></div>class UntimedData(Timeline):
     '''Summarizes variable data which lacks a time dimension.
     Stores a file-by-file summary of the data in its Timeline superclass.
 
@@ -712,7 +712,7 @@ class UntimedData(Timeline):
 
         columns = ['beg', 'end']+columns
         tooltips = ['', '']+tooltips
-        csv = [[self.ds.file_timeline[log.beg].beg, self.ds.file_timeline[log.end].end]+log.val.row() for log in self]
+        csv = [[self.ds.file_timeline[log.beg].beg, self.ds.file_timeline[log.e<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (118 &gt; 79 characters)</div></div>nd].end]+log.val.row() for log in self]
         csv = [columns, tooltips]+csv
 
         return utils.json_section(self, [
@@ -720,11 +720,11 @@ class UntimedData(Timeline):
                 'type': 'plot',
                 'data': csv,
                 'separate': ['data']
-           }
+           <div class="violation" type="E122" style="width:1ch;"><div class="error">continuation line missing indentation or outdented</div></div>}
         ])
 
 
-### Variable ----------------------------------------------------------------------------------------------------------
+<div class="violation" type="E266" style="width:1ch;"><div class="error">too many leading '#' for block comment</div></div>### Variable ------------------------------------------------------------------<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (119 &gt; 79 characters)</div></div>----------------------------------------
 
 class Variable:
     '''Stores summary information about a variable in a datastream.
@@ -744,7 +744,7 @@ class Variable:
         self.attributes = TimelineDict('Attributes', ds)
         self.companions = VariableDict('Companions', ds)
         if not metadata_only:
-            self.data = TimedData(ncvar, ds) if 'time' in ncvar.dimensions else \
+            self.data = TimedData(ncvar, ds) if 'time' in ncvar.dimensions else<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (81 &gt; 79 characters)</div></div> \
                         UntimedData(ncvar, ds)
         self.metadata_only = metadata_only
 
@@ -752,7 +752,7 @@ class Variable:
         # load metadata
         self.dims.load(list(map(str, ncvar.dimensions)))
         self.dtype.load(str(ncvar.dtype))
-        self.attributes.load({a: list(v) if isinstance(v, np.ndarray) else v for a, v in ncvar.__dict__.items()})
+        self.attributes.load({a: list(v) if isinstance(v, np.ndarray) else v fo<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (113 &gt; 79 characters)</div></div>r a, v in ncvar.__dict__.items()})
         if not self.metadata_only:
             self.data.load(ncvar)
 
@@ -773,36 +773,36 @@ class Variable:
 
         return sec
 
-### Dicts -------------------------------------------------------------------------------------------------------------
+<div class="violation" type="E266" style="width:1ch;"><div class="error">too many leading '#' for block comment</div></div>### Dicts ---------------------------------------------------------------------<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (119 &gt; 79 characters)</div></div>----------------------------------------
 
-class NCDict(dict):
+<div class="violation" type="E302" style="width:1ch;"><div class="error">expected 2 blank lines, found 1</div></div>class NCDict(dict):
     def __init__(self, name, ds):
         dict.__init__(self)
         self.name = name
-        self.ds   = ds
+        self.ds<div class="violation" type="E221" style="width:1ch;"><div class="error">multiple spaces before operator</div></div>   = ds
 
-    
-    def jsonify(self):
+<div class="violation" type="W293" style="width:1ch;"><div class="error">blank line contains whitespace</div></div>    
+    <div class="violation" type="E303" style="width:1ch;"><div class="error">too many blank lines (2)</div></div>def jsonify(self):
         ''''''
         return utils.json_section(self, [x.jsonify() for x in self.values()])
 
-class TimelineDict(NCDict):
-    '''Extension of the dictionary class specialized for loading in name: timeline pairs.
+<div class="violation" type="E302" style="width:1ch;"><div class="error">expected 2 blank lines, found 1</div></div>class TimelineDict(NCDict):
+    '''Extension of the dictionary class specialized for loading in name: timel<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (85 &gt; 79 characters)</div></div>ine pairs.
     '''
     def __init__(self, name, ds):
         NCDict.__init__(self, name, ds)
 
     def load(self, data):
         '''
-        data: a dictionary of name: data pairs. Each name will be associated with its own timeline.
+        data: a dictionary of name: data pairs. Each name will be associated wi<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (99 &gt; 79 characters)</div></div>th its own timeline.
         '''
         for name, val in data.items():
             if name not in self:
                 self[name] = Timeline(name, self.ds)
             self[name].load(val)
 
-class VariableDict(NCDict):
-    '''Extension of the dictionary class specialized for loading in name: variable pairs.
+<div class="violation" type="E302" style="width:1ch;"><div class="error">expected 2 blank lines, found 1</div></div>class VariableDict(NCDict):
+    '''Extension of the dictionary class specialized for loading in name: varia<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (85 &gt; 79 characters)</div></div>ble pairs.
     '''
     def __init__(self, name, ds, metadata_only=False):
         NCDict.__init__(self, name, ds)
@@ -810,7 +810,7 @@ class VariableDict(NCDict):
 
     def load(self, data):
         '''
-        data: a dictionary of name: ncvar pairs, where ncvar is a netCDF4 variable object
+        data: a dictionary of name: ncvar pairs, where ncvar is a netCDF4 varia<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (89 &gt; 79 characters)</div></div>ble object
         '''
         for name, var in data.items():
             if name not in self:
@@ -818,9 +818,9 @@ class VariableDict(NCDict):
             self[name].load(var)
 
     def _clear_companions(self):
-        '''Remove companion variables from the top-level variable dict, so they don't exist twice.
+        '''Remove companion variables from the top-level variable dict, so they<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (90 &gt; 79 characters)</div></div> don't exist twice.
 
-        This is a recursive function which should only be called through nest_companions
+        This is a recursive function which should only be called through nest_c<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (88 &gt; 79 characters)</div></div>ompanions
         '''
         companion_names = set()
         for var in self.values():
@@ -833,22 +833,22 @@ class VariableDict(NCDict):
             var.companions._clear_companions()
 
     def nest_companions(self):
-        '''Moves companon variable such as qc_&lt;var&gt; down into the companions attr of their parent var
+        '''Moves companon variable such as qc_&lt;var&gt; down into the companions at<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (93 &gt; 79 characters)</div></div>tr of their parent var
         '''
         companion_prefixes = {
-          'fgp'  : 'fraction of good points',
-          'be'   : 'best estimate',
-          'qc'   : 'quality control',
-          'aqc'  : 'ancillary quality control'
+          'fgp' <div class="violation" type="E203" style="width:1ch;"><div class="error">whitespace before ':'</div></div> : 'fraction of good points',
+          'be'  <div class="violation" type="E203" style="width:1ch;"><div class="error">whitespace before ':'</div></div> : 'best estimate',
+          'qc'  <div class="violation" type="E203" style="width:1ch;"><div class="error">whitespace before ':'</div></div> : 'quality control',
+          'aqc' <div class="violation" type="E203" style="width:1ch;"><div class="error">whitespace before ':'</div></div> : 'ancillary quality control'
         }
 
         for var in self.values():
-            var.companions.update({n: v for n, v in self.items() \
-                if any(p+'_'+var.name == n for p in companion_prefixes)})
+            var.companions.update({n: v for n, v in self.items() <div class="violation" type="E502" style="width:1ch;"><div class="error">the backslash is redundant between brackets</div></div>\
+                <div class="violation" type="E128" style="width:1ch;"><div class="error">continuation line under-indented for visual indent</div></div>if any(p+'_'+var.name == n for p in companion_prefixes)})
 
         self._clear_companions()
 
-### Datastream --------------------------------------------------------------------------------------------------------
+<div class="violation" type="E266" style="width:1ch;"><div class="error">too many leading '#' for block comment</div></div>### Datastream ----------------------------------------------------------------<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (119 &gt; 79 characters)</div></div>----------------------------------------
 
 TimeInterval = namedtuple('TimeInterval', ['beg', 'end'])
 
@@ -860,9 +860,9 @@ class Datastream:
 
     Attributes:
         path             path to the datastream directory
-        sample_interval  length in seconds of interval over which time-series data is summarized
+        sample_interval  length in seconds of interval over which time-series d<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (96 &gt; 79 characters)</div></div>ata is summarized
         summary_times    list of times at which data was summarized
-        file_timeline    list of TimeInterval objects indicating the start and end dates of each file
+        file_timeline    list of TimeInterval objects indicating the start and <div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (101 &gt; 79 characters)</div></div>end dates of each file
         attributes       dict of attribute name : Attribute pairs
         dimensions       dict of dimension name : Dimension pairs
         variables        dict of variable name: Variable pairs
@@ -870,7 +870,7 @@ class Datastream:
     '''
     # BIG TODO: Create an alternate Datastream initializer method
     #           which reads in data from the mongodb.
-    #           This could be WAY faster than reading the data in from files directly.
+    #           This could be WAY faster than reading the data in from files di<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (86 &gt; 79 characters)</div></div>rectly.
     #           This will probably fall to you, Daniel.
     #           All of this is yours now. Good luck.
     def __init__(
@@ -885,33 +885,33 @@ class Datastream:
         '''
         Parameters:
         path    path to the datastream directory
-        beg     datetime object specifying beginning limit on which to read in data
-        beg     datetime object specifying ending limit on which to read in data
-        sample_interval     length in seconds of interval over which time-series data is summarized
-        metadata_only       Only read in netcdf metadata, ignore actual data (much faster)
+        beg     datetime object specifying beginning limit on which to read in <div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (83 &gt; 79 characters)</div></div>data
+        beg     datetime object specifying ending limit on which to read in dat<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (80 &gt; 79 characters)</div></div>a
+        sample_interval     length in seconds of interval over which time-serie<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (99 &gt; 79 characters)</div></div>s data is summarized
+        metadata_only       Only read in netcdf metadata, ignore actual data (m<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (90 &gt; 79 characters)</div></div>uch faster)
         progress_bar        progress bar object (see ncreview.py)
 
         '''
 
-        if sample_interval is None: # if sample interval isn't specified by user
+        if sample_interval is None:<div class="violation" type="E261" style="width:1ch;"><div class="error">at least two spaces before inline comment</div></div> # if sample interval isn't specified by use<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (80 &gt; 79 characters)</div></div>r
             # automatically set the sample interval
-            if end - beg &gt; dt.timedelta(days=10): # if interval is more than 10 days
-                sample_interval = 24*60*60 # set interval to 24 hr
+            if end - beg &gt; dt.timedelta(days=10):<div class="violation" type="E261" style="width:1ch;"><div class="error">at least two spaces before inline comment</div></div> # if interval is more than 10<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (84 &gt; 79 characters)</div></div> days
+                sample_interval = 24*60*60<div class="violation" type="E261" style="width:1ch;"><div class="error">at least two spaces before inline comment</div></div> # set interval to 24 hr
             else:
-                sample_interval = 60*60 # set interval to 1 hr
-        elif sample_interval &lt;= 0: # if user specified non-positive sample interval
-            raise ValueError('Sample_interval must be a positive number, not ' + str(sample_interval))
+                sample_interval = 60*60<div class="violation" type="E261" style="width:1ch;"><div class="error">at least two spaces before inline comment</div></div> # set interval to 1 hr
+        elif sample_interval &lt;= 0:<div class="violation" type="E261" style="width:1ch;"><div class="error">at least two spaces before inline comment</div></div> # if user specified non-positive sample inte<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (83 &gt; 79 characters)</div></div>rval
+            raise ValueError('Sample_interval must be a positive number, not ' <div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (102 &gt; 79 characters)</div></div>+ str(sample_interval))
 
-        self.path            = path
+        self.path<div class="violation" type="E221" style="width:1ch;"><div class="error">multiple spaces before operator</div></div>            = path
         self.sample_interval = sample_interval
-        self.summary_times   = []
-        self.file_timeline   = []
-        self.attributes      = TimelineDict('Attributes', self)
-        self.dimensions      = TimelineDict('Dimensions', self)
-        self.variables       = VariableDict('Variables', self, metadata_only)
-        self.sample_times    = None
-        self.ds_name         = None
-        self.has_warnings    = False
+        self.summary_times<div class="violation" type="E221" style="width:1ch;"><div class="error">multiple spaces before operator</div></div>   = []
+        self.file_timeline<div class="violation" type="E221" style="width:1ch;"><div class="error">multiple spaces before operator</div></div>   = []
+        self.attributes<div class="violation" type="E221" style="width:1ch;"><div class="error">multiple spaces before operator</div></div>      = TimelineDict('Attributes', self)
+        self.dimensions<div class="violation" type="E221" style="width:1ch;"><div class="error">multiple spaces before operator</div></div>      = TimelineDict('Dimensions', self)
+        self.variables<div class="violation" type="E221" style="width:1ch;"><div class="error">multiple spaces before operator</div></div>       = VariableDict('Variables', self, metadata_only)
+        self.sample_times<div class="violation" type="E221" style="width:1ch;"><div class="error">multiple spaces before operator</div></div>    = None
+        self.ds_name<div class="violation" type="E221" style="width:1ch;"><div class="error">multiple spaces before operator</div></div>         = None
+        self.has_warnings<div class="violation" type="E221" style="width:1ch;"><div class="error">multiple spaces before operator</div></div>    = False
 
         # check to see if path is dq_inspector compatible
         self.use_dq_inspector = True
@@ -919,7 +919,7 @@ class Datastream:
         if path_match is None:
             self.has_warnings = True
             self.use_dq_inspector = False
-        
+<div class="violation" type="W293" style="width:1ch;"><div class="error">blank line contains whitespace</div></div>        
         def is_valid(fname):
             t = utils.file_time(fname)
             return t is not None and beg &lt;= t &lt;= end
@@ -927,7 +927,7 @@ class Datastream:
         files = sorted(filter(is_valid, os.listdir(path)))
 
         if not files:
-            raise RuntimeError(path+' contains no netCDF files in the specified time period.')
+            raise RuntimeError(path+' contains no netCDF files in the specified<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (94 &gt; 79 characters)</div></div> time period.')
 
         self.ds_name = utils.file_datastream(files[0])
 
@@ -935,8 +935,8 @@ class Datastream:
             # make sure it has the same datastream name
             ds_name = utils.file_datastream(f)
             if ds_name != self.ds_name:
-                raise RuntimeError(path+' contains files from different datastreams, '+ \
-                    self.ds_name+' and '+ds_name+'.')
+                raise RuntimeError(path+' contains files from different datastr<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (89 &gt; 79 characters)</div></div>eams, '<div class="violation" type="E225" style="width:1ch;"><div class="error">missing whitespace around operator</div></div>+ <div class="violation" type="E502" style="width:1ch;"><div class="error">the backslash is redundant between brackets</div></div>\
+                    <div class="violation" type="E128" style="width:1ch;"><div class="error">continuation line under-indented for visual indent</div></div>self.ds_name+' and '+ds_name+'.')
 
             ncfile = None
             try:
@@ -952,20 +952,20 @@ class Datastream:
                 ncvars = ncfile.variables
                 if not metadata_only:
                     if 'time_offset' in ncvars and 'base_time' in ncvars:
-                        sample_times = ncvars['time_offset'][:] + ncvars['base_time'][:]
+                        sample_times = ncvars['time_offset'][:] + ncvars['base_<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (88 &gt; 79 characters)</div></div>time'][:]
 
                     elif 'time' in ncvars:
-                        base_time = ncvars['base_time'][:] if 'base_time' in ncvars else ftime
-                        sample_times = ncvars['time'][:] + (60*60*24)*base_time//(60*60*24)
+                        base_time = ncvars['base_time'][:] if 'base_time' in nc<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (94 &gt; 79 characters)</div></div>vars else ftime
+                        sample_times = ncvars['time'][:] + (60*60*24)*base_time<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (91 &gt; 79 characters)</div></div>//(60*60*24)
 
                     # get begin and end dates of the file
-                    beg = sample_times[ 0] if getattr(sample_times, 'size', 0) else ftime
-                    end = sample_times[-1] if getattr(sample_times, 'size', 0) else ftime
-                
+                    beg = sample_times[<div class="violation" type="E201" style="width:1ch;"><div class="error">whitespace after '['</div></div> 0] if getattr(sample_times, 'size', 0) <div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (89 &gt; 79 characters)</div></div>else ftime
+                    end = sample_times[-1] if getattr(sample_times, 'size', 0) <div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (89 &gt; 79 characters)</div></div>else ftime
+<div class="violation" type="W293" style="width:1ch;"><div class="error">blank line contains whitespace</div></div>                
                 else:
-                    base_time = ncvars['base_time'][0] if 'base_time' in ncvars else ftime
+                    base_time = ncvars['base_time'][0] if 'base_time' in ncvars<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (90 &gt; 79 characters)</div></div> else ftime
                     if 'time_offset' in ncvars:
-                        beg = ncvars['time_offset'][0]  + base_time
+                        beg = ncvars['time_offset'][0]<div class="violation" type="E221" style="width:1ch;"><div class="error">multiple spaces before operator</div></div>  + base_time
                         try:
                             end = ncvars['time_offset'][-1] + base_time
                         except IndexError:
@@ -973,7 +973,7 @@ class Datastream:
 
                     elif 'time' in ncvars:
                         midnight = (60*60*24)*base_time//(60*60*24)
-                        beg = ncvars['time'][0]  + midnight
+                        beg = ncvars['time'][0]<div class="violation" type="E221" style="width:1ch;"><div class="error">multiple spaces before operator</div></div>  + midnight
                         end = ncvars['time'][-1] + midnight
 
                     else:
@@ -984,21 +984,21 @@ class Datastream:
 
                 # get the new summary times
                 self.summary_times = sorted(
-                    set(sample_interval*np.unique(sample_times//sample_interval)) | \
+                    set(sample_interval*np.unique(sample_times//sample_interval<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (85 &gt; 79 characters)</div></div>)) | <div class="violation" type="E502" style="width:1ch;"><div class="error">the backslash is redundant between brackets</div></div>\
                     set(self.summary_times))
-                
+<div class="violation" type="W293" style="width:1ch;"><div class="error">blank line contains whitespace</div></div>                
                 self.sample_times = sample_times
 
                 # add this begin, end pair to the file timeline
                 if self.file_timeline and self.file_timeline[-1].end &gt; beg:
                     # TODO: turn this into a post-run warning
-                    sys.stderr.write('Warning: '+path+'/'+f+' overlaps with previous file.\n')
+                    sys.stderr.write('Warning: '+path+'/'+f+' overlaps with pre<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (94 &gt; 79 characters)</div></div>vious file.\n')
                 self.file_timeline.append(TimeInterval(beg, end))
 
                 # load global metadata
-                attr_dict = {a: list(v) if isinstance(v, np.ndarray) else v for a, v in ncfile.__dict__.items()}
+                attr_dict = {a: list(v) if isinstance(v, np.ndarray) else v for<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (112 &gt; 79 characters)</div></div> a, v in ncfile.__dict__.items()}
                 self.attributes.load(attr_dict)
-                self.dimensions.load({n: len(d) for n,d in ncfile.dimensions.items()})
+                self.dimensions.load({n: len(d) for n<div class="violation" type="E231" style="width:1ch;"><div class="error">missing whitespace after ','</div></div>,d in ncfile.dimensions.it<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (86 &gt; 79 characters)</div></div>ems()})
                 self.variables.load(ncvars)
 
             except Exception as e:
@@ -1007,9 +1007,9 @@ class Datastream:
                     self.unreadable_files = []
                 self.unreadable_files.append((f, e))
             finally:
-                if ncfile: ncfile.close()
+                if ncfile<div class="violation" type="E701" style="width:1ch;"><div class="error">multiple statements on one line (colon)</div></div>: ncfile.close()
 
-            if progress_bar: progress_bar.update(os.stat(path+'/'+f).st_size)
+            if progress_bar<div class="violation" type="E701" style="width:1ch;"><div class="error">multiple statements on one line (colon)</div></div>: progress_bar.update(os.stat(path+'/'+f).st_size)
 
         self.variables.nest_companions()
         self.summary_times = sorted(self.summary_times)
@@ -1017,34 +1017,34 @@ class Datastream:
         # TODO: should probably come up with a better warning system...
         #       ...lol nahh
         if self.has_warnings:
-            sys.stderr.write('\nWarnings for %s:\n'%path)
+            sys.stderr.write('\nWarnings for %s:\n'<div class="violation" type="E228" style="width:1ch;"><div class="error">missing whitespace around modulo operator</div></div>%path)
             if hasattr(self, 'unreadable_data'):
-                sys.stderr.write('%d variables contain unreadable data:\n'%len(self.unreadable_data) + \
-                    '\n'.join('%s: %s'%(var, error) for var, error in self.unreadable_data.items())+'\n')
+                sys.stderr.write('%d variables contain unreadable data:\n'<div class="violation" type="E228" style="width:1ch;"><div class="error">missing whitespace around modulo operator</div></div>%len(<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (104 &gt; 79 characters)</div></div>self.unreadable_data) + <div class="violation" type="E502" style="width:1ch;"><div class="error">the backslash is redundant between brackets</div></div>\
+                    <div class="violation" type="E128" style="width:1ch;"><div class="error">continuation line under-indented for visual indent</div></div>'\n'.join('%s: %s'<div class="violation" type="E228" style="width:1ch;"><div class="error">missing whitespace around modulo operator</div></div>%(var, error) for var, error in self.unre<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (105 &gt; 79 characters)</div></div>adable_data.items())+'\n')
             if hasattr(self, 'non_conformant_qc'):
                 sys.stderr.write(
-                    "%d QC variables are missing qc bit description attributes:\n"%len(self.non_conformant_qc) + \
+                    "%d QC variables are missing qc bit description attributes:<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (114 &gt; 79 characters)</div></div>\n"<div class="violation" type="E228" style="width:1ch;"><div class="error">missing whitespace around modulo operator</div></div>%len(self.non_conformant_qc) + <div class="violation" type="E502" style="width:1ch;"><div class="error">the backslash is redundant between brackets</div></div>\
                     '\n'.join(self.non_conformant_qc)+'\n')
             if hasattr(self, 'missing_time'):
                 sys.stderr.write(
-                    "%d instances of variables missing a time dimension they had in other files:\n"% \
-                    len(self.missing_time) + \
+                    "%d instances of variables missing a time dimension they ha<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (102 &gt; 79 characters)</div></div>d in other files:\n"<div class="violation" type="E225" style="width:1ch;"><div class="error">missing whitespace around operator</div></div>% <div class="violation" type="E502" style="width:1ch;"><div class="error">the backslash is redundant between brackets</div></div>\
+                    len(self.missing_time) + <div class="violation" type="E502" style="width:1ch;"><div class="error">the backslash is redundant between brackets</div></div>\
                     '\n'.join(
-                        '%s on %s'%(n, dt.datetime.utcfromtimestamp(t).isoformat()) for n, t in self.missing_time
+                        '%s on %s'<div class="violation" type="E228" style="width:1ch;"><div class="error">missing whitespace around modulo operator</div></div>%(n, dt.datetime.utcfromtimestamp(t).isoforma<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (113 &gt; 79 characters)</div></div>t()) for n, t in self.missing_time
                         )+'\n'
                     )
             if hasattr(self, 'unreadable_files'):
                 sys.stderr.write(
-                    "%d files could not be read from\n%s\n"%(len(self.unreadable_files), path) + \
-                    '\n'.join('%s: %s'%(f, str(e)) for f, e in self.unreadable_files)+'\n'
+                    "%d files could not be read from\n%s\n"<div class="violation" type="E228" style="width:1ch;"><div class="error">missing whitespace around modulo operator</div></div>%(len(self.unreadabl<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (98 &gt; 79 characters)</div></div>e_files), path) + <div class="violation" type="E502" style="width:1ch;"><div class="error">the backslash is redundant between brackets</div></div>\
+                    '\n'.join('%s: %s'<div class="violation" type="E228" style="width:1ch;"><div class="error">missing whitespace around modulo operator</div></div>%(f, str(e)) for f, e in self.unreadable_<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (90 &gt; 79 characters)</div></div>files)+'\n'
                     )
 
-            if self.use_dq_inspector == False:
-                sys.stderr.write('\nWarning: \n' + path + \
-                    '\nis not in correct directory structure to create dq_inspector plots\n')
+            if self.use_dq_inspector <div class="violation" type="E712" style="width:1ch;"><div class="error">comparison to False should be 'if cond is False:' or 'if not cond:'</div></div>== False:
+                sys.stderr.write('\nWarning: \n' + path + <div class="violation" type="E502" style="width:1ch;"><div class="error">the backslash is redundant between brackets</div></div>\
+                    <div class="violation" type="E128" style="width:1ch;"><div class="error">continuation line under-indented for visual indent</div></div>'\nis not in correct directory structure to create dq_inspe<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (93 &gt; 79 characters)</div></div>ctor plots\n')
 
 
-        sys.stderr.flush()
+        <div class="violation" type="E303" style="width:1ch;"><div class="error">too many blank lines (2)</div></div>sys.stderr.flush()
 
     def jsonify(self):
         return {
@@ -1054,7 +1054,7 @@ class Datastream:
             'sample_interval': self.sample_interval,
             'summary_times': self.summary_times,
             'contents': [
-                { 
+                {<div class="violation" type="W291" style="width:1ch;"><div class="error">trailing whitespace</div></div> 
                     'type': 'section',
                     'name': 'File Timeline',
                     'contents': [

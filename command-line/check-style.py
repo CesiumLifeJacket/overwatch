@@ -6,6 +6,7 @@ html-based report in specified directory. Read the .style.yml and apply
 appropriate stylecheckers to the appropriate files write out the results to
 web_directory as specified by command line argument
 '''
+# TODO: use python 3's awesome new pathlib!
 import os
 import sys
 import json
@@ -14,6 +15,7 @@ import shutil
 import argparse
 from glob import glob
 from cgi import escape
+from pathlib import path
 from jinja2 import Environment, FileSystemLoader
 
 import pdb
@@ -29,11 +31,12 @@ parser.add_argument(
 args = parser.parse_args()
 
 # load the configureation file
-if not os.path.exists('.style.yml'):
-    print("No .style.yml found.")
+config_path = Path('.style.yml')
+if not config_path.exists():
+    print("No {} found.".format(config_path))
     exit(1)
 
-config = yaml.load(open(".style.yml"))
+config = yaml.load(config_path.open())
 
 # TODO: check format of config against Rx schema
 
@@ -46,7 +49,7 @@ for stylechecker_name, patterns in config.items():
         stylechecker = __import__("stylecheckers.{}".format(
             stylechecker_name), fromlist=['stylecheckers'])
     except:
-        print("Could not find styechecker '{}'.".format(stylechecker_name))
+        print("Could not find stylechecker '{}'.".format(stylechecker_name))
         exit(1)
 
     files = []
@@ -72,13 +75,14 @@ for stylechecker_name, patterns in config.items():
 
 def annotate_code(code, violations):
     # TODO: more thorough docstring here
+    #pdb.set_trace()
     '''HTML escape the code and insert tags to mark style violations.
     '''
     # Calculate starting index of each line
     line_indices = [0]
 
     for line_length in map(len, code.split('\n')):
-        line_index = line_indices[-1] + line_length
+        line_index = line_indices[-1] + line_length + 1
         line_indices.append(line_index)
 
     # Determine spans to insert and where to inesrt them
@@ -89,8 +93,8 @@ def annotate_code(code, violations):
     for v in violations:
         index = line_indices[v['row'] - 1] + v['col'] - 1
 
-        insertion = '<div class="violation" type="{}" style="width:{}ch;">' \
-                    + '<div class="error">{}</div></div>'.format(
+        insertion = ('<div class="violation" type="{}" style="width:{}ch;">' +
+                     '<div class="error">{}</div></div>').format(
                         escape(v['type']),
                         v.get('length', 1),
                         escape(v['message'])
@@ -121,19 +125,22 @@ def annotate_code(code, violations):
     return annotated_code
 
 
-def path_filename(d):
-    '''TODO: docstring
+def path_filename(path):
+    '''Returns unique .html file name for the given path.
+
+    Maps paths to directories and files in the project
+    to unique html filenames for the html report.
     '''
     if not hasattr(path_filename, 'filenames'):
         setattr(path_filename, 'filenames', {})
         path_filename.filenames[''] = 'Index.html'
 
-    if d in path_filename.filenames:
-        return path_filename.filenames[d]
+    if path in path_filename.filenames:
+        return path_filename.filenames[path]
     else:
-        fname = d.replace('/', '__').replace('\\', '__') + '.html'
+        fname = path.replace('/', '__').replace('\\', '__') + '.html'
         if fname not in path_filename.filenames.values():
-            path_filename.filenames[d] = fname
+            path_filename.filenames[path] = fname
         else:
             i = 1
             old_fname = fname
@@ -145,20 +152,16 @@ def path_filename(d):
 
         return fname
 
+
 def get_parents(path):
-    '''TODO: docstring
+    '''return a list of (name, html filename) pairs for each parent directory
+    of path.
     '''
-    if not path:
-        return [("/", path_filename(''))]
-
-    parent, base = os.path.split(path)
-    fname = path_filename(path)
-
-    return get_parents(parent) + [(base, fname)]
+    return [(parent.name, path_filename(parent)) for parent in path.parents()]
 
 # TODO: refactor, modularize this
 
-# TODO: if it exists already, 
+# TODO: if it exists already,
 # completely clear this directory before repopulating
 
 if not os.path.exists(args.web_directory):
@@ -191,7 +194,11 @@ for file, violations in report.items():
     dir_path = get_parents(file)
     code = open(file).read()
     annotated_code = annotate_code(code, violations)
-    file_html = file_template.render(dir_path=dir_path, language='python', code=annotated_code)
+    file_html = file_template.render(
+        dir_path=dir_path,
+        language='python',
+        code=annotated_code
+        )
 
     # Write to file
     html_filename = os.path.join(args.web_directory, path_filename(file))
@@ -234,4 +241,3 @@ for directory, contents in directories.items():
     dirname = path_filename(directory)
     html_filename = os.path.join(args.web_directory, dirname)
     open(html_filename, 'w').write(directory_html)
-

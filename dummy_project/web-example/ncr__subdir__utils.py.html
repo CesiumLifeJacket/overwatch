@@ -10,7 +10,7 @@
 <h1><a href=Index.html>//</a><a href=ncr.html>ncr/</a><a href=ncr__subdir.html>subdir/</a>utils.py</h1>
 
 <pre><code class="python">
-'''A few miscellaneous functions and objects used by the datastream and datastr<div class="violation" type="{}" style="width:{}ch;"><div class="error">E501</div></div>eamdiff modules.
+'''A few miscellaneous functions and objects used by the datastream and datastr<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (95 &gt; 79 characters)</div></div>eamdiff modules.
 '''
 import re
 import sys
@@ -22,20 +22,20 @@ import datetime as dt
 # regex for checking netcdf file names
 ncfname_re = \
     re.compile('^([a-z]{3})([a-z0-9]*)([A-Z]\d+)\.([a-z]\d).'
-               +'(\d{4})(\d\d)(\d\d)\.(\d\d)(\d\d)(\d\d)\.(cdf|nc)$')
+               <div class="violation" type="W503" style="width:1ch;"><div class="error">line break before binary operator</div></div>+<div class="violation" type="E225" style="width:1ch;"><div class="error">missing whitespace around operator</div></div>'(\d{4})(\d\d)(\d\d)\.(\d\d)(\d\d)(\d\d)\.(cdf|nc)$')
 
-def file_time(fname):
+<div class="violation" type="E302" style="width:1ch;"><div class="error">expected 2 blank lines, found 1</div></div>def file_time(fname):
     '''Return time in netcdf file name as a datetime object
     '''
     match = ncfname_re.match(fname)
     return dt.datetime(*map(int, match.groups()[4:10])) if match else None
 
-def file_datastream(fname):
+<div class="violation" type="E302" style="width:1ch;"><div class="error">expected 2 blank lines, found 1</div></div>def file_datastream(fname):
     '''return the datstream substring from a filename'''
     match = ncfname_re.match(fname)
     return ''.join(match.groups()[:4])
 
-def store_difference(func):
+<div class="violation" type="E302" style="width:1ch;"><div class="error">expected 2 blank lines, found 1</div></div>def store_difference(func):
     '''Decorator that causes difference() methods to store and reuse their result.
     '''
     def difference(self):
@@ -44,7 +44,7 @@ def store_difference(func):
         return self._difference
     return difference
 
-def json_section(self, contents):
+<div class="violation" type="E302" style="width:1ch;"><div class="error">expected 2 blank lines, found 1</div></div>def json_section(self, contents):
     '''Returns a json section object with the specified contents.
     '''
     sec = {
@@ -58,8 +58,8 @@ def json_section(self, contents):
         sec['difference'] = self._difference
     return sec
 
-def JEncoder(obj):
-    ''' Defines a few default behaviours when the json encoder doesn't know what to do
+<div class="violation" type="E302" style="width:1ch;"><div class="error">expected 2 blank lines, found 1</div></div>def JEncoder(obj):
+    ''' Defines a few default behaviours when the json encoder doesn't know wha<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (82 &gt; 79 characters)</div></div>t to do
     '''
     try:
         if np.isnan(obj):
@@ -72,10 +72,10 @@ def JEncoder(obj):
         try:
             return str(obj)
         except:
-            raise TypeError('Object of type {0} with value of {1} is not JSON serializable' \
-                .format(type(obj), repr(obj)))
+            raise TypeError('Object of type {0} with value of {1} is not JSON s<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (93 &gt; 79 characters)</div></div>erializable' <div class="violation" type="E502" style="width:1ch;"><div class="error">the backslash is redundant between brackets</div></div>\
+                <div class="violation" type="E128" style="width:1ch;"><div class="error">continuation line under-indented for visual indent</div></div>.format(type(obj), repr(obj)))
 
-def shared_times(old_ftimes, new_ftimes):
+<div class="violation" type="E302" style="width:1ch;"><div class="error">expected 2 blank lines, found 1</div></div>def shared_times(old_ftimes, new_ftimes):
     '''Yeilds time intervals shared by both the old and new files, in order.
 
     Parameters:
@@ -86,8 +86,8 @@ def shared_times(old_ftimes, new_ftimes):
         yeilds the tuple:
             beg    beginning of the shared time interval
             end    end of the shared time interval
-            old_i  index of interval in old_ftimes that overlaps this shared interval
-            new_i  index of interval in new_ftimes that overlaps this shared interval
+            old_i  index of interval in old_ftimes that overlaps this shared in<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (85 &gt; 79 characters)</div></div>terval
+            new_i  index of interval in new_ftimes that overlaps this shared in<div class="violation" type="E501" style="width:1ch;"><div class="error">line too long (85 &gt; 79 characters)</div></div>terval
     '''
     old_itr = iter(enumerate(old_ftimes))
     new_itr = iter(enumerate(new_ftimes))

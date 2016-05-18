@@ -5,6 +5,7 @@ import re
 import sys
 import json
 import subprocess
+import pdb
 
 pattern = re.compile('(.*?):(\d+):(\d+): (\w+) (.*)')
 
@@ -15,6 +16,7 @@ def check(filename):
                                stdout=subprocess.PIPE)
 
     output, _ = process.communicate()
+    output = output.decode("utf-8")
 
     # convert the report to json
     violations = [
@@ -24,7 +26,7 @@ def check(filename):
             'type': t,
             'message': message
         }
-        for f, row, col, t, message in pattern.findall(str(output))
+        for f, row, col, t, message in pattern.findall(output)
     ]
 
     return violations
