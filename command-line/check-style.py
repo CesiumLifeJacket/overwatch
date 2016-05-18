@@ -6,7 +6,6 @@ html-based report in specified directory. Read the .style.yml and apply
 appropriate stylecheckers to the appropriate files write out the results to
 web_directory as specified by command line argument
 '''
-# TODO: use python 3's awesome new pathlib!
 import os
 import sys
 import json
@@ -15,22 +14,44 @@ import shutil
 import argparse
 from glob import glob
 from cgi import escape
-from pathlib import path
+from pathlib import Path
 from jinja2 import Environment, FileSystemLoader
 
-import pdb
+### Set up Jinja2 Environment and Get Templates ------------------------------
 
-# TODO: be consistent with var name conventions, etc
+source_path = Path(__file__).resolve().parent
+template_path = source_path / 'web-template'
+env = Environment(loader=FileSystemLoader(str(template_path)),
+                  trim_blocks=True, lstrip_blocks=True)
+env.filters['quote'] = escape
 
-# TODO: more helpful help messages
+# Get jinja templates
+file_template = env.get_template("file.html")
+directory_template = env.get_template("directory.html")
+
+### Parse Command Line Arguments ---------------------------------------------
+
 parser = argparse.ArgumentParser(
-    description="check code style of a project based upon settings in .style.yml")
+    description="check code style of a project based upon settings in " +
+    ".style.yml")
 parser.add_argument(
-    'web_directory', help="directory in which to write web report")
+    'web_directory',
+    help="directory in which to write web report")
+parser.add_argument(
+    '--project_directory',
+    help="directory in which to place your project " +
+    "and .style.yml")
 
 args = parser.parse_args()
 
-# load the configureation file
+web_directory = Path(args.web_directory)
+
+if args.project_directory:
+    os.chdir(args.project_directory)
+
+### Perform Style Checking for the Project -----------------------------------
+
+# Load the configuration file
 config_path = Path('.style.yml')
 if not config_path.exists():
     print("No {} found.".format(config_path))
@@ -64,18 +85,15 @@ for stylechecker_name, patterns in config.items():
     report_files = {}
     for f in files:
         try:
-            report_files[f] = stylechecker.check(f)
+            report_files[Path(f)] = stylechecker.check(f)
         except:
             print("Error checking file {}".format(f))
 
     report.update(report_files)
 
-# Generate report webpages for each code file
-
 
 def annotate_code(code, violations):
     # TODO: more thorough docstring here
-    #pdb.set_trace()
     '''HTML escape the code and insert tags to mark style violations.
     '''
     # Calculate starting index of each line
@@ -125,6 +143,9 @@ def annotate_code(code, violations):
     return annotated_code
 
 
+### Generate directory report information ------------------------------------
+
+
 def path_filename(path):
     '''Returns unique .html file name for the given path.
 
@@ -138,7 +159,9 @@ def path_filename(path):
     if path in path_filename.filenames:
         return path_filename.filenames[path]
     else:
-        fname = path.replace('/', '__').replace('\\', '__') + '.html'
+        if str(path) == '.':
+            return "index.html"
+        fname = str(path).replace('/', '__').replace('\\', '__') + '.html'
         if fname not in path_filename.filenames.values():
             path_filename.filenames[path] = fname
         else:
@@ -157,60 +180,20 @@ def get_parents(path):
     '''return a list of (name, html filename) pairs for each parent directory
     of path.
     '''
-    return [(parent.name, path_filename(parent)) for parent in path.parents()]
-
-# TODO: refactor, modularize this
-
-# TODO: if it exists already,
-# completely clear this directory before repopulating
-
-if not os.path.exists(args.web_directory):
-    os.makedirs(args.web_directory)
-
-# Set up Jinja2 template envronment
-source_path = os.path.dirname(os.path.realpath(__file__))
-template_path = os.path.join(source_path, 'web-template')
-env = Environment(loader=FileSystemLoader(template_path),
-                  trim_blocks=True, lstrip_blocks=True)
-env.filters['quote'] = escape
-
-# get jinja templates
-file_template = env.get_template("file.html")
-directory_template = env.get_template("directory.html")
-
-# Copy over supporting CSS and JS
-css_path = os.path.join(args.web_directory, 'css')
-if not os.path.exists(css_path):
-    shutil.copytree(os.path.join(template_path, 'css'), css_path)
-
-js_path = os.path.join(args.web_directory, 'js')
-if not os.path.exists(js_path):
-    shutil.copytree(os.path.join(template_path, 'js'), js_path)
-
-
-## Write out the code files
-for file, violations in report.items():
-    # Render HTML
-    dir_path = get_parents(file)
-    code = open(file).read()
-    annotated_code = annotate_code(code, violations)
-    file_html = file_template.render(
-        dir_path=dir_path,
-        language='python',
-        code=annotated_code
-        )
-
-    # Write to file
-    html_filename = os.path.join(args.web_directory, path_filename(file))
-    open(html_filename, 'w').write(file_html)
+    path_parts = list(reversed(path.parents)) + ([path] if str(path) != '.' else [])
+    root = Path('.')
+    return [(parent.name, path_filename(parent)) for parent in path_parts]
 
 directories = {}
 
-## Add file to each directory
+## Add files to each directory report.
 for file, violations in report.items():
-    directory, base = os.path.split(file)
+    directory = file.parent
+    base = file.name
+
     if directory not in directories:
         directories[directory] = []
+
     directories[directory].append({
         "name": base,
         "path": path_filename(file),
@@ -218,12 +201,13 @@ for file, violations in report.items():
         "errors": len(violations)
     })
 
-# Add subdirs to each directory.
+## Add subdirectories to each directory report.
 for directory in directories:
-    if not directory:
+    if directory == Path('.'):
         continue
 
-    parent, base = os.path.split(directory)
+    parent = directory.parent
+    base = directory.name
 
     directories[parent].append({
         "name": base,
@@ -232,6 +216,38 @@ for directory in directories:
         "files": len(directories[directory])
     })
 
+
+### Generate Web Report Files and Directories --------------------------------
+
+# Create the main report directory
+if not web_directory.exists():
+    os.makedirs(str(web_directory))
+
+##  Copy over supporting CSS and JS into the report directory
+css_path = web_directory / 'css'
+if not css_path.exists():
+    shutil.copytree(str(template_path / 'css'), str(css_path))
+
+js_path = web_directory / 'js'
+if not js_path.exists():
+    shutil.copytree(str(template_path / 'js'), str(js_path))
+
+## Create HTML for the file reports
+for file, violations in report.items():
+    # Render HTML
+    dir_path = get_parents(file)
+    code = file.open().read()
+    annotated_code = annotate_code(code, violations)
+    file_html = file_template.render(
+        dir_path=dir_path,
+        language='python',
+        code=annotated_code
+        )
+
+    # Write to file
+    html_filename = web_directory / path_filename(file)
+    html_filename.open('w').write(file_html)
+
 # Create HTML for each directory
 for directory, contents in directories.items():
     dir_path = get_parents(directory)
@@ -239,5 +255,5 @@ for directory, contents in directories.items():
         dir_path=dir_path, contents=contents)
 
     dirname = path_filename(directory)
-    html_filename = os.path.join(args.web_directory, dirname)
-    open(html_filename, 'w').write(directory_html)
+    html_filename = web_directory / dirname
+    html_filename.open('w').write(directory_html)
