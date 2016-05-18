@@ -47,6 +47,15 @@ RUN pip3 install pep8
 RUN apt-get install -y ruby-full build-essential
 RUN gem install rubocop
 
+## install apache, php and pear
+RUN apt-get install -y apache2
+RUN apt-get install -y php5
+RUN apt-get install -y libapache2-mod-php5
+RUN etc/init.d/apache2 restart
+
+RUN apt-get install -y php-pear
+RUN pear install PHP_CodeSniffer
+
 ## create directory for host computer's project
 RUN mkdir /hostdata
 
