@@ -30,7 +30,7 @@ parser.add_argument(
 
 args = parser.parse_args()
 
-if args.project_directory
+if args.project_directory:
     os.chdir(args.project_directory)
 
 # load the configureation file
