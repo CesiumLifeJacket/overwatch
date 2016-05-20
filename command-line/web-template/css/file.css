@@ -27,6 +27,7 @@ body {
 	display: inline-block;
 	position: absolute;
 	height: 1em;
+    cursor: pointer;
 }
 .violation:hover .error {
     display:inline-block;
@@ -39,8 +40,7 @@ body {
     position: absolute;
     padding: 5px;
     top: -2.25em;
-	height: 1.25em
-	cursor: pointer;
+	height: 1.25em;
 }
 div.violation .error {
     display:none;
@@ -59,4 +59,33 @@ div.violation:hover .error, div.violation:hover .error span {
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     font-size: 12px;
+}
+h1 {
+    cursor: default;
+    color: #4095DB;
+}
+a {
+    text-decoration: none;
+    color: #1F67A3;
+}
+a:hover {
+    color: #96CAF5;
+}
+.violation {
+    border-color: #DB4040; /*Red*/
+}
+.violation[type="E266"] {
+    border-color: #40DB81; /*Green*/
+}
+.violation[type="W291"] {
+    border-color: #E8B312; /*Yellow*/
+}
+.violation[type="E302"] {
+    border-color: #9540DB; /*Purple*/
+}
+.violation[type="E501"] {
+    border-color: #AAD90F; /*Lime*/
+}
+.violation[type="E128"] {
+    border-color: #F274EC; /*Pink*/
 }

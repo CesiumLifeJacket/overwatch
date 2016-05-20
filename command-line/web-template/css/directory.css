@@ -60,4 +60,13 @@ td:last-child {
 h1 {
 	font-size: 3em;
 	font-weight: 400;
-} 
+	text-decoration: none;
+    color: #4095DB;
+    cursor: default;
+}
+a {
+	color: #1F67A3;
+    }
+a:hover {
+    color: #96CAF5;
+}
