@@ -22,9 +22,9 @@
 #
 #
 #
-#p = subprocess.Popen("docker run -v $PWD:/hostdata stylewatcher:v1 python3 /overwatch/command-line/check-style.py /hostdata/web_report --project_directory=/hostdata", stdout=subprocess.PIPE, shell=True)
+
 docker_image_name = "stylewatcher:v1"
-report_directory = "web_report"
+report_directory = "boop_report"
 
 import sys, os, re, subprocess
 
@@ -48,40 +48,21 @@ def which(program):
     return None
 
 #check for valid docker install
+no_valid_install = (which("docker") == None and which("docker.exe") == None)
 
-
-
-#from subprocess import check_output
-p = subprocess.Popen("docker run -v $PWD:/hostdata "+docker_image_name+" python3 /overwatch/command-line/check-style.py /hostdata/"+report_directory+" --project_directory=/hostdata", stdout=subprocess.PIPE, shell=True)
-#(output, err) = p.communicate()
-print(p.communicate())
-
-
-##
-# Collect the parameters
-#commit_msg_filepath = sys.argv[1]
-#if len(sys.argv) > 2:
-#    commit_type = sys.argv[2]
-#else:
-#    commit_type = ''
-#if len(sys.argv) > 3:
-#    commit_hash = sys.argv[3]
-#else:
-#    commit_hash = ''
-
-#print "prepare-commit-msg: File: %s\nType: %s\nHash: %s" % (commit_msg_filepath, commit_type, commit_hash)
-
-# Figure out which branch we're on
-#branch = check_output(['git', 'symbolic-ref', '--short', 'HEAD']).strip()
-#print "prepare-commit-msg: On branch '%s'" % branch
-
-# Populate the commit message with the issue #, if there is one
-#if branch.startswith('issue-'):
-#    print "prepare-commit-msg: Oh hey, it's an issue branch."
-#    result = re.match('issue-(.*)', branch)
-#    issue_number = result.group(1)
-#
-#    with open(commit_msg_filepath, 'r+') as f:
-#        content = f.read()
-#        f.seek(0, 0)
-#        f.write("ISSUE-%s %s" % (issue_number, content))
+if(no_valid_install):
+    #if no valid docker install, prompt the user to install docker
+    print(
+        """No Docker installation found
+        To use StyleWatcher, please install Docker locally
+        https://docs.docker.com/engine/installation/""")
+else:
+    #if a docker install is found, run docker image to generate style report
+    print("Generating StyleWatcher report in "+report_directory+"/")
+    #from subprocess import check_output
+    p = subprocess.Popen(
+        "docker run -v $PWD:/hostdata "+docker_image_name+" python3 /overwatch/command-line/check-style.py /hostdata/"+report_directory+" --project_directory=/hostdata", 
+        stdout=subprocess.PIPE, shell=True)
+    #(output, err) = p.communicate()
+    print(p.communicate())
+    print()
