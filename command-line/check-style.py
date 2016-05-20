@@ -7,6 +7,7 @@ appropriate stylecheckers to the appropriate files write out the results to
 web_directory as specified by command line argument
 '''
 import os
+import Rx
 import sys
 import json
 import yaml
@@ -16,6 +17,8 @@ from glob import glob
 from cgi import escape
 from pathlib import Path
 from jinja2 import Environment, FileSystemLoader
+
+import pdb
 
 ### Set up Jinja2 Environment and Get Templates ------------------------------
 
@@ -28,6 +31,12 @@ env.filters['quote'] = escape
 # Get jinja templates
 file_template = env.get_template("file.html")
 directory_template = env.get_template("directory.html")
+
+### Get Rx Schema for The Configuration File ---------------------------------
+
+config_schema_file = source_path / 'config-schema.yml'
+config_schema = yaml.load(config_schema_file.open())
+config_schema = Rx.make_schema(config_schema)
 
 ### Parse Command Line Arguments ---------------------------------------------
 
@@ -49,17 +58,21 @@ web_directory = Path(args.web_directory)
 if args.project_directory:
     os.chdir(args.project_directory)
 
-### Perform Style Checking for the Project -----------------------------------
-
-# Load the configuration file
+### Load the Style Configuration File ----------------------------------------
 config_path = Path('.style.yml')
-if not config_path.exists():
-    print("No {} found.".format(config_path))
+
+try:
+    config = yaml.load(config_path.open())
+    config_schema.validate(config)
+except FileNotFoundError as e:
+    print("Could not find required config file {}".format(config_path))
+    exit(1)
+except Rx.SchemaMismatch as e:
+    print("malformed {}:".format(config_path))
+    print(e)
     exit(1)
 
-config = yaml.load(config_path.open())
-
-# TODO: check format of config against Rx schema
+### Perform Style Checking for the Project -----------------------------------
 
 # Perform the stylecheck and generate the report
 report = {}  # filename: style violations pairs
@@ -83,6 +96,7 @@ for stylechecker_name, patterns in config.items():
         files += filesMatchingPattern
 
     report_files = {}
+
     for f in files:
         try:
             report_files[Path(f)] = stylechecker.check(f)
@@ -180,8 +194,8 @@ def get_parents(path):
     '''return a list of (name, html filename) pairs for each parent directory
     of path.
     '''
-    path_parts = list(reversed(path.parents)) + ([path] if str(path) != '.' else [])
-    root = Path('.')
+    path_parts = list(reversed(path.parents)) + [path]
+
     return [(parent.name, path_filename(parent)) for parent in path_parts]
 
 directories = {}

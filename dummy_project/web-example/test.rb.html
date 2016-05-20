@@ -1,0 +1,42 @@
+
+<!doctype html>
+<html>
+<head>
+	<link rel="stylesheet" href="css/styles/arduino-light.css">
+	<link rel="stylesheet" href="css/file.css">
+	<script src="js/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<h1><a href=index.html>/</a>test.rb</h1>
+
+<pre><code class="python">
+require(<div class="violation" type="C" style="width:1ch;"><div class="error">Prefer single-quoted strings when you don't need string interpolation or special symbols.</div></div>"csim")
+
+S = SwitchBank.new
+A = AndGate.new
+<div class="violation" type="C" style="width:1ch;"><div class="error">Missing space after #.</div></div>#A.join(Tester.new("A"))
+B = OrGate.new
+<div class="violation" type="C" style="width:1ch;"><div class="error">Missing space after #.</div></div>#B.join(Tester.new("B"))
+C = XorGate.new
+<div class="violation" type="C" style="width:1ch;"><div class="error">Missing space after #.</div></div>#C.join(Tester.new("C"))
+L = LED.new('Result')<div class="violation" type="C" style="width:1ch;"><div class="error">Do not use semicolons to terminate expressions.</div></div>;
+
+S.join(A)
+S.join(A)
+A.join(B)
+S.join(B)
+B.join(C)
+S.join(C)
+C.join(L)
+
+<div class="violation" type="C" style="width:1ch;"><div class="error">Prefer each over for.</div></div>for x in (0..15)
+  <div class="violation" type="C" style="width:1ch;"><div class="error">Prefer each over for.</div></div>for s in [3<div class="violation" type="C" style="width:1ch;"><div class="error">Space missing after comma.</div></div>,2<div class="violation" type="C" style="width:1ch;"><div class="error">Space missing after comma.</div></div>,1<div class="violation" type="C" style="width:1ch;"><div class="error">Space missing after comma.</div></div>,0]
+    print<div class="violation" type="W" style="width:1ch;"><div class="error">(...) interpreted as grouped expression.</div></div> (x<div class="violation" type="C" style="width:1ch;"><div class="error">Surrounding space missing for operator &gt;&gt;.</div></div>&gt;&gt;s) &amp; 1
+  end
+  print <div class="violation" type="C" style="width:1ch;"><div class="error">Prefer single-quoted strings when you don't need string interpolation or special symbols.</div></div>" =&gt; "
+  S.value = x
+end<div class="violation" type="C" style="width:1ch;"><div class="error">Final newline missing.</div></div>
+</code></pre>
+</body>
+</html>

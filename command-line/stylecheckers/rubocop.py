@@ -24,7 +24,8 @@ import sys
 import json
 import subprocess
 
-pattern = re.compile('(.*?)[:](\d+)[:](\d+)[:][ ]([CEFW])[:][ ]([\w\-\'[:space:].]+\.)')
+pattern = re.compile('(.*?):(\d+):(\d+): ([CEFW]): (.*)')
+
 
 def check(filename):
     # TODO: get output from RuboCop
@@ -32,6 +33,7 @@ def check(filename):
                                stdout=subprocess.PIPE)
 
     output, _ = process.communicate()
+    output = output.decode("utf-8")
 
     # convert the report to json
     violations = [

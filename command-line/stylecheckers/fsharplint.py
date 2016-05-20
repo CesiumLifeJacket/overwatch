@@ -26,12 +26,15 @@ import subprocess
 
 pattern = re.compile('(.*?)\nError in file (.*?) on line (\d+) starting at column (\d+)')
 
+
 def check(filename):
     # TODO: get output from pep8
     process = subprocess.Popen(['fsharplint', filename],
                                stdout=subprocess.PIPE)
 
     output, _ = process.communicate()
+    output = output.decode("utf-8")
+
 
     # convert the report to json
     violations = [

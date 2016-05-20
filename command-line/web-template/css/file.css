@@ -17,7 +17,11 @@
 #
 #*********************************************************************************
 */
+
 @import url(https://fonts.googleapis.com/css?family=Roboto);
+body {
+    font-family: "Roboto", sans-serif;
+}
 .violation {
 	border-bottom: 3px dashed red;
 	display: inline-block;
@@ -35,7 +39,7 @@
     position: absolute;
     padding: 5px;
     top: -2.25em;
-	height: 1.25em;
+	height: 1.25em
 	cursor: pointer;
 }
 div.violation .error {
