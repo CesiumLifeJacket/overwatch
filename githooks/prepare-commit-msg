@@ -1,0 +1,87 @@
+#!/usr/bin/env python
+#*********************************************************************************
+#  ___ _        _   __      __    _      _             ___ ___  
+# / __| |_ _  _| |__\ \    / /_ _| |_ __| |_  ___ _ _ |_ _/ _ \ 
+# \__ \  _| || | / -_) \/\/ / _` |  _/ _| ' \/ -_) '_| | | (_) |
+# |___/\__|\_, |_\___|\_/\_/\__,_|\__\__|_||_\___|_|(_)___\___/ 
+#          |__/                                                 
+#
+#
+# Originaly developed by students of Whitworth University -> http://www.whitworth.edu/cms/
+# 
+# Incepted and maintained by Will Czifro -> will@czifrotech.com
+#
+#
+# This software is distributed on an "AS IS" basis, WITHOUT WARRANTY OF ANY
+# KIND, either express or implied.
+#
+#*********************************************************************************
+#
+# Patrick Price
+# patrickpr12@gmail.com
+#
+#
+#
+#p = subprocess.Popen("docker run -v $PWD:/hostdata stylewatcher:v1 python3 /overwatch/command-line/check-style.py /hostdata/web_report --project_directory=/hostdata", stdout=subprocess.PIPE, shell=True)
+docker_image_name = "stylewatcher:v1"
+report_directory = "web_report"
+
+import sys, os, re, subprocess
+
+#function defs for checking docker installation
+def which(program):
+    import os
+    def is_exe(fpath):
+        return os.path.isfile(fpath) and os.access(fpath, os.X_OK)
+
+    fpath, fname = os.path.split(program)
+    if fpath:
+        if is_exe(program):
+            return program
+    else:
+        for path in os.environ["PATH"].split(os.pathsep):
+            path = path.strip('"')
+            exe_file = os.path.join(path, program)
+            if is_exe(exe_file):
+                return exe_file
+
+    return None
+
+#check for valid docker install
+
+
+
+#from subprocess import check_output
+p = subprocess.Popen("docker run -v $PWD:/hostdata "+docker_image_name+" python3 /overwatch/command-line/check-style.py /hostdata/"+report_directory+" --project_directory=/hostdata", stdout=subprocess.PIPE, shell=True)
+#(output, err) = p.communicate()
+print(p.communicate())
+
+
+##
+# Collect the parameters
+#commit_msg_filepath = sys.argv[1]
+#if len(sys.argv) > 2:
+#    commit_type = sys.argv[2]
+#else:
+#    commit_type = ''
+#if len(sys.argv) > 3:
+#    commit_hash = sys.argv[3]
+#else:
+#    commit_hash = ''
+
+#print "prepare-commit-msg: File: %s\nType: %s\nHash: %s" % (commit_msg_filepath, commit_type, commit_hash)
+
+# Figure out which branch we're on
+#branch = check_output(['git', 'symbolic-ref', '--short', 'HEAD']).strip()
+#print "prepare-commit-msg: On branch '%s'" % branch
+
+# Populate the commit message with the issue #, if there is one
+#if branch.startswith('issue-'):
+#    print "prepare-commit-msg: Oh hey, it's an issue branch."
+#    result = re.match('issue-(.*)', branch)
+#    issue_number = result.group(1)
+#
+#    with open(commit_msg_filepath, 'r+') as f:
+#        content = f.read()
+#        f.seek(0, 0)
+#        f.write("ISSUE-%s %s" % (issue_number, content))
