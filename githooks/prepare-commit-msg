@@ -23,8 +23,8 @@
 #
 #
 
-docker_image_name = "stylewatcher:v1"
-report_directory = "boop_report"
+docker_image_name = "codestylio/codestylio"
+report_directory = "web_report"
 
 import sys, os, re, subprocess
 
