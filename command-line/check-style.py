@@ -126,6 +126,9 @@ for stylechecker_name, patterns in config.items():
 def annotate_code(code, violations):
     # TODO: more thorough docstring here
     '''HTML escape the code and insert tags to mark style violations.
+    Parameters:
+        code - str: Code to be annotated
+        violations - list of violation objects to annotate the code with.
     '''
     # Calculate starting index of each line
     line_indices = [0]
@@ -145,7 +148,7 @@ def annotate_code(code, violations):
         insertion = ('<div class="violation" type="{}" style="width:{}ch;">' +
                      '<div class="error">{}</div></div>').format(
                         escape(v['type']),
-                        v.get('length', 1),
+                        max(v.get('length', 1), 5),
                         escape(v['message'])
                     )
 
@@ -208,7 +211,7 @@ def path_filename(path):
 
 
 def get_parents(path):
-    '''return a list of (name, html filename) pairs for each parent directory
+    '''Return a list of (name, html filename) pairs for each parent directory
     of path.
     '''
     path_parts = list(reversed(path.parents)) + [path]
