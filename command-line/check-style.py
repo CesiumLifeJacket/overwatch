@@ -1,3 +1,20 @@
+#*********************************************************************************
+#    ___         _     ___ _        _   _     
+#   / __|___  __| |___/ __| |_ _  _| | (_)___ 
+#  | (__/ _ \/ _` / -_)__ \  _| || | |_| / _ \
+#   \___\___/\__,_\___|___/\__|\_, |_(_)_\___/
+#                              |__/                                                         
+#
+#
+# Originaly developed by students of Whitworth University -> http://www.whitworth.edu/cms/
+# 
+# Incepted and maintained by Will Czifro -> will@czifrotech.com
+#
+#
+# This software is distributed on an "AS IS" basis, WITHOUT WARRANTY OF ANY
+# KIND, either express or implied.
+#
+#*********************************************************************************
 '''
 Author: Jeremy Vonderfecht
 
